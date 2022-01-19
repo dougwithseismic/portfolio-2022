@@ -37,6 +37,27 @@ const HomePage = () => {
               build, automate and invent modern digital experiences. TODO: VENN
               DIAGRAM
             </p>
+
+            <div className="serviceList my-32 flex flex-col border-t-2 border-t-[#1b1b1b]">
+              {SERVICES.map((service, index) => {
+                const twoDigits = (n) => {
+                  return (n < 10 ? '0' : '') + n
+                }
+
+                return (
+                  <div
+                    className="serviceItem flex gap-8 font-sans text-4xl py-8 border-b-2 border-b-[#1b1b1b]"
+                    key={index}
+                  >
+                    <div className="count text-brightOrange text-2xl">
+                      {twoDigits(index + 1)}
+                    </div>
+
+                    {service.name}
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -50,15 +71,15 @@ const HomePage = () => {
 
           <ul
             id="clients__list"
-            className="col-start-2 row-start-2 md:row-start-1 md:col-start-6 col-end-13 flex flex-col gap-8"
+            className="col-start-1 row-start-2 md:row-start-1 md:col-start-6 col-end-13 flex flex-col"
           >
             {CLIENT_LIST.map((client, index) => (
               <li
                 key={index}
-                className="clients__item flex flex-col md:flex-row md:justify-between uppercase leading-tight"
+                className="clients__item flex flex-col  md:flex-row md:justify-between uppercase leading-tight py-8 border-b-2 border-b-[#1b1b1b]"
               >
                 <div className="name font-sans text-4xl">{client.name}</div>
-                <div className="resource md:text-right text-faintGrey">
+                <div className="resource md:text-right flex items-center text-faintGrey">
                   {client.resource}
                 </div>
               </li>
@@ -222,7 +243,7 @@ const HomePage = () => {
 
       <section id="development" className="my-96 p-8">
         <div className="container grid-12">
-          <h2 className="md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16">
+          <h2 className="text-6xl md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16">
             WEB DEVELOPMENT
           </h2>
           <div className="col-start-3 col-span-10 row-start-2 text-2xl mb-8">
@@ -316,10 +337,11 @@ const HomePage = () => {
 
       <section id="development" className="my-96 p-8">
         <div className="container grid grid-cols-8 md:grid-cols-12">
-          <h2 className="text-6xl md:text-jumbo col-start-2 col-span-2 m-0 mb-16">FAQ</h2>
+          <h2 className="text-6xl md:text-jumbo col-start-2 col-span-2 m-0 mb-16">
+            FAQ
+          </h2>
           {FAQ.map((item, index) => {
             const colStart = index === 0 ? 5 : 6
-            console.log('colStart', colStart)
 
             return (
               <div
@@ -340,6 +362,15 @@ const HomePage = () => {
 }
 
 export default HomePage
+
+const SERVICES = [
+  { name: 'Clients', resource: '#userAcq' },
+  { name: 'User Acquisition', resource: '#userAcq' },
+  { name: 'Product Design', resource: '#userAcq' },
+  { name: 'Web Development', resource: '#userAcq' },
+  { name: 'FAQ', resource: '#userAcq' },
+  { name: 'Get in touch', resource: '#userAcq' },
+]
 
 const CLIENT_LIST = [
   { name: 'Vouchernaut', resource: 'DESIGN, DEVELOPMENT, USER ACQUISITION' },
