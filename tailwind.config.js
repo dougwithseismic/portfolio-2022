@@ -29,7 +29,7 @@ module.exports = {
       lightGrey: '#ADADAD',
       brightOrange: '#FF6200',
       cardGrey: '#121212',
-      white: 'white',
+      white: '#F9F9FD',
     },
     extend: {
       container: {

@@ -34,9 +34,12 @@ const HomePage = () => {
             </p>
             <p>
               I sit between marketing, product and tech to sketch out, break,
-              build, automate and invent modern digital experiences. TODO: VENN
-              DIAGRAM
+              build, automate, compose, destroy and invent modern digital
+              experiences through design, audio, video, code and growth. TODO:
+              VENN DIAGRAM
             </p>
+
+            <p>A modern-day digital renaissance man.</p>
 
             <div className="serviceList my-32 flex flex-col border-t-2 border-t-[#1b1b1b]">
               {SERVICES.map((service, index) => {
@@ -102,7 +105,52 @@ const HomePage = () => {
               marketing and bespoke market-leading search ad technology.
             </p>
           </div>
-          <div className="serviceList row-start-3 col-start-4 md:col-start-7 col-span-8 ">
+                    {/* AWARDS SECTION USER ACQUISITION */}
+          <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col md:flex-row gap-12 mb-32">
+            <div className="award flex items-top gap-4 w-[360px]">
+              <div className="award__flag relative">
+                <Image
+                  alt="Performance Marketing Award"
+                  src="/PMAPMA.png"
+                  width={108}
+                  height={100}
+                />
+              </div>
+              <div className="award__text flex flex-col gap-0 font-sans">
+                <div className="upper text-[#636363] text-base">
+                  PERFORMANCE MARKETING AWARDS
+                </div>
+                <div className="lower uppercase text-2xl font-sans leading-6 text-white">
+                  Most effective cross- channel campaign
+                </div>
+                <div className="upper text-brightOrange text-base mt-4">
+                  vouchercloud × NOW TV
+                </div>
+              </div>
+            </div>
+            <div className="award flex items-top gap-4 w-[360px]">
+              <div className="award__flag relative">
+                <Image
+                  alt="Performance Marketing Award"
+                  src="/PMAPMA.png"
+                  width={108}
+                  height={100}
+                />
+              </div>
+              <div className="award__text flex flex-col gap-0 font-sans">
+                <div className="upper text-[#636363] text-base">
+                  PERFORMANCE MARKETING AWARDS
+                </div>
+                <div className="lower uppercase text-2xl font-sans leading-6 text-white">
+                  Most Creative Performance Campaign
+                </div>
+                <div className="upper text-brightOrange text-base mt-4">
+                  vouchercloud × TOPMAN
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="serviceList row-start-4 col-start-4 md:col-start-7 col-span-8 mb-32">
             <div className="serviceList__subtitle text-faintGrey mb-4">
               How?
             </div>
@@ -122,6 +170,7 @@ const HomePage = () => {
               </li>
             </ul>
           </div>
+
         </div>
         <div className="container grid grid-cols-2 grid-rows-2">
           <div className="fakeout"></div>
