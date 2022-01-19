@@ -33,8 +33,9 @@ const HomePage = () => {
               deliver clever, scrappy work at scale.
             </p>
             <p>
-              I sit between marketing, product and tech to sketch out, break, build,
-              automate and invent modern digital experiences. TODO: VENN DIAGRAM
+              I sit between marketing, product and tech to sketch out, break,
+              build, automate and invent modern digital experiences. TODO: VENN
+              DIAGRAM
             </p>
           </div>
         </div>
@@ -291,7 +292,7 @@ const HomePage = () => {
         </div>
       </section> */}
       {/* WQorkng togetther */}
-      <section id="intro" className="my-32 p-8">
+      <section id="development" className="my-96 p-8">
         <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
           <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
           <div className="placeholder row-start-2 col-span-full h-32 relative md:col-span-3 mb-8 md:mb-0">
@@ -313,19 +314,21 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="generic" className="mb-80">
-        <div className="container grid-12">
-          <h2 className="md:text-jumbo col-start-2 col-span-2 m-0">FAQ</h2>
+      <section id="development" className="my-96 p-8">
+        <div className="container grid grid-cols-8 md:grid-cols-12">
+          <h2 className="text-6xl md:text-jumbo col-start-2 col-span-2 m-0 mb-16">FAQ</h2>
           {FAQ.map((item, index) => {
-            const colStart = index === 0 ? 5 : 7
+            const colStart = index === 0 ? 5 : 6
+            console.log('colStart', colStart)
+
             return (
               <div
                 key={index}
-                className={`faqItem mb-16 col-start-${colStart} col-end-13 row-start-${
-                  index + 1
+                className={`faqItem mb-16 col-start-1 md:col-start-${colStart} col-end-13 row-start-${
+                  index + 2
                 }`}
               >
-                <h3 className={`question`}>{item.q}</h3>
+                <h3 className={`question leading-snug`}>{item.q}</h3>
                 <div className="answer text-faintGrey leading-8">{item.a}</div>
               </div>
             )
