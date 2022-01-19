@@ -4,15 +4,15 @@ import googleTagManager from '@analytics/google-tag-manager'
 
 
 const analytics = Analytics({
-    app: 'photologo-marketing',
-    plugins: [
-        googleTagManager({
-            containerId: 'GTM-P7PR7M8'
-        }),
-        segmentPlugin({
-            writeKey: process.env.NEXT_PUBLIC_SEGMENT_KEY
-        })
-    ]
+    app: 'dougsilkstone-com',
+    // plugins: [
+    //     googleTagManager({
+    //         containerId: 'GTM-P7PR7M8'
+    //     }),
+    //     segmentPlugin({
+    //         writeKey: process.env.NEXT_PUBLIC_SEGMENT_KEY
+    //     })
+    // ]
 })
 
 export default analytics
