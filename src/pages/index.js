@@ -1,15 +1,27 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useRef, useEffect, useState } from 'react'
+import { motion, useViewportScroll } from 'framer-motion'
+
 import Image from 'next/image'
+// TODO: Ableton. Figma. Framer. VS Code. React. Nextjs. Vercel. JavaScript. Netlify. Github. Davinci. After Effects. Illustrator. Sheets. Node. Express. Postgres. Supabase.
+
 const HomePage = () => {
+  const lerper = (start, end, t) => {
+    return start * (1 - t) + end * t
+  }
+
   return (
     <>
       {/* Hero */}
       <section id="hero" className="h-screen flex flex-col container">
         <div className="flex flex-col justify-center items-center h-full">
-          <h1 className="hero__title text-hero justify-center items-center">
+          <motion.h1
+            className="hero__title text-jumbo justify-center items-center"
+            initial={{ color: '#FFFFFF' }}
+            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+          >
             Hi.
-          </h1>
+          </motion.h1>
         </div>
         <div className="hero__lowerCta self-end">→ find out more</div>
       </section>
@@ -33,13 +45,12 @@ const HomePage = () => {
               deliver clever, scrappy work at scale.
             </p>
             <p>
-              I sit between marketing, product and tech to sketch out, break,
-              build, automate, compose, destroy and invent modern digital
-              experiences through design, audio, video, code and growth. TODO:
-              VENN DIAGRAM
+              I sit between marketing, product and tech to sketch out, build,
+              compose, automate, destroy and reinvent modern digital experiences
+              through design, audio, video, code and growth.
             </p>
 
-            <p>A modern-day digital renaissance man.</p>
+            <p>A modern-day digital renaissance man for hire.</p>
 
             <div className="serviceList my-32 flex flex-col border-t-2 border-t-[#1b1b1b]">
               {SERVICES.map((service, index) => {
@@ -94,9 +105,13 @@ const HomePage = () => {
       {/* Services - User Acquisition */}
       <section id="userAcq" className="my-96 p-8">
         <div className="container grid-12 mb-64">
-          <h2 className="text-6xl md:text-jumbo col-start-2 m-0 mb-16">
+          <motion.h2
+            className="text-6xl md:text-jumbo col-start-2 m-0 mb-16"
+            initial={{ color: '#FFFFFF' }}
+            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+          >
             USER ACQUISITION
-          </h2>
+          </motion.h2>
           <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
               I generated over{' '}
@@ -105,7 +120,7 @@ const HomePage = () => {
               marketing and bespoke market-leading search ad technology.
             </p>
           </div>
-                    {/* AWARDS SECTION USER ACQUISITION */}
+          {/* AWARDS SECTION USER ACQUISITION */}
           <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col md:flex-row gap-12 mb-32">
             <div className="award flex items-top gap-4 w-[360px]">
               <div className="award__flag relative">
@@ -170,7 +185,6 @@ const HomePage = () => {
               </li>
             </ul>
           </div>
-
         </div>
         <div className="container grid grid-cols-2 grid-rows-2">
           <div className="fakeout"></div>
@@ -219,9 +233,13 @@ const HomePage = () => {
       {/* Services - Design */}
       <section id="design" className="my-96 p-8">
         <div className="container grid-12">
-          <h2 className="text-6xl md:text-jumbo col-start-1 md:col-start-3 col-span-full m-0 mb-16">
+          <motion.h2
+            className="text-6xl md:text-jumbo col-start-1 md:col-start-3 col-span-full m-0 mb-16"
+            initial={{ color: '#FFFFFF' }}
+            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+          >
             DESIGN
-          </h2>
+          </motion.h2>
           <div className="col-start-2 col-span-full row-start-2 text-2xl mb-8">
             OPKIX is a revolutionary new way to capture and share your life with
             the world. It’s lightweight, tiny wearable camera can be worn on
@@ -292,9 +310,13 @@ const HomePage = () => {
 
       <section id="development" className="my-96 p-8">
         <div className="container grid-12">
-          <h2 className="text-6xl md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16">
+          <motion.h2
+            className="text-6xl md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16"
+            initial={{ color: '#FFFFFF' }}
+            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+          >
             WEB DEVELOPMENT
-          </h2>
+          </motion.h2>
           <div className="col-start-3 col-span-10 row-start-2 text-2xl mb-8">
             OPKIX is a revolutionary new way to capture and share your life with
             the world. It’s lightweight, tiny wearable camera can be worn on
@@ -386,9 +408,13 @@ const HomePage = () => {
 
       <section id="development" className="my-96 p-8">
         <div className="container grid grid-cols-8 md:grid-cols-12">
-          <h2 className="text-6xl md:text-jumbo col-start-2 col-span-2 m-0 mb-16">
+          <motion.h2
+            className="text-6xl md:text-jumbo col-start-2 col-span-2 m-0 mb-16"
+            initial={{ color: '#FFFFFF' }}
+            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+          >
             FAQ
-          </h2>
+          </motion.h2>
           {FAQ.map((item, index) => {
             const colStart = index === 0 ? 5 : 6
 
