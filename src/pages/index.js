@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 const HomePage = () => {
