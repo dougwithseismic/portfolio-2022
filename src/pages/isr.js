@@ -5,7 +5,6 @@ const ISR = ({ plasmicData }) => {
     return (
         <div>
             This is ISR. Every five seconds, this will update via ISR. Just refresh! {plasmicData.utc_datetime}
-            <ProductCard />
         </div>
     )
 }
