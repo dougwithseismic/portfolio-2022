@@ -15,10 +15,10 @@ const HomePage = () => {
       </section>
 
       {/* Intro */}
-      <section id="intro" className="py-32">
-        <div className="container grid-12">
+      <section id="intro" className="my-96 p-8">
+        <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
           <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
-          <div className="placeholder row-start-2 col-span-3 h-32 relative">
+          <div className="placeholder row-start-2 col-span-full h-32 relative md:col-span-3 mb-8 md:mb-0">
             <Image
               src={'/placeholder.png'}
               alt={'placeholder'}
@@ -26,41 +26,38 @@ const HomePage = () => {
               objectFit="cover"
             ></Image>
           </div>
-          <div className="intro__text row-start-2 col-start-6 col-span-7 text-2xl relative">
+          <div className="intro__text row-start-3 col-span-full md:row-start-2 md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
             <p>
-              Hi. I’m Doug, and I’ve been orchestrating award-winning user
-              acquisition campaigns since 2014. I strive to do top-quality work,
-              so I can provide outstanding services for my clients while
-              building lasting relationships with each other that are worth
-              celebrating.
+              Since 2014 I've been orchestrating award-winning user acquisition
+              campaigns for ambitious B2C brands looking to design, develop and
+              deliver clever, scrappy work at scale.
             </p>
             <p>
-              With 190+ experts on board, there's no challenge too big or small
-              - just an endless sea of creativity waiting in anticipation at
-              every turn.
+              I sit between marketing, product and tech to sketch out, break, build,
+              automate and invent modern digital experiences. TODO: VENN DIAGRAM
             </p>
           </div>
         </div>
       </section>
 
       {/* Selected Clients */}
-      <section id="clients" className="py-32">
-        <div className="container grid-12">
-          <h2 className="text-6xl font-medium col-start-2 mb-16">
+      <section id="selectedClients" className="my-96 p-8">
+        <div className="container grid grid-cols-8 md:grid-cols-12">
+          <h2 className="text-6xl font-medium col-start-1 md:col-start-2 mb-16">
             Selected Clients
           </h2>
 
           <ul
             id="clients__list"
-            className="col-start-6 col-end-13 flex flex-col gap-8"
+            className="col-start-2 row-start-2 md:row-start-1 md:col-start-6 col-end-13 flex flex-col gap-8"
           >
             {CLIENT_LIST.map((client, index) => (
               <li
                 key={index}
-                className="clients__item flex justify-between uppercase"
+                className="clients__item flex flex-col md:flex-row md:justify-between uppercase leading-tight"
               >
                 <div className="name font-sans text-4xl">{client.name}</div>
-                <div className="resource text-right text-faintGrey">
+                <div className="resource md:text-right text-faintGrey">
                   {client.resource}
                 </div>
               </li>
@@ -70,10 +67,12 @@ const HomePage = () => {
       </section>
 
       {/* Services - User Acquisition */}
-      <section id="userAcq" className="mb-80">
+      <section id="userAcq" className="my-96 p-8">
         <div className="container grid-12 mb-64">
-          <h2 className="text-jumbo col-start-2 m-0 mb-16">USER ACQUISITION</h2>
-          <div className="userAcq__desc text-2xl col-start-5 col-end-13 row-start-2 mb-32">
+          <h2 className="text-6xl md:text-jumbo col-start-2 m-0 mb-16">
+            USER ACQUISITION
+          </h2>
+          <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
               I generated over{' '}
               <strong className="text-brightOrange">£2.4mil</strong> in 2021 for
@@ -81,7 +80,7 @@ const HomePage = () => {
               marketing and bespoke market-leading search ad technology.
             </p>
           </div>
-          <div className="serviceList row-start-3 col-start-7 col-span-4 ">
+          <div className="serviceList row-start-3 col-start-4 md:col-start-7 col-span-8 ">
             <div className="serviceList__subtitle text-faintGrey mb-4">
               How?
             </div>
@@ -115,9 +114,7 @@ const HomePage = () => {
               />
             </div>
 
-            <div className="siht absolute -top-2 -right-36 rotate-90 origin-left justify-between">
-              <h3 className="label text-white text-bold m-0">DATA SCIENCE</h3>
-            </div>
+            <div className="siht absolute -top-2 -right-36 rotate-90 origin-left justify-between"></div>
           </div>
 
           {/* Image One */}
@@ -149,26 +146,28 @@ const HomePage = () => {
       </section>
 
       {/* Services - Design */}
-      <section id="design" className="mb-80">
+      <section id="design" className="my-96 p-8">
         <div className="container grid-12">
-          <h2 className="text-jumbo col-start-3 m-0 mb-16">DESIGN</h2>
-          <div className="col-start-2 col-span-8 row-start-2 text-2xl mb-8">
+          <h2 className="text-6xl md:text-jumbo col-start-1 md:col-start-3 col-span-full m-0 mb-16">
+            DESIGN
+          </h2>
+          <div className="col-start-2 col-span-full row-start-2 text-2xl mb-8">
             OPKIX is a revolutionary new way to capture and share your life with
             the world. It’s lightweight, tiny wearable camera can be worn on
             mounts like custom sunglasses or attached easily into any outfit so
             you will never miss an important moment again.
           </div>
-          <div className="text-lightGrey leading-[32px] col-start-2 col-span-6 mb-16">
+          <div className="text-lightGrey leading-[32px] row-start-3 col-start-2 col-span-6 mb-16">
             Here’s some body text that actually makes sense. Lorem ipsum is cool
             and all but if you’re not making sense of the content then how can
             you be sure you’re making the right decisions?
           </div>
 
-          <div className="text-white text-2xl col-start-10 col-span-3 row-start-4 mb-24">
+          <div className="text-white text-2xl col-start-6 col-span-7 md:col-start-10 row-start-4 mb-24">
             Here’s an off-the-grid attention piece that visitors will give their
             full attention to, trust me.
           </div>
-          <div className="serviceList row-start-5 col-start-4 col-span-4 mb-64">
+          <div className="serviceList row-start-5 col-start-4 col-span-7 mb-64">
             <div className="serviceList__subtitle text-faintGrey mb-4">
               How?
             </div>
@@ -220,21 +219,23 @@ const HomePage = () => {
 
       {/* Services - Development */}
 
-      <section id="development" className="mb-80">
+      <section id="development" className="my-96 p-8">
         <div className="container grid-12">
-          <h2 className="text-jumbo col-start-4 m-0 mb-16">WEB DEVELOPMENT</h2>
+          <h2 className="md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16">
+            WEB DEVELOPMENT
+          </h2>
           <div className="col-start-3 col-span-10 row-start-2 text-2xl mb-8">
             OPKIX is a revolutionary new way to capture and share your life with
             the world. It’s lightweight, tiny wearable camera can be worn on
             mounts like custom sunglasses or attached easily into any outfit so
             you will never miss an important moment again.
           </div>
-          <div className="text-lightGrey leading-[32px] col-start-3 col-span-4 mb-16">
+          <div className="text-lightGrey row-start-3 leading-[32px] col-start-5 md:col-start-3 col-span-8 md:col-end-8 mb-16">
             Here’s some body text that actually makes sense. Lorem ipsum is cool
             and all but if you’re not making sense of the content then how can
             you be sure you’re making the right decisions?
           </div>
-          <div className="serviceList row-start-4 col-start-8 col-span-6 mb-64">
+          <div className="serviceList row-start-4 col-start-2 md:col-start-6 col-span-full mb-64">
             <div className="serviceList__subtitle text-faintGrey mb-4">
               How?
             </div>
@@ -256,7 +257,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      {/* 
       <section id="showcase" className="mb-80">
         <div className="container grid-12">
           <div className="text col-start-1 col-end-4">
@@ -273,7 +274,8 @@ const HomePage = () => {
               how can you be sure you’re making the right decisions?
             </p>
           </div>
-          <div className="relative col-start-5 w-1560 h-1560">
+          <div className="relative col-start-5 w-full
+           md:w-1560 h-1560">
             <div className="showCaseHuge absolute w-full h-1560">
               <Image
                 alt="Showcase"
@@ -287,14 +289,12 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* WQorkng togetther */}
-      <section id="intro" className="py-32">
-        <div className="container grid-12">
-          <h2 className="text-6xl font-medium col-start-2 col-span-3 mb-16">
-            How can we work together?
-          </h2>
-          <div className="placeholder row-start-2 col-span-3 h-32 relative">
+      <section id="intro" className="my-32 p-8">
+        <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
+          <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
+          <div className="placeholder row-start-2 col-span-full h-32 relative md:col-span-3 mb-8 md:mb-0">
             <Image
               src={'/placeholder.png'}
               alt={'placeholder'}
@@ -302,18 +302,20 @@ const HomePage = () => {
               objectFit="cover"
             ></Image>
           </div>
-          <div className="intro__text row-start-2 col-start-6 col-span-7 text-2xl relative">
+          <div className="intro__text row-start-3 col-span-full md:row-start-2 md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
             <p>
-              Have a one-off project that needs executing? I work with brands
-              and agencies on short/mid length
+              Since 2014 I've been orchestrating award-winning user acquisition
+              campaigns for ambitious B2C brands looking to design, develop and
+              deliver clever, scrappy work at scale.
             </p>
+            <p>I'm a full-stack digital native.</p>
           </div>
         </div>
       </section>
 
       <section id="generic" className="mb-80">
         <div className="container grid-12">
-          <h2 className="text-jumbo col-start-2 col-span-2 m-0">FAQ</h2>
+          <h2 className="md:text-jumbo col-start-2 col-span-2 m-0">FAQ</h2>
           {FAQ.map((item, index) => {
             const colStart = index === 0 ? 5 : 7
             return (
@@ -367,7 +369,7 @@ const FAQ = [
   },
   {
     q: `Can you work with [ insert tech here ]?`,
-    a: `For the most part, Yes, but no guarantees. I believe in using the right tools for the job, and taking requests would jeopardize that.  99% of developed projects are built with JavaScript, React and Nextjs, hosted on Vercel and use Node.js / Express for backend. If you’re looking for something on Django or Python then you’re shit out of luck.`,
+    a: `For the most part, Yes, but no guarantees. I believe in using the right tools for the job, and thos are the ones that make me feel invincible.  99% of my developed projects are built with JavaScript, React and Nextjs, hosted on Vercel and use Node.js / Express for backend. If you’re looking for something on Django or Python then you’re shit out of luck.`,
   },
   {
     q: `How do you communicate and work?`,

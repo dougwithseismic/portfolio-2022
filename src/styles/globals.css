@@ -22,9 +22,51 @@ body,
 
 h1, h2, h3, h4, h5, h6 {
     font-family: rift, sans-serif;
+    font-weight: bold;
     color: white;
 }
 
+
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+    margin-top: 0px;
+    margin-bottom: 21px;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+/* Small screens - MOBILE */
+@media only screen {
+
+    .grid-12 {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    
 h1,
 .h1 {
     font-size: 68px;
@@ -66,44 +108,6 @@ h5,
     margin-top: 21px;
     margin-bottom: 0px;
 }
-
-p,
-ul,
-ol,
-pre,
-table,
-blockquote {
-    margin-top: 0px;
-    margin-bottom: 21px;
-}
-
-ul ul,
-ol ol,
-ul ol,
-ol ul {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-
-
-/* Small screens - MOBILE */
-@media only screen {
-
-    .grid-12 {
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 1rem;
-    }
 }
 
 /* Define mobile styles - Mobile First */
@@ -115,6 +119,49 @@ a {
 
 /* Large screens - DESKTOP */
 @media only screen and (min-width: 64.063em) {
+
+    
+h1,
+.h1 {
+    font-size: 68px;
+    font-weight: 700;
+    line-height: 78px;
+    margin-top: 21px;
+    margin-bottom: 42px;
+}
+
+h2,
+.h2 {
+    font-size: 42px;
+    line-height: 52px;
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+h3,
+.h3 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+h4,
+.h4 {
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 21px;
+    margin-bottom: 0px;
+}
+
+h5,
+.h5 {
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 21px;
+    margin-bottom: 0px;
+}
 
     .grid-12 {
         display: grid;
