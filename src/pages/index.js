@@ -107,7 +107,10 @@ const HomePage = () => {
 
             <p>A modern-day digital renaissance man for hire.</p>
 
-            <div className="serviceList my-32 flex flex-col border-t-2 border-t-[#1b1b1b]">
+            <div
+              id="tableContents"
+              className="serviceList my-32 flex flex-col border-t-2 border-t-[#1b1b1b]"
+            >
               {SERVICES.map((service, index) => {
                 const twoDigits = (n) => {
                   return (n < 10 ? '0' : '') + n
@@ -115,8 +118,14 @@ const HomePage = () => {
 
                 return (
                   <div
-                    className="serviceItem flex gap-8 font-sans text-4xl py-8 border-b-2 border-b-[#1b1b1b]"
+                    className="serviceItem flex gap-8 font-sans text-4xl py-8 border-b-2 border-b-[#1b1b1b] cursor-pointer"
                     key={index}
+                    onClick={() =>
+                      document.querySelector(service.link).scrollIntoView({
+                        behavior: 'smooth',
+                        inline: 'nearest',
+                      })
+                    }
                   >
                     <div className="count text-brightOrange text-2xl">
                       {twoDigits(index + 1)}
@@ -162,8 +171,8 @@ const HomePage = () => {
             </p>
           </div>
           {/* AWARDS SECTION USER ACQUISITION */}
-          <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col md:flex-row gap-12 mb-32">
-            <div className="award flex items-top gap-4 w-[360px]">
+          <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col sm:flex-row gap-12 mb-32">
+            <div className="award flex items-top gap-4 max-w-[330px]">
               <div className="award__flag relative">
                 <Image
                   alt="Performance Marketing Award"
@@ -226,10 +235,10 @@ const HomePage = () => {
               </li>
             </ul>
           </div>
+          <BackToTop />
         </div>
-        <div className="container grid grid-cols-2 grid-rows-2">
+        {/* <div className="container grid grid-cols-2 grid-rows-2">
           <div className="fakeout"></div>
-          {/* Image One */}
           <div className="relative">
             <div className="image h-96 flex relative">
               <Image
@@ -243,7 +252,6 @@ const HomePage = () => {
             <div className="siht absolute -top-2 -right-36 rotate-90 origin-left justify-between"></div>
           </div>
 
-          {/* Image One */}
           <div className="image h-96 relative">
             <Image
               src={'/placeholder_2.png'}
@@ -256,7 +264,6 @@ const HomePage = () => {
               DATA SCIENCE
             </h3>
           </div>
-          {/* Image One */}
           <div className="image h-96 relative">
             <Image
               src={'/placeholder_3.png'}
@@ -268,7 +275,7 @@ const HomePage = () => {
               DATA SCIENCE
             </h3>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Services - Design */}
@@ -317,6 +324,8 @@ const HomePage = () => {
               </li>
             </ul>
           </div>
+          <BackToTop />
+
         </div>
         <div className="container">
           <div className="grid grid-cols-2 text-lightGrey">
@@ -389,6 +398,8 @@ const HomePage = () => {
               </li>
             </ul>
           </div>
+          <BackToTop />
+
         </div>
       </section>
       {/* 
@@ -485,12 +496,12 @@ const HomePage = () => {
 export default HomePage
 
 const SERVICES = [
-  { name: 'Clients', resource: '#userAcq' },
-  { name: 'User Acquisition', resource: '#userAcq' },
-  { name: 'Product Design', resource: '#userAcq' },
-  { name: 'Web Development', resource: '#userAcq' },
-  { name: 'FAQ', resource: '#userAcq' },
-  { name: 'Get in touch', resource: '#userAcq' },
+  { name: 'Clients', link: '#userAcq' },
+  { name: 'User Acquisition', link: '#userAcq' },
+  { name: 'Product Design', link: '#design' },
+  { name: 'Web Development', link: '#development' },
+  { name: 'FAQ', link: '#userAcq' },
+  { name: 'Get in touch', link: '#userAcq' },
 ]
 
 const FAQ = [
@@ -513,3 +524,24 @@ const FAQ = [
     If you’d like to arrange on-site work and aren’t in Prague or London then ocassionally clients will arrange an all expenses paid trip.`,
   },
 ]
+
+const BackToTop = () => (
+  <motion.div
+    className="backToContents row-start-5 col-start-7 md:col-start-11 col-end-13 py-4"
+    whileHover={{
+      color: '#FF6200',
+      scale: 1.01,
+      cursor: 'pointer',
+      y: -20,
+    }}
+    onClick={() =>
+      document.querySelector('#tableContents').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      })
+    }
+  >
+    Back To Content List ⬆
+  </motion.div>
+)

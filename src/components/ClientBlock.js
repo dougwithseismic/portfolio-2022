@@ -39,7 +39,7 @@ const ClientItem = ({ client, i }) => {
       animate={
         rollOver
           ? { opacity: 1, transition: { duration: 0.2 } }
-          : { opacity: 0.1, transition: { duration: 0.6 } }
+          : { opacity: 0.1, transition: { duration: 1 } }
       }
       ref={clientItemRef}
       onClick={() => {
