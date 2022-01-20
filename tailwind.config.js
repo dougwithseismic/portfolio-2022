@@ -30,6 +30,7 @@ module.exports = {
       brightOrange: '#FF6200',
       cardGrey: '#121212',
       white: '#F9F9FD',
+      backgroundBlack: '#080808'
     },
     extend: {
       container: {

@@ -2,22 +2,24 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useWindowSize } from '@hooks/useWindowSize'
+import { ClientBlock } from '@components/ClientBlock'
 import Image from 'next/image'
+import { ScrollDebugger } from '@components/ScrollDebugger'
+
 // TODO: Ableton. Figma. Framer. VS Code. React. Nextjs. Vercel. JavaScript. Netlify. Github. Davinci. After Effects. Illustrator. Sheets. Node. Express. Postgres. Supabase.
 
 const HomePage = () => {
-  const lerper = (start, end, t) => {
-    return start * (1 - t) + end * t
-  }
-
   const { documentWidth } = useWindowSize()
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrollProgress, setScrollProgress] = useState(0.001)
 
   useEffect(() => {
-    const handleScroll = (event) => {
+    const clamp = (value, min, max) => Math.max(Math.min(value, max), min) // We don't want to be
+
+    const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight
       const ratio = window.scrollY / (totalHeight - window.innerHeight) // Because of the way the scrollY position is calculated, the ratio never reaches 0 or one unless we subtract the window height from the total height.
-      setScrollProgress(ratio)
+      const clamped = clamp(ratio, 0.001, 1) // We don't want to return a zero value because we'll end up passing NaN into the width and that won't be class.
+      setScrollProgress(clamped)
     }
 
     window.addEventListener('scroll', (e) => handleScroll(e))
@@ -29,11 +31,12 @@ const HomePage = () => {
 
   return (
     <>
+      <ScrollDebugger />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: scrollProgress }}
         style={{
-          width: (documentWidth) * scrollProgress,
+          width: documentWidth ? documentWidth * scrollProgress : 0,
           height: 6,
           borderRadius: 2,
           position: 'fixed',
@@ -109,30 +112,7 @@ const HomePage = () => {
       </section>
 
       {/* Selected Clients */}
-      <section id="selectedClients" className="my-96 p-8">
-        <div className="container grid grid-cols-8 md:grid-cols-12">
-          <h2 className="text-6xl font-medium col-start-1 md:col-start-2 mb-16">
-            Selected Clients
-          </h2>
-
-          <ul
-            id="clients__list"
-            className="col-start-1 row-start-2 md:row-start-1 md:col-start-6 col-end-13 flex flex-col"
-          >
-            {CLIENT_LIST.map((client, index) => (
-              <li
-                key={index}
-                className="clients__item flex flex-col  md:flex-row md:justify-between uppercase leading-tight py-8 border-b-2 border-b-[#1b1b1b]"
-              >
-                <div className="name font-sans text-4xl">{client.name}</div>
-                <div className="resource md:text-right flex items-center text-faintGrey">
-                  {client.resource}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {<ClientBlock />}
 
       {/* Services - User Acquisition */}
       <section id="userAcq" className="my-96 p-8">
@@ -457,7 +437,12 @@ const HomePage = () => {
                   index + 2
                 }`}
               >
-                <h3 className={`question leading-snug`}>{item.q}</h3>
+                <motion.h3
+                  whileHover={{ color: '#FF6200', cursor: 'pointer' }}
+                  className={`question leading-snug`}
+                >
+                  {item.q}
+                </motion.h3>
                 <div className="answer text-faintGrey leading-8">{item.a}</div>
               </div>
             )
@@ -477,30 +462,6 @@ const SERVICES = [
   { name: 'Web Development', resource: '#userAcq' },
   { name: 'FAQ', resource: '#userAcq' },
   { name: 'Get in touch', resource: '#userAcq' },
-]
-
-const CLIENT_LIST = [
-  { name: 'Vouchernaut', resource: 'DESIGN, DEVELOPMENT, USER ACQUISITION' },
-  { name: 'Photologo', resource: 'USER ACQUISITION,  DIGITAL GROWTH.' },
-  { name: 'Rightcharge', resource: 'USER ACQUISITION, R&D' },
-  { name: 'Punchlab', resource: 'USER ACQUISITION' },
-  { name: 'Motley Fool', resource: 'R&D MARTECH, ANALYTICS' },
-  {
-    name: 'Soundsauce Mastering',
-    resource: 'USER ACQUISITION',
-  },
-  {
-    name: 'The Donkey Sanctuary',
-    resource: 'ANALYTICS',
-  },
-  { name: 'The Collective', resource: 'ANALYTICS, USER ACQUISITION' },
-  { name: 'Reach Robotics', resource: 'ECOMMERCE, GO-TO-MARKET STRATEGY, CRO' },
-  {
-    name: 'The Beeswax Wrap Co',
-    resource: 'ECOMMERCE, CRO, DEVELOPMENT',
-  },
-  { name: 'Elephantbox', resource: 'ECOMMERCE, CRO' },
-  { name: 'Vouchercloud', resource: 'USER ACQUISITION, R&D' },
 ]
 
 const FAQ = [
