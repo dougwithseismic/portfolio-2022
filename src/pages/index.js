@@ -80,9 +80,29 @@ const HomePage = () => {
               deliver clever, scrappy work at scale.
             </p>
             <p>
-              I sit between marketing, product and tech to sketch out, build,
-              compose, automate, destroy and reinvent modern digital experiences
-              through design, audio, video, code and growth.
+              I sit between{' '}
+              <motion.span
+                initial={{ color: '#FFFFFF' }}
+                whileInView={{
+                  color: '#FF6200',
+                  transition: { duration: 0.7 },
+                }}
+              >
+                marketing, product
+              </motion.span>{' '}
+              and{' '}
+              <motion.span
+                initial={{ color: '#FFFFFF' }}
+                whileInView={{
+                  color: '#FF6200',
+                  transition: { duration: 0.7 },
+                }}
+              >
+                tech
+              </motion.span>{' '}
+              to sketch out, build, compose, automate, destroy and reinvent
+              modern digital experiences through design, audio, video, code and
+              growth.
             </p>
 
             <p>A modern-day digital renaissance man for hire.</p>
@@ -127,9 +147,18 @@ const HomePage = () => {
           <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
               I generated over{' '}
-              <strong className="text-brightOrange">£2.4mil</strong> in 2021 for
-              B2C startups and scale-ups using fully-attributed performance
-              marketing and bespoke market-leading search ad technology.
+              <motion.strong
+                initial={{ color: '#FFFFFF' }}
+                whileInView={{
+                  color: '#FF6200',
+                  transition: { duration: 0.7 },
+                }}
+              >
+                £2.4mil
+              </motion.strong>{' '}
+              in 2021 for B2C startups and scale-ups using fully-attributed
+              performance marketing and bespoke industry-first search ad
+              technology.
             </p>
           </div>
           {/* AWARDS SECTION USER ACQUISITION */}
