@@ -7,6 +7,8 @@ export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
+    documentWidth: undefined,
+    documentHeight: undefined,
   })
 
   useEffect(() => {
@@ -17,6 +19,8 @@ export const useWindowSize = () => {
         setWindowSize({
           width: window.innerWidth,
           height: window.innerHeight,
+          documentWidth: document.documentElement.clientWidth, // Doesnt include with of scrollbar in calculated
+          documentHeight: document.documentElement.clientWidth, // Doesnt include with of scrollbar in calculated
         })
       }
 

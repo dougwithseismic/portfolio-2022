@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useRef, useEffect, useState } from 'react'
-import { motion, useViewportScroll } from 'framer-motion'
-
+import { motion } from 'framer-motion'
+import { useWindowSize } from '@hooks/useWindowSize'
 import Image from 'next/image'
 // TODO: Ableton. Figma. Framer. VS Code. React. Nextjs. Vercel. JavaScript. Netlify. Github. Davinci. After Effects. Illustrator. Sheets. Node. Express. Postgres. Supabase.
 
@@ -10,8 +10,40 @@ const HomePage = () => {
     return start * (1 - t) + end * t
   }
 
+  const { documentWidth } = useWindowSize()
+  const [scrollProgress, setScrollProgress] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      const totalHeight = document.documentElement.scrollHeight
+      const ratio = window.scrollY / (totalHeight - window.innerHeight) // Because of the way the scrollY position is calculated, the ratio never reaches 0 or one unless we subtract the window height from the total height.
+      setScrollProgress(ratio)
+    }
+
+    window.addEventListener('scroll', (e) => handleScroll(e))
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
     <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: scrollProgress }}
+        style={{
+          width: (documentWidth) * scrollProgress,
+          height: 6,
+          borderRadius: 2,
+          position: 'fixed',
+          bottom: 0,
+          zIndex: 1,
+          backgroundColor: '#FF6200',
+          margin: '0',
+        }}
+      />
+
       {/* Hero */}
       <section id="hero" className="h-screen flex flex-col container">
         <div className="flex flex-col justify-center items-center h-full">

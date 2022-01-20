@@ -17,7 +17,7 @@ body,
     line-height: 26px;
     color: #F9F9FD;
     background-color: #080808;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 h1, h2, h3, h4, h5, h6 {
