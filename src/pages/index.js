@@ -156,7 +156,7 @@ const HomePage = () => {
           <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
               I generated over{' '}
-              <motion.strong
+              <motion.span
                 initial={{ color: '#FFFFFF' }}
                 whileInView={{
                   color: '#FF6200',
@@ -164,10 +164,26 @@ const HomePage = () => {
                 }}
               >
                 £2.4mil
-              </motion.strong>{' '}
-              in 2021 for B2C startups and scale-ups using fully-attributed
-              performance marketing and bespoke industry-first search ad
-              technology.
+              </motion.span>
+              {' and '}
+              <motion.span
+                initial={{ color: '#FFFFFF' }}
+                whileInView={{
+                  color: '#FF6200',
+                  transition: { duration: 0.7 },
+                }}
+              >
+                150,000 new customers{' '}
+              </motion.span>
+              in 2021 for B2C ecommerce, startups and scale-ups using a
+              cross-channel mix of Facebook, Instagram, Google, TikTok, Youtube,
+              Email & Affiliate - All in the face of iOS 14.
+            </p>
+            <p>
+              Whilst competitors are paying agencies for four hours of manual
+              junior work a month, As a client, you'll have access to my
+              personal arsenal of industry-first Search Ad technology to
+              automate your way to scale ― effortlessly.
             </p>
           </div>
           {/* AWARDS SECTION USER ACQUISITION */}
@@ -288,21 +304,29 @@ const HomePage = () => {
           >
             DESIGN
           </motion.h2>
-          <div className="col-start-2 col-span-full row-start-2 text-2xl mb-8">
-            OPKIX is a revolutionary new way to capture and share your life with
-            the world. It’s lightweight, tiny wearable camera can be worn on
-            mounts like custom sunglasses or attached easily into any outfit so
-            you will never miss an important moment again.
+          <div className="col-start-2 col-end-12 row-start-2 text-2xl mb-8">
+            <p>
+              Sitting between marketing, tech and product development,I'm a
+              creative technologist by heart and a problem solver by passion. I
+              use audio, video and UI design to produce modern digital
+              experiences that look the part, are technically performant and
+              trivial to use.
+            </p>
+            {/* <p>
+              I'll help you understand what your customers expect from you, how
+              they want you to deliver it, and how considerations from
+              marketing, sales and tech fit into your growth plan - All with the
+              aim to push the boundaries of what's possible to create a product
+              experience that your customers will love.
+            </p> */}
           </div>
-          <div className="text-lightGrey leading-[32px] row-start-3 col-start-2 col-span-6 mb-16">
-            Here’s some body text that actually makes sense. Lorem ipsum is cool
-            and all but if you’re not making sense of the content then how can
-            you be sure you’re making the right decisions?
-          </div>
+          {/* <div className="text-lightGrey leading-[32px] row-start-3 col-start-2 col-span-6 mb-16">
+            <p>Datk</p>
+          </div> */}
 
-          <div className="text-white text-2xl col-start-6 col-span-7 md:col-start-10 row-start-4 mb-24">
-            Here’s an off-the-grid attention piece that visitors will give their
-            full attention to, trust me.
+          <div className="text-white text-lg col-start-6 col-span-7 md:col-start-10 row-start-4 mb-24">
+            How many other consultants can say they build, grow and sell their
+            own digital startups?
           </div>
           <div className="serviceList row-start-5 col-start-4 col-span-7 mb-64">
             <div className="serviceList__subtitle text-faintGrey mb-4">
@@ -317,7 +341,7 @@ const HomePage = () => {
                 × Technical SEO & Martech Implementation
               </li>
               <li className="text-lightGrey">
-                × Data Studio, Tableau, Google Analytics
+                × Data Studio, Google Tag Manager, Segment, Google Analytics
               </li>
               <li className="text-lightGrey">
                 × Scripting & Process Automation
@@ -325,7 +349,6 @@ const HomePage = () => {
             </ul>
           </div>
           <BackToTop />
-
         </div>
         <div className="container">
           <div className="grid grid-cols-2 text-lightGrey">
@@ -368,15 +391,18 @@ const HomePage = () => {
             WEB DEVELOPMENT
           </motion.h2>
           <div className="col-start-3 col-span-10 row-start-2 text-2xl mb-8">
-            OPKIX is a revolutionary new way to capture and share your life with
-            the world. It’s lightweight, tiny wearable camera can be worn on
-            mounts like custom sunglasses or attached easily into any outfit so
-            you will never miss an important moment again.
+            Modern web apps and marketing sites are built on JAMstack. They're
+            designed to convert traffic, rank well in Google, load in under 0.6
+            seconds and leave a lasting impression. Thats why I trust React,
+            Nextjs and JavaScript as the tools to build products and sites that
+            leave the competition in the dust.
           </div>
           <div className="text-lightGrey row-start-3 leading-[32px] col-start-5 md:col-start-3 col-span-8 md:col-end-8 mb-16">
-            Here’s some body text that actually makes sense. Lorem ipsum is cool
-            and all but if you’re not making sense of the content then how can
-            you be sure you’re making the right decisions?
+            <p>
+              Hire me to sit between Tech, Marketing and Product to build a
+              modern, future-proof product that leaves no surprises. I'm your
+              technical co-founding partner.
+            </p>
           </div>
           <div className="serviceList row-start-4 col-start-2 md:col-start-6 col-span-full mb-64">
             <div className="serviceList__subtitle text-faintGrey mb-4">
@@ -384,61 +410,25 @@ const HomePage = () => {
             </div>
             <ul className="serviceList_list flex flex-col gap-4">
               <li className="text-lightGrey">
-                × Facebook, TikTok, Google, YouTube, Native
+                × React. Hooks. Context. Nextjs. Gatsby, Tailwind, Storybook
               </li>
-              <li className="text-lightGrey">× Klaviyo, Drip, Mailchimp</li>
+              <li className="text-lightGrey">× Vercel, Netlify, AWS</li>
+              <li className="text-lightGrey">× Node, Express, PostgreSQL</li>
               <li className="text-lightGrey">
-                × Technical SEO & Martech Implementation
-              </li>
-              <li className="text-lightGrey">
-                × Data Studio, Tableau, Google Analytics
-              </li>
-              <li className="text-lightGrey">
-                × Scripting & Process Automation
+                × Puppeteer. Cheerio. Jest. Enzyme.
               </li>
             </ul>
           </div>
           <BackToTop />
-
         </div>
       </section>
-      {/* 
-      <section id="showcase" className="mb-80">
-        <div className="container grid-12">
-          <div className="text col-start-1 col-end-4">
-            <p className="text-2xl mb-80">
-              OPKIX is a revolutionary new way to capture and share your life
-              with the world. It’s lightweight, tiny wearable camera can be worn
-              on mounts like custom sunglasses or attached easily into any
-              outfit so you will never miss an important moment again.
-            </p>
 
-            <p className="text-faintGrey">
-              Here’s some body text that actually makes sense. Lorem ipsum is
-              cool and all but if you’re not making sense of the content then
-              how can you be sure you’re making the right decisions?
-            </p>
-          </div>
-          <div className="relative col-start-5 w-full
-           md:w-1560 h-1560">
-            <div className="showCaseHuge absolute w-full h-1560">
-              <Image
-                alt="Showcase"
-                layout="fill"
-                //   width="1574px"
-                //   height={'1750px'}
-                objectFit="cover"
-                objectPosition="left top"
-                src="/techno_huge.png"
-              />
-            </div>
-          </div>
-        </div>
-      </section> */}
       {/* WQorkng togetther */}
       <section id="development" className="my-96 p-8">
         <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
-          <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
+          <h2 className="text-6xl font-medium col-start-2 mb-16">
+            Looking to work together?
+          </h2>
           <div className="placeholder row-start-2 col-span-full h-32 relative md:col-span-3 mb-8 md:mb-0">
             <Image
               src={'/placeholder.png'}
@@ -511,7 +501,7 @@ const FAQ = [
   },
   {
     q: `Can you work with [ insert tech here ]?`,
-    a: `For the most part, Yes, but no guarantees. I believe in using the right tools for the job, and thos are the ones that make me feel invincible.  99% of my developed projects are built with JavaScript, React and Nextjs, hosted on Vercel and use Node.js / Express for backend. If you’re looking for something on Django or Python then you’re shit out of luck.`,
+    a: `For the most part, Yes, but no guarantees. I believe in using the right tools for the job, and those are generally the ones I feel most invincible.  99% of my developed projects are built with JavaScript, React and Nextjs, hosted on Vercel and use Node.js / Express for backend. If you’re looking for something on Django or Python then you’re shit out of luck.`,
   },
   {
     q: `How do you communicate and work?`,
