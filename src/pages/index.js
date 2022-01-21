@@ -62,7 +62,7 @@ const HomePage = () => {
       <section id="hero" className="h-screen flex flex-col container">
         <div className="flex flex-col justify-center items-center h-full">
           <motion.h1
-            className="hero__title text-jumbo justify-center items-center text-center"
+            className="hero__title text-6xl md:text-jumbo justify-center items-center text-center"
             initial={{ color: '#FFFFFF' }}
           >
             NEEDS A CATCHY HEADER.
