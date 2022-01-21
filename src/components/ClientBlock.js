@@ -11,6 +11,8 @@ const ClientItem = ({ client, i }) => {
     // I'm grabbing our item, the top of the item, the bottom of the item, and if our window scroll sites in between, we're go for takeofff
     const handleScroll = () => {
       // Get our elements Y position
+      console.log(clientItemRef); 
+
       const clientItemY =
         clientItemRef.current.getBoundingClientRect().top +
         document.documentElement.scrollTop
@@ -32,7 +34,7 @@ const ClientItem = ({ client, i }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [clientItemRef])
 
   return (
     <motion.div

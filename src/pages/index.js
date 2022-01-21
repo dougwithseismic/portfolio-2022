@@ -1,16 +1,26 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { useWindowSize } from '@hooks/useWindowSize'
 import { ClientBlock } from '@components/ClientBlock'
 import Image from 'next/image'
 import { ScrollDebugger } from '@components/ScrollDebugger'
+import { Layout } from '@components/Layout'
+import SiteContext from '@context/siteContext'
 
 // TODO: Ableton. Figma. Framer. VS Code. React. Nextjs. Vercel. JavaScript. Netlify. Github. Davinci. After Effects. Illustrator. Sheets. Node. Express. Postgres. Supabase.
 
 const HomePage = () => {
   const { documentWidth } = useWindowSize()
   const [scrollProgress, setScrollProgress] = useState(0.001)
+
+  const { darkModeOptions } = useContext(SiteContext)
+  const {
+    darkMode,
+    setDarkMode,
+    toggleDarkMode,
+    darkVariants,
+  } = darkModeOptions
 
   useEffect(() => {
     const clamp = (value, min, max) => Math.max(Math.min(value, max), min) // We don't want to be
@@ -30,11 +40,12 @@ const HomePage = () => {
   }, [])
 
   return (
-    <>
+    <Layout title="Home">
       <ScrollDebugger />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: scrollProgress }}
+        viewport={{ once: true }}
         style={{
           width: documentWidth ? documentWidth * scrollProgress : 0,
           height: 6,
@@ -51,11 +62,10 @@ const HomePage = () => {
       <section id="hero" className="h-screen flex flex-col container">
         <div className="flex flex-col justify-center items-center h-full">
           <motion.h1
-            className="hero__title text-jumbo justify-center items-center"
+            className="hero__title text-jumbo justify-center items-center text-center"
             initial={{ color: '#FFFFFF' }}
-            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
           >
-            Hi.
+            NEEDS A CATCHY HEADER.
           </motion.h1>
         </div>
         <div className="hero__lowerCta self-end">→ find out more</div>
@@ -100,12 +110,10 @@ const HomePage = () => {
               >
                 tech
               </motion.span>{' '}
-              to sketch out, build, compose, automate, destroy and reinvent
-              modern digital experiences through design, audio, video, code and
+              to sketch out, build, automate, destroy and reinvent
+              modern digital experiences through design, code and
               growth.
             </p>
-
-            <p>A modern-day digital renaissance man for hire.</p>
 
             <div
               id="tableContents"
@@ -144,7 +152,11 @@ const HomePage = () => {
       {<ClientBlock />}
 
       {/* Services - User Acquisition */}
-      <section id="userAcq" className="my-96 p-8">
+      <motion.section
+        id="userAcq"
+        className="my-96 p-8"
+        whileInView={() => setDarkMode(true)}
+      >
         <div className="container grid-12 mb-64">
           <motion.h2
             className="text-6xl md:text-jumbo col-start-2 m-0 mb-16"
@@ -155,7 +167,7 @@ const HomePage = () => {
           </motion.h2>
           <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
-              I generated over{' '}
+              In 20221, I sorted out over{' '}
               <motion.span
                 initial={{ color: '#FFFFFF' }}
                 whileInView={{
@@ -175,16 +187,16 @@ const HomePage = () => {
               >
                 150,000 new customers{' '}
               </motion.span>
-              in 2021 for B2C ecommerce, startups and scale-ups using a
-              cross-channel mix of Facebook, Instagram, Google, TikTok, Youtube,
-              Email & Affiliate - All in the face of iOS 14.
+              for B2C ecommerce, startups and scale-ups by mix-and-matching
+              Facebook, Instagram, Google, TikTok, Youtube, Email & Affiliate -
+              All whilst dealing with iOS 14.
             </p>
-            <p>
+            {/* <p>
               Whilst competitors are paying agencies for four hours of manual
-              junior work a month, As a client, you'll have access to my
+              junior work a month, As a client, I'll sort you out access to my
               personal arsenal of industry-first Search Ad technology to
-              automate your way to scale ― effortlessly.
-            </p>
+              automate your way to scale ― not bad, eh.
+            </p> */}
           </div>
           {/* AWARDS SECTION USER ACQUISITION */}
           <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col sm:flex-row gap-12 mb-32">
@@ -292,25 +304,27 @@ const HomePage = () => {
             </h3>
           </div>
         </div> */}
-      </section>
+      </motion.section>
 
-      {/* Services - Design */}
-      <section id="design" className="my-96 p-8">
+      {/* Services - Design - TUUUUUUUUR NME ORANGE*/}
+      <motion.section
+        id="design"
+        className="my-96 p-8"
+        whileInView={() => setDarkMode(false)}
+      >
         <div className="container grid-12">
           <motion.h2
+            initial={{ color: '#FF6200' }}
+            whileInView={{ color: '#F9F9FD', transition: { duration: 0.7 } }}
             className="text-6xl md:text-jumbo col-start-1 md:col-start-3 col-span-full m-0 mb-16"
-            initial={{ color: '#FFFFFF' }}
-            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
           >
-            DESIGN
+            ANALYTICS & AUTOMATION
           </motion.h2>
           <div className="col-start-2 col-end-12 row-start-2 text-2xl mb-8">
             <p>
-              Sitting between marketing, tech and product development,I'm a
-              creative technologist by heart and a problem solver by passion. I
-              use audio, video and UI design to produce modern digital
-              experiences that look the part, are technically performant and
-              trivial to use.
+              Creative technologist. Problem solver. I use audio, video and UI
+              design to produce modern digital experiences that look, feel and
+              run class.
             </p>
             {/* <p>
               I'll help you understand what your customers expect from you, how
@@ -351,9 +365,9 @@ const HomePage = () => {
           <BackToTop />
         </div>
         <div className="container">
-          <div className="grid grid-cols-2 text-lightGrey">
+          <div className="grid grid-cols-1 md:grid-cols-2 text-lightGrey">
             <div className="text-2xl bg-cardGrey relative h-96">
-              <div className="absolute -top-32 flex">
+              <div className="absolute md:-top-32 flex">
                 <Image
                   src={'/punchlab_mock.png'}
                   alt={'placeholder'}
@@ -377,11 +391,15 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services - Development */}
 
-      <section id="development" className="my-96 p-8">
+      <motion.section
+        id="development"
+        className="my-96 p-8"
+        whileInView={() => setDarkMode(true)}
+      >
         <div className="container grid-12">
           <motion.h2
             className="text-6xl md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16"
@@ -393,9 +411,9 @@ const HomePage = () => {
           <div className="col-start-3 col-span-10 row-start-2 text-2xl mb-8">
             Modern web apps and marketing sites are built on JAMstack. They're
             designed to convert traffic, rank well in Google, load in under 0.6
-            seconds and leave a lasting impression. Thats why I trust React,
-            Nextjs and JavaScript as the tools to build products and sites that
-            leave the competition in the dust.
+            seconds and leave a lasting impression. I use React, Nextjs and
+            JavaScript as the tools to build conversion-focused sites that looks
+            pretty decent, too.
           </div>
           <div className="text-lightGrey row-start-3 leading-[32px] col-start-5 md:col-start-3 col-span-8 md:col-end-8 mb-16">
             <p>
@@ -421,7 +439,7 @@ const HomePage = () => {
           </div>
           <BackToTop />
         </div>
-      </section>
+      </motion.section>
 
       {/* WQorkng togetther */}
       <section id="development" className="my-96 p-8">
@@ -439,11 +457,8 @@ const HomePage = () => {
           </div>
           <div className="intro__text row-start-3 col-span-full md:row-start-2 md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
             <p>
-              Since 2014 I've been orchestrating award-winning user acquisition
-              campaigns for ambitious B2C brands looking to design, develop and
-              deliver clever, scrappy work at scale.
+              Something about stuff here..
             </p>
-            <p>I'm a full-stack digital native.</p>
           </div>
         </div>
       </section>
@@ -479,16 +494,16 @@ const HomePage = () => {
           })}
         </div>
       </section>
-    </>
+    </Layout>
   )
 }
 
 export default HomePage
 
 const SERVICES = [
-  { name: 'Clients', link: '#userAcq' },
+  { name: 'Clients', link: '#selectedClients' },
   { name: 'User Acquisition', link: '#userAcq' },
-  { name: 'Product Design', link: '#design' },
+  { name: 'Analytics & Automation', link: '#design' },
   { name: 'Web Development', link: '#development' },
   { name: 'FAQ', link: '#userAcq' },
   { name: 'Get in touch', link: '#userAcq' },
@@ -497,21 +512,21 @@ const SERVICES = [
 const FAQ = [
   {
     q: `How much does a typical project cost / Last?`,
-    a: `Project costs vary based on the scope and nature of work but here are some ballpark figures to help you understand the costs involved. Performance Marketing Management starts at £2750p/m with a minimum 3 month contract. Design and development of a typical marketing site starts around £8k with four week delivery, and a fully fledged mobile app starts at £15k with projects lengths anywhere from two to six months.`,
+    a: `Project costs vary based on the scope and nature of work but here are some ballpark figures to help you understand the costs involved. Performance Marketing Management starts at £2750p/m with a minimum 3 month contract. Design and development of a typical marketing site starts around £10k with four week delivery, and a fully fledged mobile app starts at £25k with projects lengths anywhere from two to six months.`,
   },
   {
     q: `Can you work with [ insert tech here ]?`,
-    a: `For the most part, Yes, but no guarantees. I believe in using the right tools for the job, and those are generally the ones I feel most invincible.  99% of my developed projects are built with JavaScript, React and Nextjs, hosted on Vercel and use Node.js / Express for backend. If you’re looking for something on Django or Python then you’re shit out of luck.`,
+    a: `For the most part, Yes, but no guarantees. I believe in using the right tools for the job, and those are generally the ones I feel most invincible using.  99% of my developed projects are built with JavaScript, React and Nextjs, hosted on Vercel and use Node.js / Express for backend. If you’re looking for something on Django or Python then you’re shit out of luck.`,
   },
   {
     q: `How do you communicate and work?`,
-    a: `Slack. Hangouts. Zoom. Teams. Email as a last resort. Never WhatsApp and no camera. I’m pretty easy going.`,
+    a: `Slack. Hangouts. Zoom. Teams. Email as a last resort. No WhatsApp.`,
   },
   {
     q: `+ do you work on site or are you fully remote?`,
     a: `By default, I’m fully remote. Based in Prague, in CZ at the heart of Europe. My typical work hours are 8am - 8pm, Monday to Saturday and most clients find that more than enough. 
 
-    If you’d like to arrange on-site work and aren’t in Prague or London then ocassionally clients will arrange an all expenses paid trip.`,
+    If you’d like to arrange on-site work and aren’t in Prague or London then that can be arranged!`,
   },
 ]
 

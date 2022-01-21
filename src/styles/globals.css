@@ -20,6 +20,10 @@ body,
     /* overflow-x: hidden; */
 }
 
+body.dark {
+    background-color: #F9F9FD;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: rift, sans-serif;
     font-weight: bold;
