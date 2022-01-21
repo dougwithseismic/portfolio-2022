@@ -161,7 +161,7 @@ const HomePage = () => {
           </motion.h2>
           <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
-              In 20221, I sorted out over{' '}
+              In 2021, I sorted out over{' '}
               <motion.span
                 initial={{ color: '#FFFFFF' }}
                 whileInView={{
@@ -191,6 +191,44 @@ const HomePage = () => {
               personal arsenal of industry-first Search Ad technology to
               automate your way to scale ― not bad, eh.
             </p> */}
+          </div>
+          <div className="logoGrid md:row-start-4 col-start-1 col-span-full md:col-span-4 grid grid-cols-2 md:gid-cols-3 gap-4">
+            <Image
+              alt="logo"
+              src="/logos/instagram.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/spotify.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/facebook.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/tiktok.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/youtube.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/google_ads.svg"
+              height={208}
+              width={208}
+            />
           </div>
           {/* AWARDS SECTION USER ACQUISITION */}
           <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col sm:flex-row gap-12 mb-32">
@@ -243,7 +281,7 @@ const HomePage = () => {
             </div>
             <ul className="serviceList_list flex flex-col gap-4">
               <li className="text-lightGrey">
-                × Facebook, TikTok, Google, YouTube, Native
+                × Facebook, Instagram, TikTok, Spotify, Youtube, Google Ads
               </li>
               <li className="text-lightGrey">× Klaviyo, Drip, Mailchimp</li>
               <li className="text-lightGrey">
@@ -332,28 +370,20 @@ const HomePage = () => {
             <p>Datk</p>
           </div> */}
 
-          <div className="text-white text-lg col-start-6 col-span-7 md:col-start-10 row-start-4 mb-24">
+          {/* <div className="text-white text-lg col-start-6 col-span-7 md:col-start-10 row-start-4 mb-24">
             How many other consultants can say they build, grow and sell their
             own digital startups?
-          </div>
+          </div> */}
           <div className="serviceList row-start-5 col-start-4 col-span-7 mb-64">
-            <div className="serviceList__subtitle text-faintGrey mb-4">
-              How?
-            </div>
+            <div className="serviceList__subtitle text-white mb-4">How?</div>
             <ul className="serviceList_list flex flex-col gap-4">
-              <li className="text-lightGrey">
-                × Facebook, TikTok, Google, YouTube, Native
-              </li>
-              <li className="text-lightGrey">× Klaviyo, Drip, Mailchimp</li>
-              <li className="text-lightGrey">
-                × Technical SEO & Martech Implementation
-              </li>
-              <li className="text-lightGrey">
+              <li>× Facebook, TikTok, Google, YouTube, Native</li>
+              <li className="">× Klaviyo, Drip, Mailchimp</li>
+              <li className="">× Technical SEO & Martech Implementation</li>
+              <li className="">
                 × Data Studio, Google Tag Manager, Segment, Google Analytics
               </li>
-              <li className="text-lightGrey">
-                × Scripting & Process Automation
-              </li>
+              <li className="">× Scripting & Process Automation</li>
             </ul>
           </div>
           <BackToTop />
@@ -430,6 +460,46 @@ const HomePage = () => {
                 × Puppeteer. Cheerio. Jest. Enzyme.
               </li>
             </ul>
+          </div>
+          <div className="logoGrid md:row-start-5 col-start-1 col-span-full md:col-start-2 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Image
+              alt="logo"
+              src="/logos/javascript.svg"
+              height={208}
+              width={208}
+            />
+            <Image alt="logo" src="/logos/react.svg" height={208} width={208} />
+            <Image alt="logo" src="/logos/figma.svg" height={208} width={208} />
+            <Image
+              alt="logo"
+              src="/logos/framer.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/vercel.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/graphql.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/vscode.svg"
+              height={208}
+              width={208}
+            />
+            <Image
+              alt="logo"
+              src="/logos/gatsby.svg"
+              height={208}
+              width={208}
+            />
           </div>
           <BackToTop />
         </div>
