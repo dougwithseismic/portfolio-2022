@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useCallback } from 'react'
 // Describe SiteContext.
 /* 
 Features:
@@ -12,6 +12,7 @@ const SiteContext = createContext(defaultState)
 const SiteProvider = (props) => {
   const { children } = props
   const [darkMode, setDarkMode] = useState(true)
+
 
   const darkVariants = {
     dark: {

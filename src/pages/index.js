@@ -15,12 +15,7 @@ const HomePage = () => {
   const [scrollProgress, setScrollProgress] = useState(0.001)
 
   const { darkModeOptions } = useContext(SiteContext)
-  const {
-    darkMode,
-    setDarkMode,
-    toggleDarkMode,
-    darkVariants,
-  } = darkModeOptions
+  const { setDarkMode } = darkModeOptions
 
   useEffect(() => {
     const clamp = (value, min, max) => Math.max(Math.min(value, max), min) // We don't want to be
@@ -110,9 +105,8 @@ const HomePage = () => {
               >
                 tech
               </motion.span>{' '}
-              to sketch out, build, automate, destroy and reinvent
-              modern digital experiences through design, code and
-              growth.
+              to sketch out, build, automate, destroy and reinvent modern
+              digital experiences through design, code and growth.
             </p>
 
             <div
@@ -456,9 +450,7 @@ const HomePage = () => {
             ></Image>
           </div>
           <div className="intro__text row-start-3 col-span-full md:row-start-2 md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
-            <p>
-              Something about stuff here..
-            </p>
+            <p>Something about stuff here..</p>
           </div>
         </div>
       </section>
