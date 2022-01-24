@@ -14,14 +14,12 @@ const Lines = () => {
   return (
     <div className="lines fixed inset-0 h-screen pointer-events-none opacity-5 p-8">
       <div className="container border-r-2 border-l-2 border-[#1b1b1b] grid grid-cols-12 h-full opacity-15">
-        <div className="line bg-[#1b1b1b]" />
         {/* <div className="line bg-[#080808]" />
         <div className="line bg-[#080808]" />
         <div className="line bg-[#080808]" />
         <div className="line bg-[#1b1b1b]" />
         <div className="line bg-[#080808]" />
-        <div className="line bg-[#080808]" />
-        {/* <div className="line bg-[#1b1b1b]" /> */}
+        <div className="line bg-[#080808]" /> */}
       </div>
     </div>
   )
@@ -53,8 +51,8 @@ const HomePage = () => {
 
   return (
     <Layout title="Home">
-      <ScrollDebugger />
-      <Lines />
+      {/* <ScrollDebugger />
+      <Lines /> */}
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -76,30 +74,29 @@ const HomePage = () => {
       <section id="hero" className="h-[80vh] flex flex-col container">
         <div className="flex flex-col justify-center items-center h-full">
           <motion.h1
-            className="hero__title text text-6xl md:text-jumbo justify-center items-center  z-10"
+            className="hero__title text text-6xl md:text-jumbo justify-center items-center z-10 "
             initial={{ color: '#FFFFFF' }}
           >
-            Performance Marketing
+            Hi.
           </motion.h1>
+          <div className="vidFrame -z-0 opacity-[0.01] fixed mix-blend-color-blend pointer-events-none">
+            <iframe
+              src="https://player.vimeo.com/video/669420559?h=99424b7dc2?autoplay=1&loop=1&autopause=0&background=1"
+              frameBorder="0"
+              muted={true}
+              width={documentWidth}
+              height={documentWidth}
+              allow="autoplay"
+            />
+          </div>
         </div>
       </section>
 
       {/* Intro */}
       <section id="intro" className="mb-96">
         <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
-          <div className="flex flex-col">
-            <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
-            <div className="placeholder">
-              <iframe
-                src="https://player.vimeo.com/video/669420559?h=99424b7dc2?autoplay=1&loop=1&autopause=0&background=1"
-                frameBorder="0"
-                loop={1}
-                autoPlay={1}
-                muted={true}
-                background={1}
-                allow="autoplay"
-              ></iframe>
-            </div>
+          <div className="flex flex-col col-start-2 ">
+            <h2 className="text-6xl font-medium mb-16">Intro</h2>
           </div>
 
           <div className="intro__text row-start- col-span-full md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
@@ -182,7 +179,7 @@ const HomePage = () => {
           >
             CUSTOMER ACQUISITION
           </motion.h2>
-          <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
+          <div className="userAcq__desc text-2xl col-start-1 md:col-start-6 col-end-13 row-start-2 mb-32">
             <p>
               In 2021, I sorted out over{' '}
               <motion.span
@@ -250,7 +247,7 @@ const HomePage = () => {
             />
           </div> */}
 
-          <div className="serviceList row-start-4 col-start-4 md:col-start-7 col-span-8 mb-32">
+          <div className="serviceList row-start-4 col-start-4 md:col-start-6 col-span-8 mb-32">
             <div className="serviceList__subtitle text-faintGrey mb-4">
               How?
             </div>
@@ -311,13 +308,13 @@ const HomePage = () => {
       >
         <div className="container grid-12 grid-cols-12 mb-64">
           <motion.h2
-            className="text-6xl md:text-jumbo col-start-2 m-0 mb-16"
+            className="text-6xl md:text-jumbo col-start-1 m-0 mb-16"
             initial={{ color: '#FFFFFF' }}
             // whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
           >
             Performance Marketing
           </motion.h2>
-          <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
+          <div className="userAcq__desc text-2xl col-start-1 md:col-start-6 col-end-13 row-start-2 mb-32">
             <p>
               Paid-on-results. Low up-front costs. Lasting partnerships. I build
               micro-campaigns, sites and content that's relevant, engaging and
@@ -373,7 +370,7 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="award flex items-top gap-4 w-[360px]">
+            <div className="award flex items-top gap-4 max-w-[360px]">
               <div className="award__flag relative">
                 <Image
                   alt="Performance Marketing Award"
