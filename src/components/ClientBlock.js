@@ -68,10 +68,15 @@ const ClientItem = ({ client, i }) => {
 }
 
 export const ClientBlock = () => (
-  <section id="selectedClients" className="my-96 p-8">
+  <motion.section
+    id="selectedClients"
+    className="my-96 p-8"
+    whileInView={{ opacity: 1, transition: { duration: 1 } }}
+    initial={{ opacity: 0 }}
+  >
     <div className="container grid grid-cols-8 md:grid-cols-12">
       <h2 className="text-6xl font-medium col-start-1 md:col-start-2 mb-16">
-        Selected Clients
+        Selected Partners
       </h2>
 
       <ul
@@ -83,10 +88,14 @@ export const ClientBlock = () => (
         ))}
       </ul>
     </div>
-  </section>
+  </motion.section>
 )
 
 const CLIENT_LIST = [
+  { name: 'Serenata Flowers', resource: 'PERFORMANCE MARKETING' },
+  { name: 'My 1st Years', resource: 'PERFORMANCE MARKETING' },
+  { name: 'Burtons Snowboards', resource: 'PERFORMANCE MARKETING' },
+  { name: 'Vertbaudet ', resource: 'PERFORMANCE MARKETING' },
   { name: 'Vouchernaut', resource: 'DESIGN, DEVELOPMENT, USER ACQUISITION' },
   { name: 'Photologo', resource: 'USER ACQUISITION,  DIGITAL GROWTH.' },
   { name: 'Rightcharge', resource: 'USER ACQUISITION, R&D' },
@@ -107,5 +116,4 @@ const CLIENT_LIST = [
     resource: 'ECOMMERCE, CRO, DEVELOPMENT',
   },
   { name: 'Elephantbox', resource: 'ECOMMERCE, CRO' },
-  { name: 'Vouchercloud', resource: 'USER ACQUISITION, R&D' },
 ]

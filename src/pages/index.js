@@ -10,8 +10,25 @@ import SiteContext from '@context/siteContext'
 
 // TODO: Ableton. Figma. Framer. VS Code. React. Nextjs. Vercel. JavaScript. Netlify. Github. Davinci. After Effects. Illustrator. Sheets. Node. Express. Postgres. Supabase.
 
+const Lines = () => {
+  return (
+    <div className="lines fixed inset-0 h-screen pointer-events-none opacity-5 p-8">
+      <div className="container border-r-2 border-l-2 border-[#1b1b1b] grid grid-cols-12 h-full opacity-15">
+        <div className="line bg-[#1b1b1b]" />
+        {/* <div className="line bg-[#080808]" />
+        <div className="line bg-[#080808]" />
+        <div className="line bg-[#080808]" />
+        <div className="line bg-[#1b1b1b]" />
+        <div className="line bg-[#080808]" />
+        <div className="line bg-[#080808]" />
+        {/* <div className="line bg-[#1b1b1b]" /> */}
+      </div>
+    </div>
+  )
+}
+
 const HomePage = () => {
-  const { documentWidth } = useWindowSize()
+  const { documentWidth, width, height } = useWindowSize()
   const [scrollProgress, setScrollProgress] = useState(0.001)
 
   const { darkModeOptions } = useContext(SiteContext)
@@ -37,6 +54,8 @@ const HomePage = () => {
   return (
     <Layout title="Home">
       <ScrollDebugger />
+      <Lines />
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: scrollProgress }}
@@ -54,35 +73,40 @@ const HomePage = () => {
       />
 
       {/* Hero */}
-      <section id="hero" className="h-screen flex flex-col container">
+      <section id="hero" className="h-[80vh] flex flex-col container">
         <div className="flex flex-col justify-center items-center h-full">
           <motion.h1
-            className="hero__title text-6xl md:text-jumbo justify-center items-center text-center"
+            className="hero__title text text-6xl md:text-jumbo justify-center items-center  z-10"
             initial={{ color: '#FFFFFF' }}
           >
-            NEEDS A CATCHY HEADER.
+            Performance Marketing
           </motion.h1>
         </div>
-        <div className="hero__lowerCta self-end">→ find out more</div>
       </section>
 
       {/* Intro */}
-      <section id="intro" className="my-96 p-8">
+      <section id="intro" className="mb-96">
         <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
-          <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
-          <div className="placeholder row-start-2 col-span-full h-32 relative md:col-span-3 mb-8 md:mb-0">
-            <Image
-              src={'/placeholder.png'}
-              alt={'placeholder'}
-              layout="fill"
-              objectFit="cover"
-            ></Image>
+          <div className="flex flex-col">
+            <h2 className="text-6xl font-medium col-start-2 mb-16">Intro</h2>
+            <div className="placeholder">
+              <iframe
+                src="https://player.vimeo.com/video/669420559?h=99424b7dc2?autoplay=1&loop=1&autopause=0&background=1"
+                frameBorder="0"
+                loop={1}
+                autoPlay={1}
+                muted={true}
+                background={1}
+                allow="autoplay"
+              ></iframe>
+            </div>
           </div>
-          <div className="intro__text row-start-3 col-span-full md:row-start-2 md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
+
+          <div className="intro__text row-start- col-span-full md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
             <p>
-              Since 2014 I've been orchestrating award-winning user acquisition
-              campaigns for ambitious B2C brands looking to design, develop and
-              deliver clever, scrappy work at scale.
+              Since 2014 I've been orchestrating award-winning performance
+              marketing campaigns for ambitious B2C Digital B2C marketplaces,
+              comparison sites, affiliates, eCommerce & startups.
             </p>
             <p>
               I sit between{' '}
@@ -106,7 +130,7 @@ const HomePage = () => {
                 tech
               </motion.span>{' '}
               to sketch out, build, automate, destroy and reinvent modern
-              digital experiences through design, code and growth.
+              digital experiences through data, design, code and marketing.
             </p>
 
             <div
@@ -119,9 +143,10 @@ const HomePage = () => {
                 }
 
                 return (
-                  <div
-                    className="serviceItem flex gap-8 font-sans text-4xl py-8 border-b-2 border-b-[#1b1b1b] cursor-pointer"
+                  <motion.div
+                    className="serviceItem flex gap-8 font-sans text-4xl py-8 border-b-2 border-r-2 cursor-pointer border-l-2 border-[#1b1b1b] px-8"
                     key={index}
+                    whileHover={{ backgroundColor: '#FF6200' }}
                     onClick={() =>
                       document.querySelector(service.link).scrollIntoView({
                         behavior: 'smooth',
@@ -134,7 +159,7 @@ const HomePage = () => {
                     </div>
 
                     {service.name}
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
@@ -142,22 +167,20 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Selected Clients */}
-      {<ClientBlock />}
-
       {/* Services - User Acquisition */}
       <motion.section
-        id="userAcq"
+        id="userAcquisition"
         className="my-96 p-8"
-        whileInView={() => setDarkMode(true)}
+        whileInView={{ opacity: 1, transition: { duration: 1 } }}
+        initial={{ opacity: 0 }}
       >
-        <div className="container grid-12 mb-64">
+        <div className="container grid-12 grid-cols-12 mb-64">
           <motion.h2
             className="text-6xl md:text-jumbo col-start-2 m-0 mb-16"
             initial={{ color: '#FFFFFF' }}
-            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+            // whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
           >
-            USER ACQUISITION
+            CUSTOMER ACQUISITION
           </motion.h2>
           <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
             <p>
@@ -181,18 +204,14 @@ const HomePage = () => {
               >
                 150,000 new customers{' '}
               </motion.span>
-              for B2C ecommerce, startups and scale-ups by mix-and-matching
-              Facebook, Instagram, Google, TikTok, Youtube, Email & Affiliate -
-              All whilst dealing with iOS 14.
+              for B2C ecommerce, startups and scale-ups. Facebook, Instagram,
+              Google, TikTok, Youtube, Email & Affiliate - All whilst dealing
+              with iOS 14.
             </p>
-            {/* <p>
-              Whilst competitors are paying agencies for four hours of manual
-              junior work a month, As a client, I'll sort you out access to my
-              personal arsenal of industry-first Search Ad technology to
-              automate your way to scale ― not bad, eh.
-            </p> */}
+            <p>How? Data. Creative. Automation. Skills.</p>
           </div>
-          <div className="logoGrid md:row-start-4 col-start-1 col-span-full md:col-span-4 grid grid-cols-2 md:gid-cols-3 gap-4">
+
+          {/* <div className="logoGrid md:row-start-4 col-start-1 col-span-full md:col-span-4 grid grid-cols-3 gap-4">
             <Image
               alt="logo"
               src="/logos/instagram.svg"
@@ -229,7 +248,108 @@ const HomePage = () => {
               height={208}
               width={208}
             />
+          </div> */}
+
+          <div className="serviceList row-start-4 col-start-4 md:col-start-7 col-span-8 mb-32">
+            <div className="serviceList__subtitle text-faintGrey mb-4">
+              How?
+            </div>
+            <ul className="serviceList_list flex flex-col gap-4">
+              <li className="text-lightGrey">
+                × Facebook, Instagram, TikTok, Spotify, Youtube, Google Ads
+              </li>
+              <li className="text-lightGrey">× Klaviyo, Drip, Mailchimp</li>
+              <li className="text-lightGrey">
+                × Technical SEO & Martech Implementation
+              </li>
+              <li className="text-lightGrey">
+                × Data Studio, Tableau, Google Analytics
+              </li>
+              <li className="text-lightGrey">
+                × Scripting & Process Automation
+              </li>
+            </ul>
           </div>
+
+          <BackToTop />
+        </div>
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-2 text-lightGrey">
+            <div className="text-2xl bg-cardGrey relative h-96">
+              <div className="absolute md:-top-32 flex">
+                <Image
+                  src={'/punchlab_mock.png'}
+                  alt={'placeholder'}
+                  width="720px"
+                  height="600px"
+                  objectFit="cover"
+                />
+              </div>
+              <h3 className="label absolute -bottom-16 text-white">Punchlab</h3>
+            </div>
+            <div className="text-2xl bg-cardGrey relative h-96">
+              <Image
+                src={'/placeholder_3.png'}
+                alt={'placeholder'}
+                layout="fill"
+                objectFit="cover"
+              />
+              <h3 className="label absolute -bottom-16 text-white">
+                RIGHTCHARGE
+              </h3>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Services - Performance Marketing */}
+      <motion.section
+        id="performanceMarketing"
+        className="py-96 p-8"
+        whileInView={{ opacity: 1, transition: { duration: 1 } }}
+        initial={{ opacity: 0 }}
+      >
+        <div className="container grid-12 grid-cols-12 mb-64">
+          <motion.h2
+            className="text-6xl md:text-jumbo col-start-2 m-0 mb-16"
+            initial={{ color: '#FFFFFF' }}
+            // whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
+          >
+            Performance Marketing
+          </motion.h2>
+          <div className="userAcq__desc text-2xl col-start-2 md:col-start-5 col-end-13 row-start-2 mb-32">
+            <p>
+              Paid-on-results. Low up-front costs. Lasting partnerships. I build
+              micro-campaigns, sites and content that's relevant, engaging and
+              profitable.
+            </p>
+            <p>
+              In 2021 our portfolio of performance marketing sites pulled in
+              over{' '}
+              <motion.span
+                initial={{ color: '#FFFFFF' }}
+                whileInView={{
+                  color: '#FF6200',
+                  transition: { duration: 0.7 },
+                }}
+              >
+                £1.3 million{' '}
+              </motion.span>
+              in revenue for performance partners, {''}
+              <motion.span
+                initial={{ color: '#FFFFFF' }}
+                whileInView={{
+                  color: '#FF6200',
+                  transition: { duration: 0.7 },
+                }}
+              >
+                for a 17x ROAS.
+              </motion.span>
+            </p>
+
+            <p>Let's get at it.</p>
+          </div>
+
           {/* AWARDS SECTION USER ACQUISITION */}
           <div className="awards row-start-3 col-start-1 md:col-start-7 col-end-13 flex flex-col sm:flex-row gap-12 mb-32">
             <div className="award flex items-top gap-4 max-w-[330px]">
@@ -275,7 +395,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="serviceList row-start-4 col-start-4 md:col-start-7 col-span-8 mb-32">
+          {/* <div className="serviceList row-start-4 col-start-4 md:col-start-7 col-span-8 mb-32">
             <div className="serviceList__subtitle text-faintGrey mb-4">
               How?
             </div>
@@ -294,238 +414,21 @@ const HomePage = () => {
                 × Scripting & Process Automation
               </li>
             </ul>
-          </div>
-          <BackToTop />
-        </div>
-        {/* <div className="container grid grid-cols-2 grid-rows-2">
-          <div className="fakeout"></div>
-          <div className="relative">
-            <div className="image h-96 flex relative">
-              <Image
-                src={'/placeholder_1.png'}
-                alt={'placeholder'}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-
-            <div className="siht absolute -top-2 -right-36 rotate-90 origin-left justify-between"></div>
-          </div>
-
-          <div className="image h-96 relative">
-            <Image
-              src={'/placeholder_2.png'}
-              alt={'placeholder'}
-              layout="fill"
-              objectFit="cover"
-            />
-
-            <h3 className="label text-white text-bold m-0 absolute -bottom-8">
-              DATA SCIENCE
-            </h3>
-          </div>
-          <div className="image h-96 relative">
-            <Image
-              src={'/placeholder_3.png'}
-              alt={'placeholder'}
-              layout="fill"
-              objectFit="cover"
-            />
-            <h3 className="label text-white text-bold m-0 absolute -bottom-8">
-              DATA SCIENCE
-            </h3>
-          </div>
-        </div> */}
-      </motion.section>
-
-      {/* Services - Design - TUUUUUUUUR NME ORANGE*/}
-      <motion.section
-        id="design"
-        className="my-96 p-8"
-        whileInView={() => setDarkMode(false)}
-      >
-        <div className="container grid-12">
-          <motion.h2
-            initial={{ color: '#FF6200' }}
-            whileInView={{ color: '#F9F9FD', transition: { duration: 0.7 } }}
-            className="text-6xl md:text-jumbo col-start-1 md:col-start-3 col-span-full m-0 mb-16"
-          >
-            ANALYTICS & AUTOMATION
-          </motion.h2>
-          <div className="col-start-2 col-end-12 row-start-2 text-2xl mb-8">
-            <p>
-              Creative technologist. Problem solver. I use audio, video and UI
-              design to produce modern digital experiences that look, feel and
-              run class.
-            </p>
-            {/* <p>
-              I'll help you understand what your customers expect from you, how
-              they want you to deliver it, and how considerations from
-              marketing, sales and tech fit into your growth plan - All with the
-              aim to push the boundaries of what's possible to create a product
-              experience that your customers will love.
-            </p> */}
-          </div>
-          {/* <div className="text-lightGrey leading-[32px] row-start-3 col-start-2 col-span-6 mb-16">
-            <p>Datk</p>
           </div> */}
 
-          {/* <div className="text-white text-lg col-start-6 col-span-7 md:col-start-10 row-start-4 mb-24">
-            How many other consultants can say they build, grow and sell their
-            own digital startups?
-          </div> */}
-          <div className="serviceList row-start-5 col-start-4 col-span-7 mb-64">
-            <div className="serviceList__subtitle text-white mb-4">How?</div>
-            <ul className="serviceList_list flex flex-col gap-4">
-              <li>× Facebook, TikTok, Google, YouTube, Native</li>
-              <li className="">× Klaviyo, Drip, Mailchimp</li>
-              <li className="">× Technical SEO & Martech Implementation</li>
-              <li className="">
-                × Data Studio, Google Tag Manager, Segment, Google Analytics
-              </li>
-              <li className="">× Scripting & Process Automation</li>
-            </ul>
-          </div>
           <BackToTop />
-        </div>
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 text-lightGrey">
-            <div className="text-2xl bg-cardGrey relative h-96">
-              <div className="absolute md:-top-32 flex">
-                <Image
-                  src={'/punchlab_mock.png'}
-                  alt={'placeholder'}
-                  width="720px"
-                  height="600px"
-                  objectFit="cover"
-                />
-              </div>
-              <h3 className="label absolute -bottom-16 text-white">Punchlab</h3>
-            </div>
-            <div className="text-2xl bg-cardGrey relative h-96">
-              <Image
-                src={'/placeholder_3.png'}
-                alt={'placeholder'}
-                layout="fill"
-                objectFit="cover"
-              />
-              <h3 className="label absolute -bottom-16 text-white">
-                RIGHTCHARGE
-              </h3>
-            </div>
-          </div>
         </div>
       </motion.section>
 
-      {/* Services - Development */}
+      {/* Selected Clients */}
+      {<ClientBlock />}
 
       <motion.section
-        id="development"
+        id="faq"
         className="my-96 p-8"
-        whileInView={() => setDarkMode(true)}
+        whileInView={{ opacity: 1, transition: { duration: 1 } }}
+        initial={{ opacity: 0 }}
       >
-        <div className="container grid-12">
-          <motion.h2
-            className="text-6xl md:text-jumbo row-start-1 col-start-2 col-end-8 md:col-start-4 m-0 mb-16"
-            initial={{ color: '#FFFFFF' }}
-            whileInView={{ color: '#FF6200', transition: { duration: 0.7 } }}
-          >
-            WEB DEVELOPMENT
-          </motion.h2>
-          <div className="col-start-3 col-span-10 row-start-2 text-2xl mb-8">
-            Modern web apps and marketing sites are built on JAMstack. They're
-            designed to convert traffic, rank well in Google, load in under 0.6
-            seconds and leave a lasting impression. I use React, Nextjs and
-            JavaScript as the tools to build conversion-focused sites that looks
-            pretty decent, too.
-          </div>
-          <div className="text-lightGrey row-start-3 leading-[32px] col-start-5 md:col-start-3 col-span-8 md:col-end-8 mb-16">
-            <p>
-              Hire me to sit between Tech, Marketing and Product to build a
-              modern, future-proof product that leaves no surprises. I'm your
-              technical co-founding partner.
-            </p>
-          </div>
-          <div className="serviceList row-start-4 col-start-2 md:col-start-6 col-span-full mb-64">
-            <div className="serviceList__subtitle text-faintGrey mb-4">
-              How?
-            </div>
-            <ul className="serviceList_list flex flex-col gap-4">
-              <li className="text-lightGrey">
-                × React. Hooks. Context. Nextjs. Gatsby, Tailwind, Storybook
-              </li>
-              <li className="text-lightGrey">× Vercel, Netlify, AWS</li>
-              <li className="text-lightGrey">× Node, Express, PostgreSQL</li>
-              <li className="text-lightGrey">
-                × Puppeteer. Cheerio. Jest. Enzyme.
-              </li>
-            </ul>
-          </div>
-          <div className="logoGrid md:row-start-5 col-start-1 col-span-full md:col-start-2 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Image
-              alt="logo"
-              src="/logos/javascript.svg"
-              height={208}
-              width={208}
-            />
-            <Image alt="logo" src="/logos/react.svg" height={208} width={208} />
-            <Image alt="logo" src="/logos/figma.svg" height={208} width={208} />
-            <Image
-              alt="logo"
-              src="/logos/framer.svg"
-              height={208}
-              width={208}
-            />
-            <Image
-              alt="logo"
-              src="/logos/vercel.svg"
-              height={208}
-              width={208}
-            />
-            <Image
-              alt="logo"
-              src="/logos/graphql.svg"
-              height={208}
-              width={208}
-            />
-            <Image
-              alt="logo"
-              src="/logos/vscode.svg"
-              height={208}
-              width={208}
-            />
-            <Image
-              alt="logo"
-              src="/logos/gatsby.svg"
-              height={208}
-              width={208}
-            />
-          </div>
-          <BackToTop />
-        </div>
-      </motion.section>
-
-      {/* WQorkng togetther */}
-      <section id="development" className="my-96 p-8">
-        <div className="container grid grid-cols-6 md:grid-cols-12 md:gap-4">
-          <h2 className="text-6xl font-medium col-start-2 mb-16">
-            Looking to work together?
-          </h2>
-          <div className="placeholder row-start-2 col-span-full h-32 relative md:col-span-3 mb-8 md:mb-0">
-            <Image
-              src={'/placeholder.png'}
-              alt={'placeholder'}
-              layout="fill"
-              objectFit="cover"
-            ></Image>
-          </div>
-          <div className="intro__text row-start-3 col-span-full md:row-start-2 md:col-start-6 md:col-span-7 leading-[190%] text-lg md:text-2xl relative">
-            <p>Something about stuff here..</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="development" className="my-96 p-8">
         <div className="container grid grid-cols-8 md:grid-cols-12">
           <motion.h2
             className="text-6xl md:text-jumbo col-start-2 col-span-2 m-0 mb-16"
@@ -535,13 +438,13 @@ const HomePage = () => {
             FAQ
           </motion.h2>
           {FAQ.map((item, index) => {
-            const colStart = index === 0 ? 5 : 6
+            const colStart = 6
 
             return (
               <div
                 key={index}
                 className={`faqItem mb-16 col-start-1 md:col-start-${colStart} col-end-13 row-start-${
-                  index + 2
+                  index + 1
                 }`}
               >
                 <motion.h3
@@ -555,7 +458,7 @@ const HomePage = () => {
             )
           })}
         </div>
-      </section>
+      </motion.section>
     </Layout>
   )
 }
@@ -563,12 +466,12 @@ const HomePage = () => {
 export default HomePage
 
 const SERVICES = [
-  { name: 'Clients', link: '#selectedClients' },
-  { name: 'User Acquisition', link: '#userAcq' },
-  { name: 'Analytics & Automation', link: '#design' },
-  { name: 'Web Development', link: '#development' },
-  { name: 'FAQ', link: '#userAcq' },
-  { name: 'Get in touch', link: '#userAcq' },
+  { name: 'Customer Acquisition', link: '#userAcquisition' },
+  { name: 'Performance Marketing', link: '#performanceMarketing' },
+  { name: 'Data & Analytics', link: '#dataAnalytics' },
+  { name: 'Partners & Clients', link: '#selectedClients' },
+  { name: 'Get in touch', link: '#contact' },
+  { name: 'FAQ', link: '#faq' },
 ]
 
 const FAQ = [

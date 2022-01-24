@@ -26,18 +26,16 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
         <meta property="og:image" content="http://···" />
         <meta name="twitter:image" content="http://···" />
       </Head>
-      <SiteProvider>
-        <motion.div
-          id="mainContent"
-          variants={darkModeOptions.darkVariants}
-          className="flex flex-col justify-between"
-          animate={darkModeOptions.darkMode ? 'dark' : 'light'}
-        >
-          <Header />
-          <main className="mb-auto">{children}</main>
-          <Footer />
-        </motion.div>
-      </SiteProvider>
+      <motion.div
+        id="mainContent"
+        variants={darkModeOptions.darkVariants}
+        className="flex flex-col justify-between"
+        animate={darkModeOptions.darkMode ? 'dark' : 'light'}
+      >
+        <Header />
+        <main className="mb-auto">{children}</main>
+        <Footer />
+      </motion.div>
     </>
   )
 }
