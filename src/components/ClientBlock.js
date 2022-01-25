@@ -76,12 +76,12 @@ export const ClientBlock = () => (
   >
     <div className="container grid grid-cols-8 md:grid-cols-12">
       <h2 className="text-6xl font-medium col-start-1 md:col-start-2 mb-16">
-        Selected Partners
+        Previous Work
       </h2>
 
       <ul
         id="clients__list"
-        className="col-start-1 row-start-2 md:row-start-1 md:col-start-6 col-end-13 flex flex-col"
+        className="col-start-2 col-span-8 row-start-2 flex flex-col"
       >
         {CLIENT_LIST.map((client, index, i) => (
           <ClientItem key={index} i={i} client={client} />

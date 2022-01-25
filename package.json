@@ -11,6 +11,8 @@
     "dependencies": {
         "@analytics/google-tag-manager": "^0.5.1",
         "@analytics/segment": "^1.1.2",
+        "@mdx-js/loader": "^1.6.22",
+        "@next/mdx": "^12.0.8",
         "@plasmicapp/loader-nextjs": "^1.0.33",
         "analytics": "^0.7.18",
         "autoprefixer": "^10.4.2",
@@ -24,9 +26,12 @@
         "prettier": "^2.3.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-markdown": "^8.0.0",
         "sass": "^1.43.4",
+        "swiper": "^7.4.1",
         "swr": "^1.0.1",
-        "tailwindcss": "^3.0.15"
+        "tailwindcss": "^3.0.15",
+        "typewriter-effect": "^2.18.2"
     },
     "devDependencies": {
         "eslint": "7.31.0",

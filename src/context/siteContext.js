@@ -5,7 +5,7 @@ Features:
   Catch-all for hooks and context
 */
 
-const defaultState = {}
+const defaultState = { darkMode: true}
 
 const SiteContext = createContext(defaultState)
 
@@ -21,8 +21,8 @@ const SiteProvider = (props) => {
     },
 
     light: {
-      backgroundColor: '#FF6200',
-      color: '#F9F9FD',
+      backgroundColor: '#FFFFFF',
+      color: '#080808',
     },
   }
 

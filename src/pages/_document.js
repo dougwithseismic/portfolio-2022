@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // pages/_document.js
 
 import Document, { Html, Head, Main, NextScript } from 'next/document'
