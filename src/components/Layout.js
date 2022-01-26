@@ -33,7 +33,7 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
         animate={darkModeOptions.darkMode ? 'dark' : 'light'}
       >
         <Header />
-        <main className="mb-auto mt-[96px]">{children}</main>
+        <main id='main' className="mb-auto mt-[96px]">{children}</main>
         <Footer />
       </motion.div>
     </>

@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 .root {
     font-size: 16px;
@@ -22,17 +21,17 @@ body,
 
 body.dark {
     background-color: #080808;
-
-    
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: rift, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Rift", sans-serif;
     font-weight: bold;
 }
-
-
-
 
 p,
 ul,
@@ -61,28 +60,25 @@ a {
     box-sizing: border-box;
 }
 
-.hero-outline {
-    color: transparent;
-    text-stroke: whitesmoke;
-    -webkit-text-stroke: whitesmoke;
-}
-
 .swiper-pagination-bullet {
+    z-index: 99 !important;
     background-color: rgb(194, 194, 194) !important;
-
 }
 .swiper-pagination-bullet-active {
     background-color: white !important;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    z-index: 50;
+}
+
 /* Small screens - MOBILE */
 @media only screen {
-
     .grid-12 {
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
     }
-
 
     h1,
     .h1 {
@@ -130,14 +126,13 @@ a {
 /* Define mobile styles - Mobile First */
 
 /* Medium screens - TABLET */
-@media only screen and (min-width: 40.063em) {}
+@media only screen and (min-width: 40.063em) {
+}
 
 /* min-width 641px, medium screens */
 
 /* Large screens - DESKTOP */
 @media only screen and (min-width: 64.063em) {
-
-
     h1,
     .h1 {
         font-size: 68px;
@@ -184,7 +179,6 @@ a {
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
     }
-
 }
 
 /* min-width 1025px, large screens */
@@ -199,7 +193,8 @@ a {
 /* min-width 1441px, xlarge screens */
 
 /* XXLarge screens */
-@media only screen and (min-width: 120.063em) {}
+@media only screen and (min-width: 120.063em) {
+}
 
 /* min-width 1921px, xlarge screens */
 

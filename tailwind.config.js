@@ -27,7 +27,7 @@ module.exports = {
       transparent: 'transparent',
       faintGrey: '#909090',
       lightGrey: '#ADADAD',
-      brightOrange: '#FF6200',
+      brightOrange: '#FF2000',
       cardGrey: '#121212',
       white: '#F9F9FD',
       backgroundBlack: '#080808',

@@ -3,6 +3,7 @@ import '../styles/globals.scss'
 
 import 'swiper/scss'
 import "swiper/css/pagination"
+import "swiper/css/navigation"
 
 import analytics from '@utility/initAnalytics'
 import { useEffect } from 'react'

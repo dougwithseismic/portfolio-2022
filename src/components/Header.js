@@ -1,12 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const Header = () => {
   return (
-    <header className="flex items-center fixed w-full h-[96px]">
+    <header className="flex items-center fixed w-full h-[96px] z-50">
       <div className="container flex justify-between">
         <div className="logo">
-          <h1 className="text-2xl m-0">WITHSEISMIC</h1>
+          {/* <Image src="/ws_white.png" alt="logo" objectFit='contain' height={48} width={208} /> */}
         </div>
         <div className="right flex gap-8 items-center">
           <div className="navLinks flex gap-8">
