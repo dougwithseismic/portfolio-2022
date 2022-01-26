@@ -45,6 +45,7 @@ export const Home = () => {
                       'Artists',
                       'Events',
                       'Startups',
+                      'Data Heads',
                       'DTC Stores',
                       'Marketplaces',
                       'Publishers',
@@ -94,15 +95,13 @@ export const Home = () => {
       <section id="articles" className=" text-white mb-32">
         <div className="container px-8">
           <div className="video__box relative my-16">
-            <video autoPlay playsinline preload="auto" muted loop className="">
+            <video autoPlay playsInline preload="auto" muted loop className="">
               <source
-                src="https://www.datocms-assets.com/57452/1639681300-showreel-looper-large.mp4"
+                src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
                 type="video/mp4"
               />
             </video>
-            <div className="p absolute bottom-4 left-4 z-30">
-              WITHSEISMIC 2021 Showreel
-            </div>
+
             <div className="p absolute bottom-0 right-4 z-30">
               <Image
                 src="/ws_white.png"
@@ -114,7 +113,7 @@ export const Home = () => {
             </div>
           </div>
 
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-16">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-64">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
               We're headed where you need to be.
             </h2>
@@ -169,15 +168,16 @@ export const Home = () => {
 
       <section>
         <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-16">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-64">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
               Digital Native. <span className="text-brightOrange">Check.</span>
             </h2>
             <div className="rightContent flex flex-col gap-8">
               <p className="text-2xl max-w-2xl m-0">
                 Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
-                That's the sound of you snoozing on your future. Let's fix it.
+                That's the sound of now ― Come join us.
               </p>
+              
               <div className="socialIcons flex gap-8">
                 <Instagram />
                 <Facebook />
