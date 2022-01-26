@@ -65,7 +65,7 @@ export const Home = () => {
               </div> */}
               <p className="indent-32">
                 Meet Seismic. A small but mighty team building killer
-                marketing campaigns and B2C sites for digital-savvy{' '}
+                marketing campaigns and B2C microsites for digital-savvy{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
                   artists
                 </span>

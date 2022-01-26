@@ -26,20 +26,21 @@ export const Footer = () => {
             />
           </div>
           <div className="group flex flex-col col-span-3">
-            <h4 className="links__header text-2xl mb-4">Useful Links</h4>
+            <h4 className="links__header text-2xl mb-4">Services</h4>
             <div className="links_list flex flex-col gap-2">
-              <div className="hi">Services</div>
-              <div className="hi">Consultancy</div>
-              <div className="hi">Performance Marketing</div>
-              <div className="hi">Get In Touch</div>
+              <div className="hi">B2C Performance Marketing</div>
+              <div className="hi">User Acquisition</div>
+              <div className="hi">Web Development</div>
+              <div className="hi">Startup Incubation</div>
+              <div className="hi">Data & Analytics</div>
             </div>
           </div>
           <div className="group flex flex-col col-span-3">
-            <h4 className="links__header text-2xl mb-4">Latest Posts</h4>
+            <h4 className="links__header text-2xl mb-4">Useful Links</h4>
             <div className="links_list flex flex-col gap-2">
-              <div className="hi">Services</div>
-              <div className="hi">Consultancy</div>
-              <div className="hi">Performance Marketing</div>
+              <div className="hi">Why B2C?</div>
+              <div className="hi">Price List</div>
+              <div className="hi">How to: Digital Guide</div>
               <div className="hi">Get In Touch</div>
             </div>
           </div>
