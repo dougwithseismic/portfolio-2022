@@ -55,7 +55,7 @@ export const Home = () => {
         />
       </svg> */}
 
-      <section id="hero" className="mt-32">
+      <section id="hero" className="md:mt-32">
         <div className="container z-20 flex">
           <div className="hero px-4 ">
             <motion.h1
@@ -89,7 +89,7 @@ export const Home = () => {
                 <div className="number">1</div>
                 <div className="title text-sm">Introduction</div>
               </div> */}
-              <p className="indent-32">
+              <p className="md:indent-32">
                 Meet Seismic. A small but mighty team building killer marketing
                 campaigns and B2C microsites for digital-savvy{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
@@ -158,7 +158,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="introduction" className=" py-16 my-64">
+      <section id="introduction" className=" py-16 mt-32">
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
@@ -203,7 +203,144 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="case-studies">
+      <section>
+        <div className="container">
+          <h3 className="text-center">Vertical Image Wall Here</h3>
+        </div>
+      </section>
+
+      <section>
+        <div className="container p-8">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
+            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
+              Digital Native. <span className="text-brightOrange">Check.</span>
+            </h2>
+            <div className="rightContent flex flex-col gap-8">
+              <p className="text-2xl max-w-2xl m-0">
+                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
+                That's the sound of now ― Come join us.
+              </p>
+
+              <div className="socialIcons flex gap-8">
+                <Instagram />
+                <Facebook />
+                <Twitter />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="imageReel" className="mt-32">
+        <Swiper
+          breakpoints={{
+            320: {
+              slidesPerView: 1.2,
+              spaceBetween: 16,
+            },
+            600: {
+              slidesPerView: 4,
+            },
+            1400: {
+              slidesPerView: 5,
+              spaceBetween: 16,
+            },
+          }}
+          autoplay={{
+            enabled: true,
+          }}
+          pagination={{
+            enabled: true,
+            type: 'bullets',
+          }}
+          loop={true}
+        >
+          {CARDS.map(({ title, content, background }, i) => (
+            <SwiperSlide key={i}>
+              <figure className="relative w-full h-96 min-h-96">
+                <Image
+                  alt={title}
+                  src={`/${i + 1}.jpg`}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </figure>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+      <section>
+        <div className="container p-8">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
+            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10 order-2 text-right">
+              Data-led Creative-driven{' '}
+              <span className="text-brightOrange">Check.</span>
+            </h2>
+            <div className="rightContent flex flex-col gap-8">
+              <p className="text-2xl max-w-2xl m-0">
+                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
+                That's the sound of now ― Come join us.
+              </p>
+
+              <div className="socialIcons flex gap-8">
+                <Instagram />
+                <Facebook />
+                <Twitter />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="video" className=" text-white">
+        <div className="container px-8 flex flex-col md:flex-row gap-8">
+          <div className="video__box relative  max-w-3xl">
+            <video autoPlay playsInline preload="auto" muted loop className="">
+              <source
+                src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
+                type="video/mp4"
+              />
+            </video>
+
+            <div className="p absolute bottom-0 right-4 z-30">
+              <Image
+                src="/ws_white.png"
+                alt="WITHSEISMIC logo"
+                height={48}
+                width={128}
+                objectFit="contain"
+              />
+            </div>
+          </div>
+          <div className="sideContent md:indent-32 md:max-w-2xl text-2xl p-4">
+            <h1>Yo.</h1>
+            <p className="text-right">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Excepturi, laboriosam incidunt voluptatibus vero maiores, maxime
+              reiciendis.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container my-32">
+          <div className="introContent flex flex-col gap-8 p-8">
+            <h1 className="text-6xl m-0 md:text-jumbo">Service Name Here</h1>
+            <div className="rightContent flex flex-col max-w-2xl gap-8 text-2xl ">
+              <p className=" m-0">
+                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
+                That's the sound of now ― Come join us.
+              </p>
+              <p className="m-0">
+                We're open for business.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="case-studies" className="my-32">
         <div className="container overflow-visible">
           <h2 className="pl-8">Case Studies</h2>
           <div className="swiperImageCaro overflow-visible">
@@ -245,70 +382,6 @@ export const Home = () => {
             </Swiper>
           </div>
         </div>
-      </section>
-
-      <section>
-        <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
-              Digital Native. <span className="text-brightOrange">Check.</span>
-            </h2>
-            <div className="rightContent flex flex-col gap-8">
-              <p className="text-2xl max-w-2xl m-0">
-                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
-                That's the sound of now ― Come join us.
-              </p>
-
-              <div className="socialIcons flex gap-8">
-                <Instagram />
-                <Facebook />
-                <Twitter />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="container"></div>
-      </section>
-      <section id="imageReel" className="mt-32">
-        <Swiper
-          breakpoints={{
-            320: {
-              slidesPerView: 1.2,
-              spaceBetween: 16,
-            },
-            600: {
-              slidesPerView: 4,
-            },
-            1400: {
-              slidesPerView: 5,
-              spaceBetween: 16,
-            },
-          }}
-          autoplay={{
-            enabled: true,
-          }}
-          pagination={{
-            enabled: true,
-            type: 'bullets',
-          }}
-          loop={true}
-        >
-          {CARDS.map(({ title, content, background }, i) => (
-            <SwiperSlide key={i}>
-              <figure className="relative w-full h-96 min-h-96">
-                <Image
-                  alt={title}
-                  src={`/${i + 1}.jpg`}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </figure>
-            </SwiperSlide>
-          ))}
-        </Swiper>
       </section>
     </Layout>
   )
