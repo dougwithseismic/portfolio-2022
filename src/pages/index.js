@@ -173,7 +173,6 @@ export const Home = () => {
               <p>We're building killer sites, stores and brands .</p>
             </div>
           </div>
-          <p className="text-2xl p-4">wow test</p>
         </div>
       </section>
       <section>
