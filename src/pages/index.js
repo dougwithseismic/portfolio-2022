@@ -171,12 +171,34 @@ export const Home = () => {
                 agencies, and then there's{' '}
                 <span className="text-brightOrange">Seismic</span>.
               </p>
-              <p>We're building killer sites, stores and brands .</p>
+              <p>
+                We tackle growth for ambitious B2C brands that need to see
+                trackable ROI on their digital investments through{' '}
+                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
+                  paid advertising
+                </span>
+                ,{' '}
+                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
+                  tech
+                </span>{' '}
+                and{' '}
+                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
+                  affiliate marketing
+                </span>
+                .
+              </p>
             </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
-            nemo itaque est, impedit distinctio velit quos dolorum ex?
+            In 2021, brands partnering with us drove{' '}
+            <span className="text-brightOrange underline underline-offset-4">
+              £1.3 million
+            </span>{' '}
+            in trackable revenue with a{' '}
+            <span className="text-brightOrange underline underline-offset-4">
+              17x ROAS
+            </span>
+            . Want to do the same?
           </p>
         </div>
       </section>
