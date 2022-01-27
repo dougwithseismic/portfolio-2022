@@ -9,6 +9,7 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
 import Typewriter from 'typewriter-effect'
 import { ClientBlock } from '@components/ClientBlock'
 import { Instagram, Facebook, Twitter } from '@components/Icons'
+import { Award } from '@components/Award'
 
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -29,6 +30,64 @@ export const Home = () => {
   return (
     <Layout title="Home">
       <Lines columns={12} />
+
+      <div id="corners" className="fixed inset-4">
+        <div
+          id="tl__corner"
+          className="absolute border-l-2 border-t-2 w-4 h-4 border-white"
+        />
+        <div
+          id="tr__corner"
+          className="absolute border-r-2 border-t-2 right-0 w-8 h-4 border-white"
+        />
+        <div
+          id="bl__corner"
+          className="absolute border-l-2 border-b-2 bottom-0 w-4 h-8 border-white"
+        />
+        <div
+          id="br__corner"
+          className="absolute border-r-2 border-b-2 right-0 bottom-0 w-4 h-4 border-white"
+        >
+          <div className="liveTag absolute bottom-2 right-4">
+            <div className="liveTag flex gap-2 items-center">
+              <motion.div
+                className="liveRound rounded-full h-4 w-4 bg-brightOrange"
+                initial={{
+                  opacity: 1,
+                  scale: 1,
+                  height: '16px',
+                  width: '16px',
+                  backgroundColor: '#FF2000',
+                }}
+              />
+              <strong>LIVE</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <svg className="fixed inset-4">
+        <path d="M25,2 L2,2 L2,25" fill="none" stroke="white" strokeWidth="3" />
+        <path
+          d="M2,75 L2,98 L25,98"
+          fill="none"
+          stroke="white"
+          strokeWidth="3"
+        />
+        <path
+          d="M75,98 L98,98 L98,75"
+          fill="none"
+          stroke="white"
+          strokeWidth="3"
+        />
+        <path
+          d="M98,25 L98,2 L75,2"
+          fill="none"
+          stroke="white"
+          strokeWidth="3"
+        />
+      </svg> */}
+
       <section id="hero" className="mt-32">
         <div className="container px-4 z-20 flex">
           <div className="hero">
@@ -64,8 +123,8 @@ export const Home = () => {
                 <div className="title text-sm">Introduction</div>
               </div> */}
               <p className="indent-32">
-                Meet Seismic. A small but mighty team building killer
-                marketing campaigns and B2C microsites for digital-savvy{' '}
+                Meet Seismic. A small but mighty team building killer marketing
+                campaigns and B2C microsites for digital-savvy{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
                   artists
                 </span>
@@ -92,9 +151,9 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="articles" className=" text-white mb-32">
+      <section id="video" className=" text-white">
         <div className="container px-8">
-          <div className="video__box relative my-16">
+          <div className="video__box relative my-8 md:my-16">
             <video autoPlay playsInline preload="auto" muted loop className="">
               <source
                 src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
@@ -112,21 +171,46 @@ export const Home = () => {
               />
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-64">
+      <section>
+        <div className="container px-8">
+          <div className="awards flex flex-col justify-between md:flex-row md:gap-16">
+            <h2>Awards & Mentions</h2>
+            <div className="award-list grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+              {AWARDS.map(({ title, collaborators }, index) => (
+                <Award
+                  key={index}
+                  title={title}
+                  collaborators={collaborators}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="introduction" className=" py-16 my-64">
+        <div className="container px-8">
+          <div className="flex flex-col md:flex-row items-center gap-16">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
               We're headed where you need to be.
             </h2>
-            <p className="text-2xl max-w-2xl m-0">
-              There's digital, and then there's{' '}
-              <span className="text-brightOrange">digital</span>. There are
-              agencies, and then there's{' '}
-              <span className="text-brightOrange">Seismic</span>. Don't let
-              anyone tell you differently and definitely don't let anyone make
-              you settle for anything less.
-            </p>
+            <div className="rightContent text-2xl max-w-2xl">
+              <p className="">
+                There's digital, and then there's{' '}
+                <span className="text-brightOrange">digital</span>. There are
+                agencies, and then there's{' '}
+                <span className="text-brightOrange">Seismic</span>.
+              </p>
+              <p>We're building killer sites, stores and brands .</p>
+            </div>
           </div>
-
+          <p className="text-2xl p-4">wow test</p>
+        </div>
+      </section>
+      <section>
+        <div className="container px-8">
           <h2>Case Studies</h2>
           <Swiper
             spaceBetween={16}
@@ -168,7 +252,7 @@ export const Home = () => {
 
       <section>
         <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-64">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
               Digital Native. <span className="text-brightOrange">Check.</span>
             </h2>
@@ -177,7 +261,7 @@ export const Home = () => {
                 Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
                 That's the sound of now ― Come join us.
               </p>
-              
+
               <div className="socialIcons flex gap-8">
                 <Instagram />
                 <Facebook />
@@ -326,5 +410,18 @@ const SERVICES = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt libero autem numquam quasi enim beatae necessitatibus?',
     services: ['Startup Incubation', 'Sweat Investments', 'Operations Support'],
+  },
+]
+
+const AWARDS = [
+  {
+    title: `MOST EFFECTIVE CROSS-CHANNEL CAMPAIGN`,
+    collaborators: `vouchercloud × NOW TV
+    `,
+  },
+  {
+    title: `MOST CREATIVE PERFORMANCE CAMPAIGN`,
+    collaborators: `vouchercloud × TOPMAN
+    `,
   },
 ]

@@ -32,7 +32,7 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
         className="flex flex-col justify-between"
         animate={darkModeOptions.darkMode ? 'dark' : 'light'}
       >
-        <Header />
+        {/* <Header /> */}
         <main id='main' className="mb-auto mt-[96px]">{children}</main>
         <Footer />
       </motion.div>
