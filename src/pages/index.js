@@ -31,40 +31,7 @@ export const Home = () => {
     <Layout title="Home">
       <Lines columns={12} />
 
-      <div id="corners" className="fixed inset-4">
-        <div
-          id="tl__corner"
-          className="absolute border-l-2 border-t-2 w-4 h-4 border-white"
-        />
-        <div
-          id="tr__corner"
-          className="absolute border-r-2 border-t-2 right-0 w-8 h-4 border-white"
-        />
-        <div
-          id="bl__corner"
-          className="absolute border-l-2 border-b-2 bottom-0 w-4 h-8 border-white"
-        />
-        <div
-          id="br__corner"
-          className="absolute border-r-2 border-b-2 right-0 bottom-0 w-4 h-4 border-white"
-        >
-          <div className="liveTag absolute bottom-2 right-4">
-            <div className="liveTag flex gap-2 items-center">
-              <motion.div
-                className="liveRound rounded-full h-4 w-4 bg-brightOrange"
-                initial={{
-                  opacity: 1,
-                  scale: 1,
-                  height: '16px',
-                  width: '16px',
-                  backgroundColor: '#FF2000',
-                }}
-              />
-              <strong>LIVE</strong>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Corners title="Home" />
 
       {/* <svg className="fixed inset-4">
         <path d="M25,2 L2,2 L2,25" fill="none" stroke="white" strokeWidth="3" />
@@ -338,6 +305,42 @@ const ServiceCard = ({ title, description, services }) => {
     </div>
   )
 }
+
+const Corners = ({ title = 'Home' }) => (
+  <div id="corners" className="fixed inset-4">
+    <div
+      id="tl__corner"
+      className="absolute border-l-2 border-t-2 w-4 h-4 border-white"
+    />
+    <div
+      id="tr__corner"
+      className="absolute border-r-2 border-t-2 right-0 w-8 h-4 border-white"
+    />
+    <div
+      id="bl__corner"
+      className="absolute border-l-2 border-b-2 bottom-0 w-4 h-8 border-white"
+    />
+    <div
+      id="br__corner"
+      className="absolute border-r-2 border-b-2 right-0 bottom-0 w-4 h-8 border-white"
+    >
+      <div className="liveTag absolute bottom-2 right-4 w-32">
+        <div className="liveTag flex justify-end gap-2 items-center">
+          <motion.div
+            className="liveRound rounded-full h-4 w-4 bg-brightOrange stroke-brightOrange"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [1, 0.8, 1],
+              backgroundColor: '#FF2000',
+              transition: { repeat: Infinity, duration: .4, ease: 'easeInOut' },
+            }}
+          />
+          <strong>LIVE</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+)
 
 const CARDS = [
   {

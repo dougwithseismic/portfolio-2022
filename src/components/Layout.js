@@ -30,6 +30,7 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
         id="mainContent"
         variants={darkModeOptions.darkVariants}
         className="flex flex-col justify-between"
+        initial="dark"
         animate={darkModeOptions.darkMode ? 'dark' : 'light'}
       >
         {/* <Header /> */}
