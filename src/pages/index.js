@@ -56,8 +56,8 @@ export const Home = () => {
       </svg> */}
 
       <section id="hero" className="mt-32">
-        <div className="container px-4 z-20 flex">
-          <div className="hero">
+        <div className="container z-20 flex">
+          <div className="hero px-4 ">
             <motion.h1
               animate={{ opacity: 1 }}
               className="text-6xl m-0 md:text-jumbo max-w-6xl translate-x-2 z-10"
@@ -84,7 +84,7 @@ export const Home = () => {
               </div>{' '}
               That get it.
             </motion.h1>
-            <div className="text-2xl max-w-3xl p-16">
+            <div className="text-2xl max-w-3xl py-16">
               {/* <div className="count flex gap-4">
                 <div className="number">1</div>
                 <div className="title text-sm">Introduction</div>
