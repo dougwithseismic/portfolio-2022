@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Autoplay, FreeMode } from 'swiper'
 import Typewriter from 'typewriter-effect'
 import { ClientBlock } from '@components/ClientBlock'
 import { Instagram, Facebook, Twitter } from '@components/Icons'
@@ -14,7 +14,7 @@ import { Award } from '@components/Award'
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
   useEffect(() => {
-    SwiperCore.use([Pagination, Navigation, Autoplay])
+    SwiperCore.use([Pagination, Navigation, Autoplay, FreeMode])
   }, [])
 
   const Lines = ({ columns = 12 }) => (
@@ -141,7 +141,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section>
+      <section id="awards">
         <div className="container px-8">
           <div className="awards flex flex-col justify-between md:flex-row md:gap-16">
             <h2>Awards & Mentions</h2>
@@ -157,6 +157,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
+
       <section id="introduction" className=" py-16 my-64">
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
@@ -173,46 +174,54 @@ export const Home = () => {
               <p>We're building killer sites, stores and brands .</p>
             </div>
           </div>
+          <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
+            nemo itaque est, impedit distinctio velit quos dolorum ex?
+          </p>
         </div>
       </section>
-      <section>
-        <div className="container px-8">
-          <h2>Case Studies</h2>
-          <Swiper
-            spaceBetween={16}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              600: {
-                slidesPerView: 2,
-              },
-              1400: {
-                slidesPerView: 3,
-              },
-            }}
-            pagination={{
-              el: '.swiper-pagination',
-              dynamicBullets: true,
-              clickable: true,
-            }}
-            onSlideChange={({ activeIndex }) => setActiveSlide(activeIndex + 1)}
-            onSwiper={(swiper) => console.log(swiper)}
-            onClick={({ clickedIndex }) => setActiveSlide(clickedIndex + 1)}
-          >
-            {CARDS.map(({ title, content, background }, i) => (
-              <SwiperSlide key={i}>
-                <Card
-                  dark={true}
-                  title={title}
-                  content={content}
-                  background={background}
-                  index={i}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          {activeSlide}
+
+      <section id="case-studies">
+        <div className="container overflow-visible">
+          <h2 className="pl-8">Case Studies</h2>
+          <div className="swiperImageCaro overflow-visible">
+            <Swiper
+              spaceBetween={16}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1.15,
+                },
+                600: {
+                  slidesPerView: 2,
+                },
+                1400: {
+                  slidesPerView: 3,
+                },
+              }}
+              pagination={{
+                el: '.swiper-pagination',
+                dynamicBullets: true,
+                clickable: true,
+              }}
+              onSlideChange={({ activeIndex }) =>
+                setActiveSlide(activeIndex + 1)
+              }
+              onSwiper={(swiper) => console.log(swiper)}
+              onClick={({ clickedIndex }) => setActiveSlide(clickedIndex + 1)}
+            >
+              {CARDS.map(({ title, content, background }, i) => (
+                <SwiperSlide key={i}>
+                  <Card
+                    dark={true}
+                    title={title}
+                    content={content}
+                    background={background}
+                    index={i}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </section>
 
@@ -240,6 +249,44 @@ export const Home = () => {
 
       <section>
         <div className="container"></div>
+      </section>
+      <section id="imageReel" className="mt-32">
+        <Swiper
+          breakpoints={{
+            320: {
+              slidesPerView: 1.2,
+              spaceBetween: 16,
+            },
+            600: {
+              slidesPerView: 4,
+            },
+            1400: {
+              slidesPerView: 5,
+              spaceBetween: 16,
+            },
+          }}
+          autoplay={{
+            enabled: true,
+          }}
+          pagination={{
+            enabled: true,
+            type: 'bullets',
+          }}
+          loop={true}
+        >
+          {CARDS.map(({ title, content, background }, i) => (
+            <SwiperSlide key={i}>
+              <figure className="relative w-full h-96 min-h-96">
+                <Image
+                  alt={title}
+                  src={`/${i + 1}.jpg`}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </figure>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
     </Layout>
   )
@@ -306,7 +353,7 @@ const ServiceCard = ({ title, description, services }) => {
 }
 
 const Corners = ({ title = 'Home' }) => (
-  <div id="corners" className="fixed inset-4">
+  <div id="corners" className="fixed inset-4 pointer-events-none">
     <div
       id="tl__corner"
       className="absolute border-l-2 border-t-2 w-4 h-4 border-white"
@@ -331,7 +378,11 @@ const Corners = ({ title = 'Home' }) => (
               scale: [1, 1.2, 1],
               opacity: [1, 0.8, 1],
               backgroundColor: '#FF2000',
-              transition: { repeat: Infinity, duration: .4, ease: 'easeInOut' },
+              transition: {
+                repeat: Infinity,
+                duration: 0.4,
+                ease: 'easeInOut',
+              },
             }}
           />
           <strong>LIVE</strong>
@@ -362,30 +413,14 @@ const CARDS = [
   {
     title: `Here's another catchy title that's sure to grab your attention. If it doesn't, it's on the house.`,
     description: 'This is a card',
-    background: '/world-of-tanks.jpg',
+    background: '/placeholder_1.png',
   },
 
   {
-    title: `Here's another catchy title that's sure to grab your attention. If it doesn't, it's on the house.`,
-    description: 'This is a card',
-    background: '/world-of-tanks.jpg',
-  },
-  {
     title:
       'Recruiting Huel-igans for the first time in over a decade: The first step to a new era of music',
     description: 'This is a card',
-    background: '/world-of-tanks.jpg',
-  },
-  {
-    title: `Here's another catchy title that's sure to grab your attention. If it doesn't, it's on the house.`,
-    description: 'This is a card',
-    background: '/world-of-tanks.jpg',
-  },
-  {
-    title:
-      'Recruiting Huel-igans for the first time in over a decade: The first step to a new era of music',
-    description: 'This is a card',
-    background: '/world-of-tanks.jpg',
+    background: '/placeholder_3.png',
   },
 ]
 
