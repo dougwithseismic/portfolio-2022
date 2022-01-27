@@ -322,19 +322,24 @@ export const Home = () => {
           </div>
         </div>
       </section>
-
+      
       <section>
-        <div className="container my-32">
-          <div className="introContent flex flex-col gap-8 p-8">
-            <h1 className="text-6xl m-0 md:text-jumbo">Service Name Here</h1>
-            <div className="rightContent flex flex-col max-w-2xl gap-8 text-2xl ">
-              <p className=" m-0">
+        <div className="container p-8">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 pt-16 my-32">
+            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
+              Digital Native. <span className="text-brightOrange">Check.</span>
+            </h2>
+            <div className="rightContent flex flex-col gap-8">
+              <p className="text-2xl max-w-2xl m-0">
                 Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
                 That's the sound of now ― Come join us.
               </p>
-              <p className="m-0">
-                We're open for business.
-              </p>
+
+              <div className="socialIcons flex gap-8">
+                <Instagram />
+                <Facebook />
+                <Twitter />
+              </div>
             </div>
           </div>
         </div>
