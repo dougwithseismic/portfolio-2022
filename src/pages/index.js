@@ -123,7 +123,7 @@ export const Home = () => {
       <section id="video" className=" text-white">
         <div className="container px-8">
           <div className="video__box relative my-8 md:my-16">
-            <video autoPlay playsInline preload="auto" muted loop className="">
+            <video autoPlay playsInline preload="auto" muted loop>
               <source
                 src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
                 type="video/mp4"
@@ -292,11 +292,12 @@ export const Home = () => {
 
       <section id="video" className=" text-white">
         <div className="container px-8 flex flex-col md:flex-row gap-8">
-          <div className="video__box relative  max-w-3xl">
+          <div className="video__box relative">
             <video autoPlay playsInline preload="auto" muted loop className="">
               <source
                 src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
                 type="video/mp4"
+                className=""
               />
             </video>
 

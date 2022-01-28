@@ -60,8 +60,6 @@ a {
     box-sizing: border-box;
 }
 
-
-
 .swiper-pagination-bullet {
     z-index: 99 !important;
     background-color: rgb(194, 194, 194) !important;
@@ -124,10 +122,9 @@ a {
         margin-bottom: 0px;
     }
 
-
     .swiperImageCaro {
         .swiper-wrapper {
-            margin-Left: 1rem !important;
+            margin-left: 1rem !important;
         }
     }
 }
@@ -189,12 +186,13 @@ a {
         grid-template-columns: repeat(12, minmax(0, 1fr));
     }
 
-    
     .swiperImageCaro {
         .swiper-wrapper {
-            margin-Left: 0 !important;
+            margin-left: 0 !important;
         }
     }
+
+
 }
 
 /* min-width 1025px, large screens */
