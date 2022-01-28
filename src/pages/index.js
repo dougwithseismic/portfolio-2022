@@ -10,6 +10,8 @@ import Typewriter from 'typewriter-effect'
 import { ClientBlock } from '@components/ClientBlock'
 import { Instagram, Facebook, Twitter } from '@components/Icons'
 import { Award } from '@components/Award'
+import { Formik } from 'formik'
+import { SignupForm } from '@components/ContactForm'
 
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -60,7 +62,7 @@ export const Home = () => {
           <div className="hero px-4 ">
             <motion.h1
               animate={{ opacity: 1 }}
-              className="text-6xl m-0 md:text-jumbo max-w-6xl translate-x-2 z-10"
+              className="text-hero m-0 md:text-jumbo max-w-6xl translate-x-2 z-10"
             >
               [EM]Powering{' '}
               <div className="text-brightOrange">
@@ -212,13 +214,14 @@ export const Home = () => {
       <section>
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
+            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10">
               Digital Native. <span className="text-brightOrange">Check.</span>
             </h2>
             <div className="rightContent flex flex-col gap-8">
               <p className="text-2xl max-w-2xl m-0">
-                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
-                That's the sound of now ― Come join us.
+                We live where your audience lives. Reddit. Discord. Reels.
+                Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok. That's
+                the sound of now ― Come join us.
               </p>
 
               <div className="socialIcons flex gap-8">
@@ -272,21 +275,16 @@ export const Home = () => {
       <section>
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10 order-2 text-right">
+            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10 order-1 text-right">
               Data-led Creative-driven{' '}
               <span className="text-brightOrange">Check.</span>
             </h2>
-            <div className="rightContent flex flex-col gap-8">
+            <div className="rightContent flex flex-col gap-8 order-2">
               <p className="text-2xl max-w-2xl m-0">
-                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
-                That's the sound of now ― Come join us.
+                We understand data and analytics in a privacy-first world with
+                trackable ROI and incremental growth as standard, even in the
+                face of iOS 14 and beyond.
               </p>
-
-              <div className="socialIcons flex gap-8">
-                <Instagram />
-                <Facebook />
-                <Twitter />
-              </div>
             </div>
           </div>
         </div>
@@ -322,17 +320,24 @@ export const Home = () => {
           </div>
         </div>
       </section>
-      
+
       <section>
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 pt-16 my-32">
-            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
-              Digital Native. <span className="text-brightOrange">Check.</span>
+            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10">
+              Paid-On-Results? <span className="text-brightOrange">Check.</span>
             </h2>
-            <div className="rightContent flex flex-col gap-8">
-              <p className="text-2xl max-w-2xl m-0">
-                Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok.
-                That's the sound of now ― Come join us.
+            <div className="rightContent flex flex-col gap-8 text-2xl max-w-2xl ">
+              <p className="m-0">
+                True Performance Marketing. Low up-front costs. Trackable
+                Revenue. We build micro-campaigns, sites and content that's
+                relevant, engaging and profitable.
+              </p>
+              <p>
+                In 2021 our portfolio of performance marketing sites pulled in
+                over <span className="text-brightOrange">£1.3 million</span> in
+                revenue for performance partners, for a{' '}
+                <span className="text-brightOrange">17x</span> ROAS.
               </p>
 
               <div className="socialIcons flex gap-8">
@@ -345,7 +350,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="case-studies" className="my-32">
+      {/* <section id="case-studies" className="my-32">
         <div className="container overflow-visible">
           <h2 className="pl-8">Case Studies</h2>
           <div className="swiperImageCaro overflow-visible">
@@ -386,6 +391,17 @@ export const Home = () => {
               ))}
             </Swiper>
           </div>
+        </div>
+      </section> */}
+      <section id="contact" className="my-32">
+        <div className="container flex flex-col items-center p-4">
+          <h2 className="text-hero m-0 md:text-jumbo z-10">Get In Touch</h2>
+          <p className="p-4 max-w-2xl">
+            If you're interested in learning more about partnering with Seismic
+            then drop your details below and we'll send you a complete service
+            list, pricing structure and first steps.
+          </p>
+          <SignupForm />
         </div>
       </section>
     </Layout>
@@ -480,7 +496,7 @@ const Corners = ({ title = 'Home' }) => (
               backgroundColor: '#FF2000',
               transition: {
                 repeat: Infinity,
-                duration: 0.4,
+                duration: 2.4,
                 ease: 'easeInOut',
               },
             }}

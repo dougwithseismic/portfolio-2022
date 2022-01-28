@@ -16,7 +16,7 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
-      hero: '10rem',
+      hero: ['5rem', '90%'],
       jumbo: ['160px', '90%'],
     },
     fontFamily: {
