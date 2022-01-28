@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Autoplay, FreeMode } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
 import Typewriter from 'typewriter-effect'
 import { ClientBlock } from '@components/ClientBlock'
 import { Instagram, Facebook, Twitter } from '@components/Icons'
@@ -17,8 +17,13 @@ import { Corners } from '@components/Corners'
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
   useEffect(() => {
-    SwiperCore.use([Pagination, Navigation, Autoplay, FreeMode])
+    SwiperCore.use([Pagination, Navigation, Autoplay])
   }, [])
+
+  const variants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 1 } },
+  }
 
   const Lines = ({ columns = 12 }) => (
     <div className="lines absolute w-full h-full pointer-events-none">
@@ -161,7 +166,13 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="introduction" className=" py-16 mt-32">
+      <motion.section
+        id="introduction"
+        className=" py-16 mt-32"
+        variants={variants}
+        initial="hidden"
+        whileInView="show"
+      >
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
@@ -204,7 +215,7 @@ export const Home = () => {
             . Want to do the same?
           </p>
         </div>
-      </section>
+      </motion.section>
 
       <section>
         <div className="container">
@@ -212,7 +223,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section>
+      <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
             <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10">
@@ -233,47 +244,49 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <section id="imageReel" className="mt-32">
-        <Swiper
-          breakpoints={{
-            320: {
-              slidesPerView: 1.2,
-              spaceBetween: 16,
-            },
-            600: {
-              slidesPerView: 4,
-            },
-            1400: {
-              slidesPerView: 5,
-              spaceBetween: 16,
-            },
-          }}
-          autoplay={{
-            enabled: true,
-          }}
-          pagination={{
-            enabled: true,
-            type: 'bullets',
-          }}
-          loop={true}
+        <motion.div
+          className="overflow-hidden"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, transition: { duration: 1 } }}
         >
-          {CARDS.map(({ title, content, background }, i) => (
-            <SwiperSlide key={i}>
-              <figure className="relative w-full h-96 min-h-96">
-                <Image
-                  alt={title}
-                  src={`/${i + 1}.jpg`}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </figure>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <Swiper
+            breakpoints={{
+              320: {
+                slidesPerView: 1.2,
+                spaceBetween: 16,
+              },
+              600: {
+                slidesPerView: 4,
+              },
+              1400: {
+                slidesPerView: 5,
+                spaceBetween: 16,
+              },
+            }}
+            pagination={{
+              enabled: true,
+            }}
+            loop={true}
+          >
+            {CARDS.map(({ title, content, background }, i) => (
+              <SwiperSlide key={i}>
+                <figure className="relative w-full h-96 min-h-96">
+                  <Image
+                    alt={title}
+                    src={`/${i + 1}.jpg`}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </figure>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       </section>
-      <section>
+      <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
             <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10 order-1 text-right">
@@ -289,9 +302,15 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="video" className=" text-white">
+      <motion.section
+        id="video"
+        className=" text-white"
+        variants={variants}
+        initial="hidden"
+        whileInView="show"
+      >
         <div className="container px-8 flex flex-col md:flex-row gap-8">
           <div className="sideContent text-2xl p-4">
             <h2 className="text-hero">What do we do?</h2>
@@ -344,9 +363,7 @@ export const Home = () => {
 
                   <div className="p absolute bottom-0 right-4 z-30"></div>
                 </div>
-                <h3 className="text-4xl leading-tight">
-                  Web Development
-                </h3>
+                <h3 className="text-4xl leading-tight">Web Development</h3>
                 <p className="text-faintGrey">
                   Ads. Content. Martech. Email & Web Automation. Scraping.
                   Marketing Landers. Microsites. You name it, we do it - Unless
@@ -375,8 +392,9 @@ export const Home = () => {
                 </div>
                 <h3 className="text-4xl leading-tight">Analytics & Data</h3>
                 <p className="text-faintGrey">
-                  Necessitatibus ad esse reiciendis repellendus beatae,
-                  assumenda recusandae obcaecati aut!
+                  Know what's going on. We're native in Data Studio. Google
+                  Analytics. Tag Manager. Segment. & anything else you can throw
+                  our way.
                 </p>
                 <div className="btn btn-primary">Learn More</div>
               </div>
@@ -394,9 +412,9 @@ export const Home = () => {
             <div className="p absolute bottom-0 right-4 z-30"></div>
           </div> */}
         </div>
-      </section>
+      </motion.section>
 
-      <section>
+      <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 pt-16 my-32">
             <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10">
@@ -423,7 +441,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* <section id="case-studies" className="my-32">
         <div className="container overflow-visible">
@@ -468,7 +486,13 @@ export const Home = () => {
           </div>
         </div>
       </section> */}
-      <section id="contact" className="my-32">
+      <motion.section
+        id="contact"
+        className="my-32"
+        variants={variants}
+        initial="hidden"
+        whileInView="show"
+      >
         <div className="container flex flex-col items-center p-4">
           <h2 className="text-hero m-0 md:text-jumbo z-10">Get In Touch</h2>
           <p className="p-4 max-w-2xl">
@@ -478,7 +502,7 @@ export const Home = () => {
           </p>
           <SignupForm />
         </div>
-      </section>
+      </motion.section>
     </Layout>
   )
 }
