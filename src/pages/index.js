@@ -325,7 +325,7 @@ export const Home = () => {
                 <div className="btn btn-primary">Learn More</div>
               </div>
 
-              <div className="item h-32">
+              <div className="item">
                 <div className="video__box relative max-w-2xl">
                   <video
                     autoPlay
@@ -345,7 +345,7 @@ export const Home = () => {
                   <div className="p absolute bottom-0 right-4 z-30"></div>
                 </div>
                 <h3 className="text-4xl leading-tight">
-                  Marketing Development
+                  Web Development
                 </h3>
                 <p className="text-faintGrey">
                   Ads. Content. Martech. Email & Web Automation. Scraping.
@@ -354,7 +354,7 @@ export const Home = () => {
                 </p>
                 <div className="btn btn-primary">Learn More</div>
               </div>
-              <div className="item h-32">
+              <div className="item">
                 <div className="video__box relative max-w-2xl">
                   <video
                     autoPlay
