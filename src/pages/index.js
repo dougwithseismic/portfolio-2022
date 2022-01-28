@@ -64,7 +64,7 @@ export const Home = () => {
               animate={{ opacity: 1 }}
               className="text-hero m-0 md:text-jumbo max-w-6xl translate-x-2 z-10"
             >
-              [EM]Powering{' '}
+              Powering{' '}
               <div className="text-brightOrange">
                 <Typewriter
                   options={{

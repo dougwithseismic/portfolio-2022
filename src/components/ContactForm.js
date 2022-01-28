@@ -83,18 +83,18 @@ export const SignupForm = () => {
             .required('Required'),
           acceptedTerms: Yup.boolean()
             .required('Required')
-            .oneOf([true], 'You must accept the terms and conditions.')
+            .oneOf([true], 'You must accept the terms and conditions.'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-            console.log("wow")
+          console.log('wow')
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2))
             setSubmitting(false)
           }, 400)
         }}
       >
-        <Form className="Form flex flex-col w-full max-w-4xl gap-4">
-          <fieldset className="nameGroup flex gap-8">
+        <Form className="Form flex flex-col w-full max-w-4xl p-4 gap-4">
+          <fieldset className="nameGroup flex flex-col md:flex-row gap-8">
             <TextInput
               label="First Name"
               name="firstName"
