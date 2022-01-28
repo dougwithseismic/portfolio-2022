@@ -11,13 +11,13 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
   // Pass layout a title eg <Layout title="This is a title"> to the page a title. TODO: Add metatags etc.
 
   const { darkModeOptions } = useContext(SiteContext)
+  const seoTitle = `${title} | For Brands That Get It`
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta property="og:title" content="···" />
-        <meta name="twitter:title" content="···" />
-        <link rel="canonical" href="http://···" />
+        <title>{seoTitle}</title>
+        <meta property="og:title" content={seoTitle} />
+        <meta name="twitter:title" content={seoTitle} />
         <meta property="og:url" content="http://···" />
         <meta name="twitter:url" content="http://···" />
         <meta name="description" content="···" />

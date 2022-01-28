@@ -315,89 +315,9 @@ export const Home = () => {
           <div className="sideContent text-2xl p-4">
             <h2 className="text-hero">What do we do?</h2>
             <div className="grid md:grid-cols-3 my-16 gap-16">
-              <div className="item">
-                <div className="video__box relative max-w-2xl">
-                  <video
-                    autoPlay
-                    playsInline
-                    preload="auto"
-                    muted
-                    loop
-                    className=""
-                  >
-                    <source
-                      src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
-                      type="video/mp4"
-                      className=""
-                    />
-                  </video>
-
-                  <div className="p absolute bottom-0 right-4 z-30"></div>
-                </div>
-                <h3 className="text-4xl leading-tight">
-                  Performance Marketing
-                </h3>
-                <p className="text-faintGrey">
-                  Reddit. Discord. Reels. Snapchat. Facebook. Instagram. TikTok.
-                  TikTok. Tiktok. That's the sound of now ― Come join us.
-                </p>
-                <div className="btn btn-primary">Learn More</div>
-              </div>
-
-              <div className="item">
-                <div className="video__box relative max-w-2xl">
-                  <video
-                    autoPlay
-                    playsInline
-                    preload="auto"
-                    muted
-                    loop
-                    className=""
-                  >
-                    <source
-                      src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
-                      type="video/mp4"
-                      className=""
-                    />
-                  </video>
-
-                  <div className="p absolute bottom-0 right-4 z-30"></div>
-                </div>
-                <h3 className="text-4xl leading-tight">Web Development</h3>
-                <p className="text-faintGrey">
-                  Ads. Content. Martech. Email & Web Automation. Scraping.
-                  Marketing Landers. Microsites. You name it, we do it - Unless
-                  we don't.
-                </p>
-                <div className="btn btn-primary">Learn More</div>
-              </div>
-              <div className="item">
-                <div className="video__box relative max-w-2xl">
-                  <video
-                    autoPlay
-                    playsInline
-                    preload="auto"
-                    muted
-                    loop
-                    className=""
-                  >
-                    <source
-                      src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
-                      type="video/mp4"
-                      className=""
-                    />
-                  </video>
-
-                  <div className="p absolute bottom-0 right-4 z-30"></div>
-                </div>
-                <h3 className="text-4xl leading-tight">Analytics & Data</h3>
-                <p className="text-faintGrey">
-                  Know what's going on. We're native in Data Studio. Google
-                  Analytics. Tag Manager. Segment. & anything else you can throw
-                  our way.
-                </p>
-                <div className="btn btn-primary">Learn More</div>
-              </div>
+              {SERVICES.map(({ title, description }, i) => (
+                <ServiceCard key={i} title={title} description={description} />
+              ))}
             </div>
           </div>
           {/* <div className="video__box relative max-w-2xl">
@@ -551,18 +471,23 @@ const Card = ({ title, background, dark = false, index = 0 }) => {
   )
 }
 
-const ServiceCard = ({ title, description, services }) => {
+const ServiceCard = ({ title, description }) => {
   return (
-    <div className="flex-col gap-8 p-8 ">
-      <h2 className="text-4xl m-0 pb-4">{title}</h2>
-      <p className=" py-4">{description}</p>
-      <ul>
-        {/* {services.map((service, i) => (
-          <li className="text-sm" key={i}>
-            <span className="text-brightOrange">{service}</span>
-          </li>
-        ))} */}
-      </ul>
+    <div className="item">
+      <div className="video__box relative max-w-2xl">
+        <video autoPlay playsInline preload="auto" muted loop className="">
+          <source
+            src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
+            type="video/mp4"
+            className=""
+          />
+        </video>
+
+        <div className="p absolute bottom-0 right-4 z-30"></div>
+      </div>
+      <h3 className="text-4xl leading-tight">{title}</h3>
+      <p className="text-faintGrey">{description}</p>
+      <div className="btn btn-primary">Learn More</div>
     </div>
   )
 }
@@ -601,27 +526,16 @@ const CARDS = [
 
 const SERVICES = [
   {
-    title: 'Digital',
-    description:
-      'Dedicated teams of product development specialists centered around founders, hustling on robust software build-outs from concept to launch and growth.',
-    services: [
-      'Branding',
-      'Product Design',
-      'Software Engineering',
-      'Product Management',
-    ],
+    title: 'Performance Marketing',
+    description: `Reddit. Discord. Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok. That's the sound of now ― Come join us.`,
   },
   {
-    title: 'Data',
-    description:
-      'We dont just build products for others, but for ourselves, too. Lorem',
-    services: ['Startup Incubation', 'Sweat Investments', 'Operations Support'],
+    title: 'Web Development',
+    description: `Ads. Content. Martech. Email & Web Automation. Scraping. Marketing Landers. Microsites. You name it, we do it - Unless we don't.`,
   },
   {
-    title: 'Ventures',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt libero autem numquam quasi enim beatae necessitatibus?',
-    services: ['Startup Incubation', 'Sweat Investments', 'Operations Support'],
+    title: 'Analytics & Data',
+    description: `Know what's going on. We're native in Data Studio. Google Analytics. Tag Manager. Segment. & anything else you can throw our way.`,
   },
 ]
 
