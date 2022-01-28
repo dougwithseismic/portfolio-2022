@@ -12,6 +12,7 @@ import { Instagram, Facebook, Twitter } from '@components/Icons'
 import { Award } from '@components/Award'
 import { Formik } from 'formik'
 import { SignupForm } from '@components/ContactForm'
+import { Corners } from '@components/Corners'
 
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -75,7 +76,7 @@ export const Home = () => {
                       'Startups',
                       'Data Heads',
                       'DTC Stores',
-                      'Marketplaces',
+                      'Market Places',
                       'Publishers',
                       'Game Studios',
                     ],
@@ -292,7 +293,96 @@ export const Home = () => {
 
       <section id="video" className=" text-white">
         <div className="container px-8 flex flex-col md:flex-row gap-8">
-          <div className="video__box relative">
+          <div className="sideContent text-2xl p-4">
+            <h2 className="text-hero">What do we do?</h2>
+            <div className="grid md:grid-cols-3 my-16 gap-16">
+              <div className="item">
+                <div className="video__box relative max-w-2xl">
+                  <video
+                    autoPlay
+                    playsInline
+                    preload="auto"
+                    muted
+                    loop
+                    className=""
+                  >
+                    <source
+                      src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
+                      type="video/mp4"
+                      className=""
+                    />
+                  </video>
+
+                  <div className="p absolute bottom-0 right-4 z-30"></div>
+                </div>
+                <h3 className="text-4xl leading-tight">
+                  Performance Marketing
+                </h3>
+                <p className="text-faintGrey">
+                  Reddit. Discord. Reels. Snapchat. Facebook. Instagram. TikTok.
+                  TikTok. Tiktok. That's the sound of now ― Come join us.
+                </p>
+                <div className="btn btn-primary">Learn More</div>
+              </div>
+
+              <div className="item h-32">
+                <div className="video__box relative max-w-2xl">
+                  <video
+                    autoPlay
+                    playsInline
+                    preload="auto"
+                    muted
+                    loop
+                    className=""
+                  >
+                    <source
+                      src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
+                      type="video/mp4"
+                      className=""
+                    />
+                  </video>
+
+                  <div className="p absolute bottom-0 right-4 z-30"></div>
+                </div>
+                <h3 className="text-4xl leading-tight">
+                  Marketing Development
+                </h3>
+                <p className="text-faintGrey">
+                  Ads. Content. Martech. Email & Web Automation. Scraping.
+                  Marketing Landers. Microsites. You name it, we do it - Unless
+                  we don't.
+                </p>
+                <div className="btn btn-primary">Learn More</div>
+              </div>
+              <div className="item h-32">
+                <div className="video__box relative max-w-2xl">
+                  <video
+                    autoPlay
+                    playsInline
+                    preload="auto"
+                    muted
+                    loop
+                    className=""
+                  >
+                    <source
+                      src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
+                      type="video/mp4"
+                      className=""
+                    />
+                  </video>
+
+                  <div className="p absolute bottom-0 right-4 z-30"></div>
+                </div>
+                <h3 className="text-4xl leading-tight">Analytics & Data</h3>
+                <p className="text-faintGrey">
+                  Necessitatibus ad esse reiciendis repellendus beatae,
+                  assumenda recusandae obcaecati aut!
+                </p>
+                <div className="btn btn-primary">Learn More</div>
+              </div>
+            </div>
+          </div>
+          {/* <div className="video__box relative max-w-2xl">
             <video autoPlay playsInline preload="auto" muted loop className="">
               <source
                 src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
@@ -301,24 +391,8 @@ export const Home = () => {
               />
             </video>
 
-            <div className="p absolute bottom-0 right-4 z-30">
-              <Image
-                src="/ws_white.png"
-                alt="WITHSEISMIC logo"
-                height={48}
-                width={128}
-                objectFit="contain"
-              />
-            </div>
-          </div>
-          <div className="sideContent md:indent-32 md:max-w-2xl text-2xl p-4">
-            <h1>Yo.</h1>
-            <p className="text-right">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Excepturi, laboriosam incidunt voluptatibus vero maiores, maxime
-              reiciendis.
-            </p>
-          </div>
+            <div className="p absolute bottom-0 right-4 z-30"></div>
+          </div> */}
         </div>
       </section>
 
@@ -468,46 +542,6 @@ const ServiceCard = ({ title, description, services }) => {
     </div>
   )
 }
-
-const Corners = ({ title = 'Home' }) => (
-  <div id="corners" className="fixed inset-4 pointer-events-none">
-    <div
-      id="tl__corner"
-      className="absolute border-l-2 border-t-2 w-4 h-4 border-white"
-    />
-    <div
-      id="tr__corner"
-      className="absolute border-r-2 border-t-2 right-0 w-8 h-4 border-white"
-    />
-    <div
-      id="bl__corner"
-      className="absolute border-l-2 border-b-2 bottom-0 w-4 h-8 border-white"
-    />
-    <div
-      id="br__corner"
-      className="absolute border-r-2 border-b-2 right-0 bottom-0 w-4 h-8 border-white"
-    >
-      <div className="liveTag absolute bottom-2 right-4 w-32">
-        <div className="liveTag flex justify-end gap-2 items-center">
-          <motion.div
-            className="liveRound rounded-full h-4 w-4 bg-brightOrange stroke-brightOrange"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [1, 0.8, 1],
-              backgroundColor: '#FF2000',
-              transition: {
-                repeat: Infinity,
-                duration: 2.4,
-                ease: 'easeInOut',
-              },
-            }}
-          />
-          <strong>LIVE</strong>
-        </div>
-      </div>
-    </div>
-  </div>
-)
 
 const CARDS = [
   {

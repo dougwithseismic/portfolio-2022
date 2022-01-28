@@ -4,6 +4,7 @@ import SiteContext from '@context/siteContext'
 import { motion } from 'framer-motion'
 import { Facebook, Instagram, LinkedIn, Twitter } from './Icons'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const Footer = () => {
   const { darkModeOptions } = useContext(SiteContext)
@@ -17,13 +18,16 @@ export const Footer = () => {
       <div className="container pt-8">
         <div className="footer__rowOne grid p-8 md:grid-cols-12 min-h-[420px]">
           <div id="footer__logo" className="col-start-1 col-span-5">
-            <Image
-              src="/ws_white.png"
-              alt="WS Logo"
-              objectFit="contain"
-              width={320}
-              height={90}
-            />
+            <Link href="/" passHref>
+              <Image
+                src="/ws_white.png"
+                alt="WS Logo"
+                objectFit="contain"
+                width={320}
+                height={90}
+                className="cursor-pointer"
+              />
+            </Link>
           </div>
           <div className="group flex flex-col col-span-3">
             <h4 className="links__header text-2xl mb-4">Services</h4>
