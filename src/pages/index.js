@@ -13,9 +13,13 @@ import { Award } from '@components/Award'
 import { Formik } from 'formik'
 import { SignupForm } from '@components/ContactForm'
 import { Corners } from '@components/Corners'
+import { useWindowSize } from '@hooks/useWindowSize'
+import { useScrollProgress } from '@hooks/useScrollProgress'
+import { ScrollProgress } from '@components/scrollProgressBar'
 
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
+
   useEffect(() => {
     SwiperCore.use([Pagination, Navigation, Autoplay])
   }, [])
@@ -37,7 +41,7 @@ export const Home = () => {
 
   return (
     <Layout title="Home">
-      <Lines columns={12} />
+      {/* <Lines columns={12} /> */}
 
       <Corners title="Home" />
 
@@ -98,8 +102,8 @@ export const Home = () => {
                 <div className="title text-sm">Introduction</div>
               </div> */}
               <p className="md:indent-32">
-                Meet Seismic. A small but mighty team building killer marketing
-                campaigns and B2C microsites for digital-savvy{' '}
+                Trust in twelve years of building killer marketing campaigns,
+                tools and microsites for digital-savvy{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
                   artists
                 </span>
@@ -121,6 +125,9 @@ export const Home = () => {
                 </span>
                 .
               </p>
+              <button className="btn btn-primary p-4 mt-4 border-2 border-brightOrange hover:bg-brightOrange max-w-xs w-full align-center justify-center font-bold uppercase font-sans text-2xl">
+                Get In Touch
+              </button>
             </div>
           </div>
         </div>
@@ -176,43 +183,37 @@ export const Home = () => {
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
-              We're headed where you need to be.
+              Start heading where you need to be.
             </h2>
             <div className="rightContent text-2xl max-w-2xl">
-              <p className="">
-                There's digital, and then there's{' '}
-                <span className="text-brightOrange">digital</span>. There are
-                agencies, and then there's{' '}
-                <span className="text-brightOrange">Seismic</span>.
-              </p>
-              <p>
-                We tackle growth for ambitious B2C brands that need to see
+              <p className=""></p>
+              <p className="md:mt-32">
+                I help tackle growth for ambitious B2C brands that need to see
                 trackable ROI on their digital investments through{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
                   paid advertising
                 </span>
                 ,{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  tech
+                  web development
                 </span>{' '}
-                and{' '}
+                and {' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
                   affiliate marketing
-                </span>
-                .
+                </span>.
               </p>
             </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            In 2021, brands partnering with us drove{' '}
+            In 2021, I drove{' '}
             <span className="text-brightOrange underline underline-offset-4">
               £1.3 million
             </span>{' '}
             in trackable revenue with a{' '}
             <span className="text-brightOrange underline underline-offset-4">
-              17x ROAS
+              17x ROAS for partnering brands.{' '}
             </span>
-            . Want to do the same?
+            Want to do the same?
           </p>
         </div>
       </motion.section>
@@ -231,9 +232,8 @@ export const Home = () => {
             </h2>
             <div className="rightContent flex flex-col gap-8">
               <p className="text-2xl max-w-2xl m-0">
-                We live where your audience lives. Reddit. Discord. Reels.
-                Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok. That's
-                the sound of now ― Come join us.
+                Go where your audience lives and today, that's everywhere. Reddit. Discord. Reels.
+                Snapchat. Spotify. Facebook. Instagram. TikTok. Native. Search. Display. Video.  
               </p>
 
               <div className="socialIcons flex gap-8">
@@ -526,16 +526,20 @@ const CARDS = [
 
 const SERVICES = [
   {
-    title: 'Performance Marketing',
-    description: `Reddit. Discord. Reels. Snapchat. Facebook. Instagram. TikTok. TikTok. Tiktok. That's the sound of now ― Come join us.`,
+    title: 'Digital Growth Consulting',
+    description: `Front to back digital growth. Achieve market fit and scale smartly through automation, content and development. Built-for-you businesses.`,
   },
   {
-    title: 'Web Development',
-    description: `Ads. Content. Martech. Email & Web Automation. Scraping. Marketing Landers. Microsites. You name it, we do it - Unless we don't.`,
+    title: 'Performance Marketing',
+    description: `Modern campaigns for Search, Display, Video, Email, Affiliate, Automation & Feeds, Audience building, Lead generation.`,
+  },
+  {
+    title: 'Tech & Development',
+    description: `Marketing Sites. Micro-landers. Web Apps. Martech implmentation. Bespoke internal tools. Email & Web Automation. Scraping. You name it, we do it - Unless we don't.`,
   },
   {
     title: 'Analytics & Data',
-    description: `Know what's going on. We're native in Data Studio. Google Analytics. Tag Manager. Segment. & anything else you can throw our way.`,
+    description: `We're native in Data Studio. Google Analytics. Tag Manager. Segment. Analytics. Data. Page speed optimization & conversions.`,
   },
 ]
 

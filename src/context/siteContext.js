@@ -1,3 +1,4 @@
+import useScrollProgress from '@hooks/useScrollProgress'
 import React, { createContext, useState, useCallback } from 'react'
 // Describe SiteContext.
 /* 
@@ -5,14 +6,13 @@ Features:
   Catch-all for hooks and context
 */
 
-const defaultState = { darkMode: true}
+const defaultState = { darkMode: true }
 
 const SiteContext = createContext(defaultState)
 
 const SiteProvider = (props) => {
   const { children } = props
   const [darkMode, setDarkMode] = useState(true)
-
 
   const darkVariants = {
     dark: {
@@ -39,7 +39,7 @@ const SiteProvider = (props) => {
           toggleDarkMode,
           darkVariants,
         },
-
+        useScrollProgress,
         testFunction: () => {
           return 'test'
         },

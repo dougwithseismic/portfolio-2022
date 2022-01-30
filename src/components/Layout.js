@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 
 import React, { useContext } from 'react'
 import SiteContext, { SiteProvider } from '@context/siteContext'
+import { ScrollProgress } from './scrollProgressBar'
 
 export const Layout = ({ children, title = 'Give me a title' }) => {
   // This is a HOC component that we can use to wrap everything in a navbar and footer. The classes come from tailwind.
@@ -34,7 +35,11 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
         animate={darkModeOptions.darkMode ? 'dark' : 'light'}
       >
         {/* <Header /> */}
-        <main id='main' className="mb-auto mt-[96px]">{children}</main>
+        <ScrollProgress />
+
+        <main id="main" className="mb-auto mt-[96px]">
+          {children}
+        </main>
         <Footer />
       </motion.div>
     </>
