@@ -219,11 +219,11 @@ export const Home = () => {
         </div>
       </motion.section>
 
-      <section>
+      {/* <section>
         <div className="container">
           <h3 className="text-center">Vertical Image Wall Here</h3>
         </div>
-      </section>
+      </section> */}
 
       <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
@@ -477,19 +477,11 @@ const ServiceCard = ({ title, description }) => {
   return (
     <div className="item">
       <div className="video__box relative max-w-2xl">
-        <video autoPlay playsInline preload="auto" muted loop className="">
-          <source
-            src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
-            type="video/mp4"
-            className=""
-          />
-        </video>
-
         <div className="p absolute bottom-0 right-4 z-30"></div>
       </div>
       <h3 className="text-4xl leading-tight">{title}</h3>
       <p className="text-faintGrey">{description}</p>
-      <div className="btn btn-primary">Learn More</div>
+      {/* <div className="btn btn-primary">Learn More</div> */}
     </div>
   )
 }
@@ -527,10 +519,6 @@ const CARDS = [
 ]
 
 const SERVICES = [
-  {
-    title: 'Digital Growth Consulting',
-    description: `Front to back digital growth. Achieve market fit and scale smartly through automation, content and development. Built-for-you businesses.`,
-  },
   {
     title: 'Performance Marketing',
     description: `Modern campaigns for Search, Display, Video, Email, Affiliate, Automation & Feeds, Audience building, Lead generation.`,

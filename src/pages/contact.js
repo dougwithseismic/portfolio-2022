@@ -29,11 +29,7 @@ const ContactPage = () => {
               </p>
             </div>
           </div>
-          <p className="p-4 max-w-2xl">
-            If you're interested in learning more about partnering with Seismic
-            then drop your details below and we'll send you a complete service
-            list, pricing structure and first steps.
-          </p>
+
           <SignupForm />
         </div>
       </section>

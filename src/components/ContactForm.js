@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Formik, Form, useField } from 'formik'
+import { Formik, Form, useField, Field } from 'formik'
 import * as Yup from 'yup'
 import SiteContext from '@context/siteContext'
 import { ToastContainer, toast } from 'react-toastify'
@@ -16,6 +16,7 @@ export const SignupForm = () => {
           firstName: '',
           lastName: '',
           email: '',
+          notes: '',
           acceptedTerms: false, // added for our checkbox
         }}
         validationSchema={Yup.object({
@@ -33,7 +34,10 @@ export const SignupForm = () => {
             .oneOf([true], 'You must accept the terms and conditions.'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          !submitted && toast("Thanks for your interest! Check your inbox for more details.")
+          !submitted &&
+            toast(
+              'Thanks for your interest! Check your inbox for more details.',
+            )
 
           klaviyo.learnq.push([
             'identify',
@@ -43,6 +47,7 @@ export const SignupForm = () => {
               $last_name: values.lastName,
               $consent: ['email', 'web'],
               signupOrigin: 'Contact Form',
+              notes: values.notes,
             },
           ])
           klaviyo.learnq.push(['track', 'Contact Form Submitted'])
@@ -73,6 +78,13 @@ export const SignupForm = () => {
             name="email"
             type="email"
             placeholder="jane@formik.com"
+          />
+
+          <LargeTextInput
+            label="Notes"
+            name="notes"
+            type="text"
+            placeholder="Anything in particular you'd like to discuss? (optional)"
           />
 
           <Checkbox name="acceptedTerms">
@@ -106,6 +118,29 @@ export const SignupForm = () => {
 }
 
 const TextInput = ({ label, ...props }) => {
+  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
+  // which we can spread on <input>. We can use field meta to show an error
+  // message if the field is invalid and it has been touched (i.e. visited)
+  const [field, meta] = useField(props)
+  return (
+    <div className="flex flex-col w-full">
+      <label
+        htmlFor={props.id || props.name}
+        className="text-sm uppercase text-faintGrey font-sans"
+      >
+        {label}
+      </label>
+      <input className="text-input p-6 bg-cardGrey" {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className="error text-sm uppercase font-sans text-brightOrange">
+          {meta.error}
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
+const LargeTextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input>. We can use field meta to show an error
   // message if the field is invalid and it has been touched (i.e. visited)

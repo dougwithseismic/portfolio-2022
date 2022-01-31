@@ -15,10 +15,10 @@ export const ArticleLayout = ({ meta, children }) => {
   )
 
   return (
-    <Layout title="Home">
+    <Layout title={meta.title}>
         <Corners />
       {/* <Lines columns={12} /> */}
-      <section id="hero" className="md:mt-32 p-8">
+      <section id="hero" className="p-8">
         <div className="container z-20 flex flex-col">
           <article className="text-2xl grid grid-cols-12">
             <div className="row-start-1 col-span-full">
