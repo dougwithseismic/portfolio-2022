@@ -89,7 +89,15 @@ export const SignupForm = () => {
             .oneOf([true], 'You must accept the terms and conditions.'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          klaviyo.learnq.push(['identify', values])
+          klaviyo.learnq.push([
+            'identify',
+            {
+              $email: values.email,
+              $first_name: values.firstName,
+              $last_name: values.lastName,
+              signupOrigin: 'Contact Form',
+            },
+          ])
           setSubmitting(false)
         }}
       >
