@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { ArticleCard } from '@components/ArticleCard'
 import { Award } from '@components/Award'
 import { SignupForm } from '@components/ContactForm'
