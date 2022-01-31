@@ -26,7 +26,7 @@ export const Home = () => {
 
   const variants = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 1 } },
+    show: { opacity: 1, transition: { duration: .75 } },
   }
 
   const Lines = ({ columns = 12 }) => (
@@ -525,7 +525,7 @@ const SERVICES = [
   },
   {
     title: 'Tech & Development',
-    description: `Marketing Sites. Micro-landers. Web Apps. Martech implmentation. Bespoke internal tools. Email & Web Automation. Scraping. You name it, we do it - Unless we don't.`,
+    description: `Marketing Sites. Micro-landers. Web Apps. Email & Web Automation. Scraping. If it makes for a sick user experience, we do it - Unless we don't.`,
   },
   {
     title: 'Analytics & Data',
