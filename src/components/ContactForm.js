@@ -89,8 +89,7 @@ export const SignupForm = () => {
             .oneOf([true], 'You must accept the terms and conditions.'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          console.log('wow')
-          klaviyo.learnq.push(['identify', { email: values.email }])
+          klaviyo.learnq.push(['identify', values])
           setSubmitting(false)
         }}
       >
