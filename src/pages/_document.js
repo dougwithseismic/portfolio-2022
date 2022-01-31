@@ -10,6 +10,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href="https://use.typekit.net/syc2fgu.css" />
         </Head>
+
         <body>
           <Main />
           <NextScript />

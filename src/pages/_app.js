@@ -2,12 +2,12 @@ import { SiteProvider } from '@context/siteContext'
 import '../styles/globals.scss'
 
 import 'swiper/scss'
-import "swiper/css/pagination"
-import "swiper/css/navigation"
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 import analytics from '@utility/initAnalytics'
 import { useEffect } from 'react'
-
+import Script from 'next/script'
 
 // Top-level Rendering.
 function MyApp({ Component, pageProps }) {
@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <SiteProvider>
+
         <Component {...pageProps} />
       </SiteProvider>
     </>

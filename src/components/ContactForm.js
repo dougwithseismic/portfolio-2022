@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { Formik, Form, useField } from 'formik'
 import * as Yup from 'yup'
+import SiteContext from '@context/siteContext'
 
 const TextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -62,6 +63,8 @@ const Select = ({ label, ...props }) => {
 
 // And now we can use these
 export const SignupForm = () => {
+  const { klaviyo } = useContext(SiteContext)
+
   return (
     <>
       <Formik
@@ -87,10 +90,8 @@ export const SignupForm = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           console.log('wow')
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            setSubmitting(false)
-          }, 400)
+          klaviyo.learnq.push(['identify', { email: values.email }])
+          setSubmitting(false)
         }}
       >
         <Form className="Form flex flex-col w-full max-w-4xl p-4 gap-4">

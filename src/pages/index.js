@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Layout } from '@components/Layout'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
@@ -197,10 +197,11 @@ export const Home = () => {
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
                   web development
                 </span>{' '}
-                and {' '}
+                and{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
                   affiliate marketing
-                </span>.
+                </span>
+                .
               </p>
             </div>
           </div>
@@ -232,8 +233,9 @@ export const Home = () => {
             </h2>
             <div className="rightContent flex flex-col gap-8">
               <p className="text-2xl max-w-2xl m-0">
-                Go where your audience lives and today, that's everywhere. Reddit. Discord. Reels.
-                Snapchat. Spotify. Facebook. Instagram. TikTok. Native. Search. Display. Video.  
+                Go where your audience lives and today, that's everywhere.
+                Reddit. Discord. Reels. Snapchat. Spotify. Facebook. Instagram.
+                TikTok. Native. Search. Display. Video.
               </p>
 
               <div className="socialIcons flex gap-8">
