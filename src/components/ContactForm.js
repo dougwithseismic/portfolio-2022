@@ -1,8 +1,109 @@
-import React, { useContext } from 'react'
-import ReactDOM from 'react-dom'
+import React, { useContext, useState } from 'react'
 import { Formik, Form, useField } from 'formik'
 import * as Yup from 'yup'
 import SiteContext from '@context/siteContext'
+import { ToastContainer, toast } from 'react-toastify'
+
+// And now we can use these
+export const SignupForm = () => {
+  const { klaviyo } = useContext(SiteContext)
+  const [submitted, setSubmitted] = useState(false)
+
+  return (
+    <>
+      <Formik
+        initialValues={{
+          firstName: '',
+          lastName: '',
+          email: '',
+          acceptedTerms: false, // added for our checkbox
+        }}
+        validationSchema={Yup.object({
+          firstName: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+          lastName: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+          email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+          acceptedTerms: Yup.boolean()
+            .required('Required')
+            .oneOf([true], 'You must accept the terms and conditions.'),
+        })}
+        onSubmit={(values, { setSubmitting }) => {
+          !submitted && toast("Thanks for your interest! Check your inbox for more details.")
+
+          klaviyo.learnq.push([
+            'identify',
+            {
+              $email: values.email,
+              $first_name: values.firstName,
+              $last_name: values.lastName,
+              $consent: ['email', 'web'],
+              signupOrigin: 'Contact Form',
+            },
+          ])
+          klaviyo.learnq.push(['track', 'Contact Form Submitted'])
+
+          setSubmitted(true)
+          setSubmitting(false)
+        }}
+      >
+        <Form className="Form flex flex-col w-full max-w-4xl p-4 gap-4">
+          <fieldset className="nameGroup flex flex-col md:flex-row gap-8">
+            <TextInput
+              label="First Name"
+              name="firstName"
+              type="text"
+              placeholder="Jane"
+            />
+
+            <TextInput
+              label="Last Name"
+              name="lastName"
+              type="text"
+              placeholder="Doe"
+            />
+          </fieldset>
+
+          <TextInput
+            label="Email Address"
+            name="email"
+            type="email"
+            placeholder="jane@formik.com"
+          />
+
+          <Checkbox name="acceptedTerms">
+            I accept the terms and conditions
+          </Checkbox>
+
+          <button
+            type="submit"
+            className="btn btn-primary p-4 bg-brightOrange flex w-full align-center justify-center font-bold uppercase font-sans text-2xl self-end"
+          >
+            Get In Touch
+          </button>
+        </Form>
+      </Formik>
+      <p className="text-sm">
+        By clicking the button, I agree with the collection and processing of my
+        personal data as described in the Privacy Policy.
+      </p>
+      <ToastContainer
+        theme="dark"
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+      />
+    </>
+  )
+}
 
 const TextInput = ({ label, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -58,93 +159,5 @@ const Select = ({ label, ...props }) => {
         <div className="error">{meta.error}</div>
       ) : null}
     </div>
-  )
-}
-
-// And now we can use these
-export const SignupForm = () => {
-  const { klaviyo } = useContext(SiteContext)
-
-  return (
-    <>
-      <Formik
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
-          acceptedTerms: false, // added for our checkbox
-        }}
-        validationSchema={Yup.object({
-          firstName: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
-          lastName: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Required'),
-          email: Yup.string()
-            .email('Invalid email address')
-            .required('Required'),
-          acceptedTerms: Yup.boolean()
-            .required('Required')
-            .oneOf([true], 'You must accept the terms and conditions.'),
-        })}
-        onSubmit={(values, { setSubmitting }) => {
-          klaviyo.learnq.push([
-            'identify',
-            {
-              $email: values.email,
-              $first_name: values.firstName,
-              $last_name: values.lastName,
-              $consent: ['email', 'web'],
-              signupOrigin: 'Contact Form',
-            },
-          ])
-
-          klaviyo.learnq.push(['track', 'Contact Form Submitted'])
-
-          setSubmitting(false)
-        }}
-      >
-        <Form className="Form flex flex-col w-full max-w-4xl p-4 gap-4">
-          <fieldset className="nameGroup flex flex-col md:flex-row gap-8">
-            <TextInput
-              label="First Name"
-              name="firstName"
-              type="text"
-              placeholder="Jane"
-            />
-
-            <TextInput
-              label="Last Name"
-              name="lastName"
-              type="text"
-              placeholder="Doe"
-            />
-          </fieldset>
-
-          <TextInput
-            label="Email Address"
-            name="email"
-            type="email"
-            placeholder="jane@formik.com"
-          />
-
-          <Checkbox name="acceptedTerms">
-            I accept the terms and conditions
-          </Checkbox>
-
-          <button
-            type="submit"
-            className="btn btn-primary p-4 bg-brightOrange flex w-full align-center justify-center font-bold uppercase font-sans text-2xl self-end"
-          >
-            Get In Touch
-          </button>
-        </Form>
-      </Formik>
-      <p className="text-sm">
-        By clicking the button, I agree with the collection and processing of my
-        personal data as described in the Privacy Policy.
-      </p>
-    </>
   )
 }
