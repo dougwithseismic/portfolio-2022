@@ -95,9 +95,13 @@ export const SignupForm = () => {
               $email: values.email,
               $first_name: values.firstName,
               $last_name: values.lastName,
+              $consent: ['email', 'web'],
               signupOrigin: 'Contact Form',
             },
           ])
+
+          klaviyo.learnq.push(['track', 'Contact Form Submitted'])
+
           setSubmitting(false)
         }}
       >
