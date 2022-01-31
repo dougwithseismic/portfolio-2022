@@ -1,4 +1,4 @@
-import useScrollProgress from '@hooks/useScrollProgress'
+import { useScrollProgress } from '@hooks/useScrollProgress'
 import Script from 'next/script'
 import React, { createContext, useState, useCallback } from 'react'
 // Describe SiteContext.
