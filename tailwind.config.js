@@ -16,8 +16,8 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
-      hero: ['5rem', '90%'],
-      jumbo: ['160px', '90%'],
+      hero: ['4.2rem', '90%'],
+      jumbo: ['160px', '80%'],
     },
     fontFamily: {
       sans: ['rift', 'sans-serif'],

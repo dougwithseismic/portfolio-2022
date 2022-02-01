@@ -1,0 +1,28 @@
+import { ArticleLayout } from '@components/ArticleLayout'
+
+export const meta = {
+  title: 'Terms And Conditions',
+  synopsis: 'Last Updated January 31st 2022',
+  date: '2020-10-16',
+  slug: 'terms-and-conditions',
+  draft: false
+}
+
+lorem ipsum dolor sit file.
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+[This is a code block](https://google.com)
+
+```js
+const wow = 1
+for (let i = 0; i < wow; i++) {
+  console.log(i)
+}
+```
+
+export default ({ children }) => <ArticleLayout meta={meta}>{children}</ArticleLayout>

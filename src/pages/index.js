@@ -1,21 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Layout } from '@components/Layout'
-import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
 import Typewriter from 'typewriter-effect'
-import { ClientBlock } from '@components/ClientBlock'
 import { Instagram, Facebook, Twitter } from '@components/Icons'
 import { Award } from '@components/Award'
-import { Formik } from 'formik'
 import { SignupForm } from '@components/ContactForm'
 import { Corners } from '@components/Corners'
-import { useWindowSize } from '@hooks/useWindowSize'
-import { useScrollProgress } from '@hooks/useScrollProgress'
-import { ScrollProgress } from '@components/scrollProgressBar'
+import Link from 'next/link'
 
 export const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -26,7 +21,7 @@ export const Home = () => {
 
   const variants = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: .75 } },
+    show: { opacity: 1, transition: { duration: 0.75 } },
   }
 
   const Lines = ({ columns = 12 }) => (
@@ -67,7 +62,7 @@ export const Home = () => {
         />
       </svg> */}
 
-      <section id="hero" className="md:mt-32">
+      <section id="hero" className="md:my-32">
         <div className="container z-20 flex">
           <div className="hero px-4 ">
             <motion.h1
@@ -96,7 +91,7 @@ export const Home = () => {
               </div>{' '}
               That get it.
             </motion.h1>
-            <div className="text-2xl max-w-3xl py-16">
+            <div className="text-2xl max-w-3xl pt-4">
               {/* <div className="count flex gap-4">
                 <div className="number">1</div>
                 <div className="title text-sm">Introduction</div>
@@ -133,7 +128,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="video" className=" text-white">
+      <section id="video" className=" text-white mt-32">
         <div className="container px-8">
           <div className="video__box relative my-8 md:my-16">
             <video autoPlay playsInline preload="auto" muted loop>
@@ -297,7 +292,7 @@ export const Home = () => {
             </h2>
             <div className="rightContent flex flex-col gap-8 order-2">
               <p className="text-2xl max-w-2xl m-0">
-                We understand data and analytics in a privacy-first world with
+                Understand data and analytics in a privacy-first world with
                 trackable ROI and incremental growth as standard, even in the
                 face of iOS 14 and beyond.
               </p>
@@ -314,11 +309,16 @@ export const Home = () => {
         whileInView="show"
       >
         <div className="container px-8 flex flex-col md:flex-row gap-8">
-          <div className="sideContent text-2xl p-4">
+          <div className="sideContent text-2xl">
             <h2 className="text-hero">What do we do?</h2>
             <div className="grid md:grid-cols-3 my-16 gap-16">
-              {SERVICES.map(({ title, description }, i) => (
-                <ServiceCard key={i} title={title} description={description} />
+              {SERVICES.map(({ title, description, link }, i) => (
+                <ServiceCard
+                  key={i}
+                  title={title}
+                  description={description}
+                  link={link}
+                />
               ))}
             </div>
           </div>
@@ -417,10 +417,10 @@ export const Home = () => {
       >
         <div className="container flex flex-col items-center p-4">
           <h2 className="text-hero m-0 md:text-jumbo z-10">Get In Touch</h2>
-          <p className="p-4 max-w-2xl">
-            If you're interested in learning more about partnering with Seismic
-            then drop your details below and we'll send you a complete service
-            list, pricing structure and first steps.
+          <p className="p-4 text-2xl max-w-2xl">
+            Hit up the form below and I'll be in touch ASAP, or reach out
+            directly to{' '}
+            <a href="mailto:hello@withseismic.com">hello@withseismic.com</a>
           </p>
           <SignupForm />
         </div>
@@ -473,7 +473,7 @@ const Card = ({ title, background, dark = false, index = 0 }) => {
   )
 }
 
-const ServiceCard = ({ title, description }) => {
+const ServiceCard = ({ title, description, link = '#' }) => {
   return (
     <div className="item">
       <div className="video__box relative max-w-2xl">
@@ -481,7 +481,9 @@ const ServiceCard = ({ title, description }) => {
       </div>
       <h3 className="text-4xl leading-tight">{title}</h3>
       <p className="text-faintGrey">{description}</p>
-      {/* <div className="btn btn-primary">Learn More</div> */}
+      <Link href={link} className="btn btn-primary">
+        Learn More
+      </Link>
     </div>
   )
 }
@@ -522,6 +524,8 @@ const SERVICES = [
   {
     title: 'Performance Marketing',
     description: `Modern campaigns for Search, Display, Video, Email, Affiliate, Automation & Feeds, Audience building, Lead generation.`,
+    link: '/services/performance-marketing',
+    cta: 'Performance Marketing'
   },
   {
     title: 'Tech & Development',

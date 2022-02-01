@@ -4,11 +4,12 @@ import { Award } from '@components/Award'
 import { SignupForm } from '@components/ContactForm'
 import { Layout } from '@components/Layout'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import React from 'react'
 
 const ServiceTemplate = () => {
   return (
-    <Layout title="service">
+    <Layout title="Performance Marketing">
       <motion.section
         id="introduction"
         className=" py-16"
@@ -17,10 +18,12 @@ const ServiceTemplate = () => {
       >
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <h2 className="text-hero m-0 md:text-jumbo">
-              Performance Marketing &{' '}
-              <span className="text-brightOrange">User Acquisition</span>
-            </h2>
+            <div className="hero">
+              <h2 className="text-hero m-0 md:text-jumbo">
+                Performance Marketing &{' '}
+                <span className="text-brightOrange">User Acquisition</span>
+              </h2>
+            </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
             Reach your audience with scroll-stopping creative and scale up
@@ -115,6 +118,27 @@ const ServiceTemplate = () => {
           </p>
         </div>
       </motion.section>
+
+
+      <motion.section initial="hidden" whileInView="show">
+        <div className="container p-8 grid md:grid-cols-2 md:gap-16">
+          {SERVICES.map(
+            ({ name = 'service', description = 'description' }, index) => (
+              <div key={index} className="service mb-16 md:px-16">
+                <div className="h5 text-faintGrey uppercase font-sans">
+                  Service
+                </div>
+                <h1 className="text-hero mt-0">{name}</h1>
+                <div
+                  className="content max-w-2xl text-2xl"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                ></div>
+              </div>
+            ),
+          )}
+        </div>
+      </motion.section>
+      
       <motion.section initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
@@ -132,18 +156,6 @@ const ServiceTemplate = () => {
           </div>
         </div>
       </motion.section>
-      {/* <section>
-        <div className="container">
-          <div className="grid md:grid-cols-3 gap-4">
-            <ArticleCard
-              title="Interested in learning more about partnering with Seismic
-            then drop your details below and"
-            />
-            <ArticleCard title="Test" />
-            <ArticleCard title="Test" />
-          </div>
-        </div>
-      </section> */}
 
       <motion.section
         id="contact"
@@ -168,11 +180,32 @@ const ServiceTemplate = () => {
 export default ServiceTemplate
 
 const SERVICES = [
-  { name: 'User Acquisition', link: '#userAcquisition' },
-  { name: 'Conversion Rate Optimization', link: '#performanceMarketing' },
-  { name: 'Data & Analytics', link: '#dataAnalytics' },
-  { name: 'Email Automation', link: '#selectedClients' },
-  { name: 'Affiliate', link: '#contact' },
+  {
+    name: 'User Acquisition',
+    link: '#userAcquisition',
+    description: `£1.3mil in revenue to a 17x trackable ROAS for startups in 2021 is a pretty decent reason to get involved with Seismic, don't you think? 🏧`,
+  },
+  {
+    name: 'Conversion Rate Optimization',
+    link: '#performanceMarketing',
+    description: `<p>Make tweaks, changes and big swings to squeeze the most out of your marketing spend. More customers, more revenue, more sales.</p>`,
+    cta: { text: 'Get in touch', link: '#contact' },
+  },
+  {
+    name: 'Data & Analytics',
+    link: '#dataAnalytics',
+    description: `<p>Measure, track, forecast accurately from the start. Analytics doesn't have to be confusing, scary of expensive, but it is a neccessity.</p> <p>The good news is you can get up and running today.</p>`,
+  },
+  {
+    name: 'Microsite Development',
+    link: '#selectedClients',
+    description: `Create sticky, sharable microsite hooks that keep new customers excited and existing customers loyal, without forgetting commercials. This is the new way to get customers to your brand.`,
+  },
+  {
+    name: 'Business Automation',
+    link: '#contact',
+    description: `Save costs by building an automated, scalable business from the start by baking Search, Display and Content automation into your product to automagically generate campaigns, ads and content.`,
+  },
 ]
 
 const AWARDS = [

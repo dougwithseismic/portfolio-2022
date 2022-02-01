@@ -34,7 +34,7 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
         initial="dark"
         animate={darkModeOptions.darkMode ? 'dark' : 'light'}
       >
-        {/* <Header /> */}
+        <Header />
         <ScrollProgress />
 
         <main id="main" className="mb-auto mt-[96px]">
