@@ -189,6 +189,9 @@ export const Home = ({ articles }) => {
                 their effort through paid advertising, content development and
                 microsites.
               </p>
+              <p>
+
+              </p>
 
               {/* <Link href="/article/why-you-need-a-hook-microsites-on-steroids/" className="cursor-pointer"> 
                 What's a Microsite?
@@ -196,7 +199,7 @@ export const Home = ({ articles }) => {
             </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            That's 
+            That's {' '}
             <span className="text-brightOrange ">£1.3 million</span> in
             directly trackable revenue with a{' '}
             <span className="text-brightOrange ">
