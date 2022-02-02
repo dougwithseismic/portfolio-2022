@@ -196,11 +196,11 @@ export const Home = ({ articles }) => {
             </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            In 2021, we drove{' '}
+            That's 
             <span className="text-brightOrange ">£1.3 million</span> in
-            trackable revenue with a{' '}
+            directly trackable revenue with a{' '}
             <span className="text-brightOrange ">
-              17x ROAS for partnering brands.{' '}
+              17x ROAS on total costs for partnering brands.{' '}
             </span>
             Want to do the same?
           </p>
