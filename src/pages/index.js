@@ -11,8 +11,9 @@ import { Award } from '@components/Award'
 import { SignupForm } from '@components/ContactForm'
 import { Corners } from '@components/Corners'
 import Link from 'next/link'
+import { dato } from '@utility/initDato'
 
-export const Home = () => {
+export const Home = ({ articles }) => {
   const [activeSlide, setActiveSlide] = useState(0)
 
   useEffect(() => {
@@ -62,12 +63,12 @@ export const Home = () => {
         />
       </svg> */}
 
-      <section id="hero" className="md:my-32">
+      <section id="hero" className="md:mt-32 p-8">
         <div className="container z-20 flex">
-          <div className="hero px-4 ">
+          <div className="hero">
             <motion.h1
               animate={{ opacity: 1 }}
-              className="text-hero m-0 md:text-jumbo max-w-6xl translate-x-2 z-10"
+              className="text-[80px] m-0 md:text-jumbo max-w-6xl"
             >
               Powering{' '}
               <div className="text-brightOrange">
@@ -91,7 +92,7 @@ export const Home = () => {
               </div>{' '}
               That get it.
             </motion.h1>
-            <div className="text-2xl max-w-3xl pt-4">
+            <div className="text-2xl max-w-3xl py-4">
               {/* <div className="count flex gap-4">
                 <div className="number">1</div>
                 <div className="title text-sm">Introduction</div>
@@ -120,7 +121,7 @@ export const Home = () => {
                 </span>
                 .
               </p>
-              <button className="btn btn-primary p-4 mt-4 border-2 border-brightOrange hover:bg-brightOrange max-w-xs w-full align-center justify-center font-bold uppercase font-sans text-2xl">
+              <button className="btn btn-primary p-4 my-4 border-2 border-brightOrange hover:bg-brightOrange w-full md:max-w-xs  align-center justify-center font-bold uppercase font-sans text-2xl">
                 Get In Touch
               </button>
             </div>
@@ -128,7 +129,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id="video" className=" text-white mt-32">
+      <section id="video" className=" text-white md:mt-32">
         <div className="container px-8">
           <div className="video__box relative my-8 md:my-16">
             <video autoPlay playsInline preload="auto" muted loop>
@@ -177,36 +178,28 @@ export const Home = () => {
       >
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <h2 className="text-6xl m-0 md:text-jumbo translate-x-2 z-10">
-              Start heading where you need to be.
+            <h2 className="text-6xl m-0 md:text-jumbo z-10">
+              In 2021 we drove <span className="text-brightOrange">£1.3m</span>{' '}
+              revenue to <span className="text-brightOrange">17x roas</span>.
             </h2>
             <div className="rightContent text-2xl max-w-2xl">
               <p className=""></p>
               <p className="md:mt-32">
-                I help tackle growth for ambitious B2C brands that need to see
-                trackable ROI on their digital investments through{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  paid advertising
-                </span>
-                ,{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  web development
-                </span>{' '}
-                and{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  affiliate marketing
-                </span>
-                .
+                We help ambitious B2C brands build modern, trackable returns on
+                their effort through paid advertising, content development and
+                microsites.
               </p>
+
+              {/* <Link href="/article/why-you-need-a-hook-microsites-on-steroids/" className="cursor-pointer"> 
+                What's a Microsite?
+              </Link> */}
             </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            In 2021, I drove{' '}
-            <span className="text-brightOrange underline underline-offset-4">
-              £1.3 million
-            </span>{' '}
-            in trackable revenue with a{' '}
-            <span className="text-brightOrange underline underline-offset-4">
+            In 2021, we drove{' '}
+            <span className="text-brightOrange ">£1.3 million</span> in
+            trackable revenue with a{' '}
+            <span className="text-brightOrange ">
               17x ROAS for partnering brands.{' '}
             </span>
             Want to do the same?
@@ -220,11 +213,11 @@ export const Home = () => {
         </div>
       </section> */}
 
-      <motion.section variants={variants} initial="hidden" whileInView="show">
+      {/* <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10">
-              Digital Native. <span className="text-brightOrange">Check.</span>
+            <h2 className="text-hero m-0 md:text-jumbo z-10">
+            WE CREATE eXPERIENCES CUSTOMERS <span className="text-brightOrange">LOVE.</span>
             </h2>
             <div className="rightContent flex flex-col gap-8">
               <p className="text-2xl max-w-2xl m-0">
@@ -241,7 +234,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       <section id="imageReel" className="mt-32">
         <motion.div
@@ -286,7 +279,7 @@ export const Home = () => {
       <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10 order-1 text-right">
+            <h2 className="text-hero m-0 md:text-jumbo z-10 order-1 text-right">
               Data-led Creative-driven{' '}
               <span className="text-brightOrange">Check.</span>
             </h2>
@@ -302,8 +295,8 @@ export const Home = () => {
       </motion.section>
 
       <motion.section
-        id="video"
-        className=" text-white"
+        id="services"
+        className=" my-32"
         variants={variants}
         initial="hidden"
         whileInView="show"
@@ -338,8 +331,8 @@ export const Home = () => {
 
       <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 pt-16 my-32">
-            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10">
+          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-32">
+            <h2 className="text-hero m-0 md:text-jumbo z-10">
               Paid-On-Results? <span className="text-brightOrange">Check.</span>
             </h2>
             <div className="rightContent flex flex-col gap-8 text-2xl max-w-2xl ">
@@ -393,14 +386,13 @@ export const Home = () => {
               onSwiper={(swiper) => console.log(swiper)}
               onClick={({ clickedIndex }) => setActiveSlide(clickedIndex + 1)}
             >
-              {CARDS.map(({ title, content, background }, i) => (
+              {articles.map(({ editorialTitle, slug }, i) => (
                 <SwiperSlide key={i}>
                   <Card
                     dark={true}
-                    title={title}
-                    content={content}
-                    background={background}
+                    title={editorialTitle}
                     index={i}
+                    slug={`/article/${slug}`}
                   />
                 </SwiperSlide>
               ))}
@@ -408,6 +400,7 @@ export const Home = () => {
           </div>
         </div>
       </section> */}
+
       <motion.section
         id="contact"
         className="my-32"
@@ -431,45 +424,44 @@ export const Home = () => {
 
 export default Home
 
-const Card = ({ title, background, dark = false, index = 0 }) => {
+const Card = ({
+  title,
+  slug,
+  background = '/word-of-tanks.png',
+  dark = false,
+  index = 0,
+}) => {
   const [hovered, setHovered] = useState(false)
-  const cardRef = useRef()
-
-  useEffect(() => {
-    dark
-      ? cardRef.current.classList.add('border-[#141414]')
-      : cardRef.current.classList.add('border-[white]')
-  }, [dark, cardRef])
 
   return (
-    <div
-      className="p-8 h-[480px] border-2 rounded-lg relative z-99 cursor-pointer bg-backgroundBlack"
+    <Link
+      href={slug}
+      passHref
       onMouseOver={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      ref={cardRef}
     >
-      <div className="content h-full flex flex-col justify-between z-10 relative">
-        <div className="top">
-          <Image src={'/war-gaming.svg'} alt="fuck" height={36} width={108} />
+      <div className="p-8 h-[480px] border-2 rounded-lg relative z-99 border-[#141414] cursor-pointer bg-backgroundBlack">
+        <div className="content h-full flex flex-col justify-between z-10 relative">
+          <div className="top"></div>
+          <div className="middle text-2xl leading-snug">{title}</div>
+          <div className="lower uppercase font-sans">Read Article</div>
         </div>
-        <div className="middle text-2xl leading-snug">{title}</div>
-        <div className="lower uppercase">View Campaign</div>
+        <motion.div
+          className="z-0"
+          initial={{ opacity: 0 }}
+          animate={hovered ? { opacity: 0.5 } : { opacity: 0 }}
+        >
+          <Image
+            src={background}
+            className=""
+            objectFit="cover"
+            position="absolute"
+            alt={title}
+            layout="fill"
+          />
+        </motion.div>
       </div>
-      <motion.div
-        className="z-0"
-        initial={{ opacity: 0 }}
-        animate={hovered ? { opacity: 0.5 } : { opacity: 0 }}
-      >
-        <Image
-          src={background}
-          className=""
-          objectFit="cover"
-          position="absolute"
-          alt={title}
-          layout="fill"
-        />
-      </motion.div>
-    </div>
+    </Link>
   )
 }
 
@@ -525,7 +517,7 @@ const SERVICES = [
     title: 'Performance Marketing',
     description: `Modern campaigns for Search, Display, Video, Email, Affiliate, Automation & Feeds, Audience building, Lead generation.`,
     link: '/services/performance-marketing',
-    cta: 'Performance Marketing'
+    cta: 'Performance Marketing',
   },
   {
     title: 'Tech & Development',
@@ -549,3 +541,13 @@ const AWARDS = [
     `,
   },
 ]
+
+export const getStaticProps = async ({ params }) => {
+  const articles = await dato.getAllArticles()
+
+  return {
+    props: {
+      articles,
+    },
+  }
+}
