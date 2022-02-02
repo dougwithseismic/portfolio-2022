@@ -71,6 +71,7 @@ const getSpecificArticle = async (slug) => {
     const { article } = await client
       .request(GET_SPECIFIC_ARTICLE, { slug })
       .then((res) => res)
+      console.log('article :>> ', article);
     return article
   } catch (error) {
     console.log('error :>> ', error)
