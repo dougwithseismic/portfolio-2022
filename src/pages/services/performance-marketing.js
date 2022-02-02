@@ -84,10 +84,10 @@ const ServiceTemplate = () => {
           </div>
         </div>
       </section>
-
+{/* 
       <motion.section
         id="introduction"
-        className=" py-16 mt-32"
+        className=" py-16 my-32"
         initial="hidden"
         whileInView="show"
       >
@@ -97,27 +97,15 @@ const ServiceTemplate = () => {
               100% Trackable Growth.
             </h2>
             <div className="rightContent text-2xl max-w-2xl">
-              <p className=""></p>
-              <p className="md:mt-32">
-                In 2021, I managed over £1.5mil in paid advertising on
-                Instagram, Facebook, YouTube, Twitter & TikTok for B2C ecommerce
-                & publishers.
-              </p>
+
             </div>
           </div>
           <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            In 2021, I drove{' '}
-            <span className="text-brightOrange underline underline-offset-4">
-              £1.3 million
-            </span>{' '}
-            in trackable revenue with a{' '}
-            <span className="text-brightOrange underline underline-offset-4">
-              17x ROAS for partnering brands.{' '}
-            </span>
-            Want to do the same?
+            Where are your next 10,000 customers coming from? Join our 
+            
           </p>
         </div>
-      </motion.section>
+      </motion.section> */}
 
 
       <motion.section initial="hidden" whileInView="show">
