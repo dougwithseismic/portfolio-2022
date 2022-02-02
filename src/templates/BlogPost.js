@@ -27,7 +27,9 @@ export const BlogPost = ({ slug, article }) => {
                 <h1 className="text-hero md:text-[120px] text-white">
                   {title}
                 </h1>
-                <ReactMarkdown components={{ p: Paragraph, h2: H2, ul: UL, ol: OL }}>
+                <ReactMarkdown
+                  components={{ p: Paragraph, h2: H2, ul: UL, ol: OL }}
+                >
                   {description}
                 </ReactMarkdown>
               </article>
@@ -56,10 +58,8 @@ const H2 = ({ children }) => {
 }
 
 const UL = ({ children }) => {
-  return <ul className="list-disc list-inside">{children}</ul>
+  return <ul className="list-disc pl-8">{children}</ul>
 }
 const OL = ({ children }) => {
-  return <ul className="list-decimal list-inside">{children}</ul>
+  return <ul className="list-decimal pl-4">{children}</ul>
 }
-
-

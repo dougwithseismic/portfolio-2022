@@ -11,12 +11,21 @@ export default BlogArticle
 export const getStaticProps = async ({ params }) => {
   const article = await dato.getSpecificArticle(params.slug)
 
+  if (article) {
+    return {
+      props: {
+        slug: params.slug,
+        article,
+      },
+      revalidate: 10,
+    }
+  }
+
   return {
-    props: {
-      slug: params.slug,
-      article,
+    redirect: {
+      destination: '/',
+      permanent: false,
     },
-    revalidate: 10,
   }
 }
 
@@ -29,6 +38,6 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
