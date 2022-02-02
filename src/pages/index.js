@@ -183,30 +183,37 @@ export const Home = ({ articles }) => {
               revenue to <span className="text-brightOrange">17x roas</span>.
             </h2>
             <div className="rightContent text-2xl max-w-2xl">
-              <p className=""></p>
-              <p className="md:mt-32">
-                We help ambitious B2C brands build modern, trackable returns on
-                their effort through paid advertising, content development and
-                microsites.
+              <p>
+                <p>
+                  We help ambitious B2C brands build modern, trackable returns
+                  on their efforts by creating experiences that are engaging and
+                  memorable.
+                </p>
               </p>
               <p>
-
+                Our team of award-winning designers, developers and strategists
+                have helped our clients win over 100 awards since we started in
+                2016.
               </p>
+
+              <p></p>
+              <p></p>
 
               {/* <Link href="/article/why-you-need-a-hook-microsites-on-steroids/" className="cursor-pointer"> 
                 What's a Microsite?
               </Link> */}
             </div>
           </div>
-          <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            That's {' '}
-            <span className="text-brightOrange ">£1.3 million</span> in
-            directly trackable revenue with a{' '}
-            <span className="text-brightOrange ">
-              17x ROAS on total costs for partnering brands.{' '}
-            </span>
-            Want to do the same?
-          </p>
+          <div className="next max-w-2xl text-2xl mt-8 md:p-4 text-faintGrey">
+            <p className="">
+              That's <span className="text-brightOrange ">£1.3 million</span> in
+              directly trackable revenue with a{' '}
+              <span className="text-brightOrange ">
+                17x ROAS on total costs for partnering brands.{' '}
+              </span>
+              Want to do the same?
+            </p>
+          </div>
         </div>
       </motion.section>
 

@@ -12,9 +12,7 @@ export const BlogPost = ({ slug, article }) => {
 
   return (
     <>
-      <Head>
-        {renderMetaTags(_seoMetaTags)}
-      </Head>
+      <Head>{renderMetaTags(_seoMetaTags)}</Head>
       <Layout title={title}>
         <section>
           <div className="container">
@@ -29,7 +27,7 @@ export const BlogPost = ({ slug, article }) => {
                 <h1 className="text-hero md:text-[120px] text-white">
                   {title}
                 </h1>
-                <ReactMarkdown components={{ p: Paragraph }}>
+                <ReactMarkdown components={{ p: Paragraph, h2: H2, ul: UL, ol: OL }}>
                   {description}
                 </ReactMarkdown>
               </article>
@@ -48,5 +46,20 @@ export const BlogPost = ({ slug, article }) => {
 }
 
 const Paragraph = ({ children }) => {
-  return <p className="text-base text-faintGrey">{children}</p>
+  return (
+    <p className="text-lg text-faintGrey leading-[240%] mb-16">{children}</p>
+  )
 }
+
+const H2 = ({ children }) => {
+  return <h2 className="text-2xl font-serif font-normal mb-16">{children}</h2>
+}
+
+const UL = ({ children }) => {
+  return <ul className="list-disc list-inside">{children}</ul>
+}
+const OL = ({ children }) => {
+  return <ul className="list-decimal list-inside">{children}</ul>
+}
+
+
