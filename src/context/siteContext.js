@@ -18,7 +18,7 @@ const SiteProvider = (props) => {
 
   const darkVariants = {
     dark: {
-      backgroundColor: '#000',
+      backgroundColor: '#080808',
       color: '#F9F9FD',
     },
 

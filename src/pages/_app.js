@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import analytics from '@utility/initAnalytics'
 import { useEffect } from 'react'
-import Script from 'next/script'
+import { AnimatePresence } from 'framer-motion'
 
 // Top-level Rendering.
 function MyApp({ Component, pageProps }) {
@@ -19,7 +19,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <SiteProvider>
-        <Component {...pageProps} />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} />
+        </AnimatePresence>
       </SiteProvider>
     </>
   )

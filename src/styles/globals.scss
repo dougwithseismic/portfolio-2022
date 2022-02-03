@@ -9,6 +9,10 @@ html,
     line-height: 21px;
 }
 
+svg {
+    fill: white;
+}
+
 body,
 .article {
     font-family: neue-haas-grotesk-text, sans-serif;
@@ -24,11 +28,7 @@ body.dark {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
     font-family: "Rift", sans-serif;
     font-weight: bold;
 }
@@ -215,7 +215,6 @@ a {
 
 /* XXLarge screens */
 @media only screen and (min-width: 120.063em) {
-
 }
 
 /* min-width 1921px, xlarge screens */

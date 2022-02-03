@@ -38,7 +38,6 @@ export const Home = ({ articles }) => {
   return (
     <Layout title="Home">
       {/* <Lines columns={12} /> */}
-
       <Corners title="Home" />
 
       {/* <svg className="fixed inset-4">
@@ -97,7 +96,7 @@ export const Home = ({ articles }) => {
                 <div className="number">1</div>
                 <div className="title text-sm">Introduction</div>
               </div> */}
-              <p className="md:indent-32">
+              <p className="md:indent-32 py-4">
                 Trust in twelve years of building killer marketing campaigns,
                 tools and microsites for digital-savvy{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
@@ -185,20 +184,13 @@ export const Home = ({ articles }) => {
             <div className="rightContent text-2xl max-w-2xl">
               <p>
                 <p>
-                  We help ambitious B2C brands build modern, trackable returns
-                  on their efforts by creating experiences that are engaging and
-                  memorable.
+                  We're partnering with the most ambitious B2C brands to build
+                  modern digital experiences with trackable returns through{' '}
+                  <span className="text-brightOrange">paid media</span>,{' '}
+                  <span className="text-brightOrange">content marketing</span> &{' '}
+                  <span className="text-brightOrange">analytics</span>.
                 </p>
               </p>
-              <p>
-                Our team of award-winning designers, developers and strategists
-                have helped our clients win over 100 awards since we started in
-                2016.
-              </p>
-
-              <p></p>
-              <p></p>
-
               {/* <Link href="/article/why-you-need-a-hook-microsites-on-steroids/" className="cursor-pointer"> 
                 What's a Microsite?
               </Link> */}

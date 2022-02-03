@@ -11,8 +11,6 @@ export default BlogArticle
 export const getStaticProps = async ({ params }) => {
   const article = await dato.getSpecificArticle(params.slug)
 
-  console.log('article :>> ', article);
-
   if (article) {
     return {
       props: {
