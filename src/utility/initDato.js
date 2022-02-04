@@ -71,8 +71,44 @@ const getSpecificArticle = async (slug) => {
     const { article } = await client
       .request(GET_SPECIFIC_ARTICLE, { slug })
       .then((res) => res)
-      console.log('article :>> ', article);
     return article
+  } catch (error) {
+    console.log('error :>> ', error)
+    return null
+  }
+}
+
+const getSpecificJobSpec = async (slug) => {
+  const GET_SPECIFIC_JOBSPEC = `query getSpecificJobSpec($slug: String) {
+        jobspec: jobspec(filter: {slug: {eq: $slug}}) {
+          id
+          slug
+          title
+          salaryRange
+          description
+
+          tags {
+            id
+            name
+          }
+          location {
+            title
+            id
+          }
+          _seoMetaTags {
+            attributes
+            content
+            tag
+          }
+        }
+      }
+      
+    `
+  try {
+    const { jobspec } = await client
+      .request(GET_SPECIFIC_JOBSPEC, { slug })
+      .then((res) => res)
+    return jobspec
   } catch (error) {
     console.log('error :>> ', error)
     return null
@@ -82,4 +118,5 @@ const getSpecificArticle = async (slug) => {
 export const dato = {
   getAllArticles,
   getSpecificArticle,
+  getSpecificJobSpec,
 }

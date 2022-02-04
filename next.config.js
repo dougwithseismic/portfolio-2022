@@ -13,7 +13,7 @@ const withMDX = require('@next/mdx')({
 
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  trailingSlash: true,
+  trailingSlash: false,
   images: {
     domains: ['source.unsplash.com'],
   },

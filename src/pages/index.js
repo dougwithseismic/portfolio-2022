@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
 import Typewriter from 'typewriter-effect'
-import { Instagram, Facebook, Twitter } from '@components/Icons'
+import { Instagram, Facebook, Twitter, GlobeIcon } from '@components/Icons'
 import { Award } from '@components/Award'
 import { SignupForm } from '@components/ContactForm'
 import { Corners } from '@components/Corners'
@@ -38,7 +38,7 @@ export const Home = ({ articles }) => {
   return (
     <Layout title="Home">
       {/* <Lines columns={12} /> */}
-      <Corners title="Home" />
+      {/* <Corners title="Home" /> */}
 
       {/* <svg className="fixed inset-4">
         <path d="M25,2 L2,2 L2,25" fill="none" stroke="white" strokeWidth="3" />
@@ -339,9 +339,9 @@ export const Home = ({ articles }) => {
             </h2>
             <div className="rightContent flex flex-col gap-8 text-2xl max-w-2xl ">
               <p className="m-0">
-                True Performance Marketing. Low up-front costs. Trackable
-                Revenue. We build micro-campaigns, sites and content that's
-                relevant, engaging and profitable.
+                Low up-front costs. Only pay for results generated from
+                trackable revenue driven by micro-campaigns, sites and content
+                that's relevant, engaging and profitable.
               </p>
               <p>
                 In 2021 our portfolio of performance marketing sites pulled in
@@ -359,6 +359,38 @@ export const Home = ({ articles }) => {
           </div>
         </div>
       </motion.section>
+
+      <section>
+        <div className="container md:my-32">
+          <h2 className="text-hero">Careers</h2>
+          <div className="flex flex-col">
+            {JOBS.map(({ title, salaryRange, type, location }, i) => (
+              <motion.div
+                whileHover={{ scale: 0.99 }}
+                key={i}
+                className="items-baseline leading-tight job-position grid grid-cols-3 md:grid-cols-4 gap-8 w-full  justify-between border-b-2 border-[#141414] p-8  font-sans text-2xl"
+              >
+                <div className="title font-bold">{title}</div>
+                <div className="text-faintGrey salary text-right">
+                  {salaryRange}/month
+                </div>
+
+                <div className="location hidden md:flex items-center gap-2 justify-end">
+                  <GlobeIcon fill={'#141414'} />
+                  {location}
+                </div>
+                <Link href="/careers/ui-designer">
+                  <a
+                    className="apply text-right uppercase text-brightOrange"
+                  >
+                    Apply Now
+                  </a>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* <section id="case-studies" className="my-32">
         <div className="container overflow-visible">
@@ -541,6 +573,45 @@ const AWARDS = [
     title: `MOST CREATIVE PERFORMANCE CAMPAIGN`,
     collaborators: `vouchercloud × TOPMAN
     `,
+  },
+]
+
+const JOBS = [
+  {
+    title: 'Account Manager - DE',
+    salaryRange: '60-80k CZK',
+    type: 'contract',
+    location: 'Remote',
+  },
+  {
+    title: 'Account Manager - EN',
+    salaryRange: '60-80k CZK',
+    type: 'contract',
+    location: 'Remote',
+  },
+  {
+    title: 'React FE Developer',
+    salaryRange: '80-100 CZK',
+    type: 'contract',
+    location: 'Remote',
+  },
+  {
+    title: 'UI Designer',
+    salaryRange: '60-80k CZK',
+    type: 'contract',
+    location: 'Remote',
+  },
+  {
+    title: 'Copywriter',
+    salaryRange: '60-80k CZK',
+    type: 'contract',
+    location: 'Remote',
+  },
+  {
+    title: 'Mograph Videographer',
+    salaryRange: '60-80k CZK',
+    type: 'contract',
+    location: 'Remote',
   },
 ]
 
