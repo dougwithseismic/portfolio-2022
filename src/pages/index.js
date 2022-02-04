@@ -360,7 +360,7 @@ export const Home = ({ articles }) => {
         </div>
       </motion.section>
 
-      <section>
+      {/* <section>
         <div className="container md:my-32">
           <h2 className="text-hero">Careers</h2>
           <div className="flex flex-col">
@@ -390,7 +390,7 @@ export const Home = ({ articles }) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <section id="case-studies" className="my-32">
         <div className="container overflow-visible">
