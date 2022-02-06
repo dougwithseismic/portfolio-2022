@@ -87,14 +87,6 @@ const getSpecificJobSpec = async (slug) => {
           salaryRange
           description
 
-          tags {
-            id
-            name
-          }
-          location {
-            title
-            id
-          }
           _seoMetaTags {
             attributes
             content

@@ -24,9 +24,9 @@ export const BlogPost = ({ slug, article }) => {
       <Head>{renderMetaTags(_seoMetaTags)}</Head>
       <Layout title={title}>
         <section>
-          <div className="container">
-            <div className="grid grid-cols-12 relative">
-              <div className="col-span-2 sticky top-12 h-[250px] flex flex-col gap-2">
+          <div className="container px-8">
+            <div className="article grid grid-cols-1 md:grid-cols-12 relative">
+              <div className="sidebar col-span-2 md:sticky top-12 h-[250px] flex flex-col gap-2 order-last md:order-first">
                 <h2 className="border-b-2 m-0 text-2xl leading-tight border-[#1b1b1b] py-2 w-auto text-brightOrange">
                   {title}
                 </h2>
@@ -53,7 +53,7 @@ export const BlogPost = ({ slug, article }) => {
                   </div>
                 </div>
               </div>
-              <article className="col-start-4 col-span-7 text">
+              <article className="md:col-start-4 col-span-7 text">
                 <h1 className="text-hero md:text-[120px] text-white">
                   {title}
                 </h1>

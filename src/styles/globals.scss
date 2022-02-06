@@ -33,6 +33,13 @@ h2 {
     font-weight: bold;
 }
 
+h3,
+h4,
+h5,
+h6 {
+    line-height: 190%;
+}
+
 p,
 ul,
 ol,
@@ -103,7 +110,7 @@ a {
     .h3 {
         font-size: 26px;
         font-weight: 500;
-        line-height: 21px;
+        line-height: 160%;
         margin-top: 21px;
         margin-bottom: 21px;
     }
@@ -131,6 +138,7 @@ a {
     }
 
     article {
+        overflow: hidden;
         p {
             font-size: 24px;
             line-height: 190%;
@@ -199,6 +207,10 @@ a {
         .swiper-wrapper {
             margin-left: 0 !important;
         }
+    }
+
+    .container {
+        max-width: 1024px;
     }
 }
 

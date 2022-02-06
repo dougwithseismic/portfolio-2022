@@ -62,7 +62,7 @@ export const Home = ({ articles }) => {
         />
       </svg> */}
 
-      <section id="hero" className="md:mt-32 p-8">
+      <section id="hero" className="md:mt-16 px-8">
         <div className="container z-20 flex">
           <div className="hero">
             <motion.h1
@@ -170,7 +170,7 @@ export const Home = ({ articles }) => {
 
       <motion.section
         id="introduction"
-        className=" py-16 mt-32"
+        className=" py-16 my-64"
         variants={variants}
         initial="hidden"
         whileInView="show"
@@ -360,7 +360,7 @@ export const Home = ({ articles }) => {
         </div>
       </motion.section>
 
-      {/* <section>
+      <section>
         <div className="container md:my-32">
           <h2 className="text-hero">Careers</h2>
           <div className="flex flex-col">
@@ -390,7 +390,7 @@ export const Home = ({ articles }) => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* <section id="case-studies" className="my-32">
         <div className="container overflow-visible">

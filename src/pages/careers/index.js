@@ -116,7 +116,7 @@ const JOBS = [
     salaryRange: '60-80k CZK',
     type: 'contract',
     location: 'Remote',
-    slug: 'UI-designer',
+    slug: 'ui-designer',
   },
   {
     title: 'Copywriter',

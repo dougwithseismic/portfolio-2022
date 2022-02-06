@@ -11,7 +11,7 @@ module.exports = {
       base: ['1rem', '190%'],
       lg: '1.125rem',
       xl: '1.25rem',
-      '2xl': ['24px', '190%'],
+      '2xl': ['20px', '190%'],
       '3xl': '1.875rem',
       '4xl': '2.25rem',
       '5xl': '3rem',

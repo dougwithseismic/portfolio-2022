@@ -12,7 +12,14 @@ import siteSettings from '/siteSettings.js'
 import { dato } from '@utility/initDato'
 
 const JobSpecPage = ({ slug, jobspec }) => {
-  const { title, _seoMetaTags, description, salaryRange, location, tags } = jobspec
+  const {
+    title,
+    _seoMetaTags,
+    description,
+    salaryRange,
+    location,
+    tags,
+  } = jobspec
   const { siteDomain } = siteSettings
   const { asPath } = useRouter()
   const url = `${siteDomain}${asPath}`
@@ -22,9 +29,9 @@ const JobSpecPage = ({ slug, jobspec }) => {
       <Head>{renderMetaTags(_seoMetaTags)}</Head>
       <Layout title={title}>
         <section>
-          <div className="container">
-            <div className="grid grid-cols-12 relative">
-              <div className="col-span-2 sticky top-12 h-[250px] flex flex-col gap-2">
+          <div className="container px-8">
+            <div className="article flex flex-col md:grid grid-cols-12 relative">
+              <div className="sidebar col-span-2 md:sticky top-12 h-[250px] flex flex-col gap-2 order-last md:order-first">
                 <h2 className="border-b-2 m-0 text-2xl leading-tight border-[#1b1b1b] py-2 w-auto text-brightOrange">
                   {title}
                 </h2>
