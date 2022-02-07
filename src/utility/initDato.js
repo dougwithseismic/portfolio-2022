@@ -107,8 +107,39 @@ const getSpecificJobSpec = async (slug) => {
   }
 }
 
+const getAllJobSpecs = async () => {
+  const GET_ALL_JOBSPECS = `query {
+        jobspecs: allJobspecs {
+          id
+          slug
+          title
+          salaryRange
+          description
+
+          _seoMetaTags {
+            attributes
+            content
+            tag
+          }
+        }
+      }
+      
+    `
+
+  try {
+    const { jobspecs } = await client
+      .request(GET_ALL_JOBSPECS)
+      .then((res) => res)
+    return jobspecs
+  } catch (error) {
+    console.log('error :>> ', error)
+    return null
+  }
+}
+
 export const dato = {
   getAllArticles,
   getSpecificArticle,
+  getAllJobSpecs,
   getSpecificJobSpec,
 }

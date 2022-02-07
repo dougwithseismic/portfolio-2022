@@ -125,9 +125,15 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths = async () => {
+  const jobspecs = await dato.getAllJobSpecs()
+
+  const paths = jobspecs.map(({ slug }) => {
+    return { params: { slug } }
+  })
+
   return {
-    paths: [{ params: { slug: 'ui-designer' } }],
+    paths,
     fallback: 'blocking', // false or 'blocking'
   }
 }
