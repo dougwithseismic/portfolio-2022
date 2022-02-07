@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { SignupForm } from '@components/ContactForm'
-import { LinkedIn, Twitter } from '@components/Icons'
+import { GlobeIcon, LinkedIn, Twitter } from '@components/Icons'
 import { Layout } from '@components/Layout'
 import React, { useEffect } from 'react'
 import { Markdown } from '@utility/markdown'
@@ -31,15 +31,21 @@ const JobSpecPage = ({ slug, jobspec }) => {
         <section>
           <div className="container px-8">
             <div className="article flex flex-col md:grid grid-cols-12 relative">
-              <div className="sidebar col-span-2 md:sticky top-12 h-[250px] flex flex-col gap-2 order-last md:order-first">
-                <h2 className="border-b-2 m-0 text-2xl leading-tight border-[#1b1b1b] py-2 w-auto text-brightOrange">
+              <div className="sidebar col-span-2 md:sticky top-12 h-[250px] flex flex-col gap-4 order-last md:order-first">
+                <h2 className="border-b-2 m-0 text-3xl leading-tight border-[#1b1b1b] py-2 w-auto text-brightOrange">
                   {title}
                 </h2>
-                <div className="py-2 flex flex-col gap-4">
-                  <button className="btn btn-primary p-2 my-4 bg-brightOrange w-full md:max-w-xs font-bold uppercase font-sans text-2xl">
+                <div className="flex flex-col gap-4">
+                  <div className="jobDetail">
+                    <div className="salaryRange uppercase text-faintGrey font-sans text-2xl">
+                      {salaryRange}
+                    </div>
+                  </div>
+
+                  <button className="btn btn-primary p-2 bg-brightOrange w-full md:max-w-xs font-bold uppercase font-sans text-2xl">
                     Apply Now
                   </button>
-                  <div className="social flex h-2 gap-4">
+                  <div className="social flex gap-4">
                     <a
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
                       target="_blank"
@@ -63,6 +69,22 @@ const JobSpecPage = ({ slug, jobspec }) => {
                   {title}
                 </h1>
                 <Markdown>{description}</Markdown>
+                <div className="extraDetail">
+                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl">
+                    Budget: {salaryRange}
+                  </div>
+                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl">
+                    Date Posted:{' '}
+                    {new Date().toLocaleString('en-GB', {
+                      day: 'numeric',
+                      month: 'numeric',
+                      year: '2-digit',
+                    })}
+                  </div>
+                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl flex gap-2 items-center">
+                    <GlobeIcon /> Remote, Prague.
+                  </div>
+                </div>
               </article>
             </div>
           </div>

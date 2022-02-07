@@ -16,12 +16,12 @@ export const ArticleLayout = ({ meta, children }) => {
 
   return (
     <Layout title={meta.title}>
-        <Corners />
+      <Corners />
       {/* <Lines columns={12} /> */}
       <section id="hero" className="p-8">
         <div className="container z-20 flex flex-col">
           <article className="text-2xl grid grid-cols-12">
-            <div className="row-start-1 col-span-full">
+            <div className="row-start-1 col-span-8">
               <div className="hero px-4 ">
                 <motion.h1
                   animate={{ opacity: 1 }}

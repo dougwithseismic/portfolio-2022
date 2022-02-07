@@ -4,22 +4,23 @@ import { Layout } from '@components/Layout'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
+import { SignupForm } from '@components/ContactForm'
 
 const CareersPage = () => {
   return (
     <Layout>
       <motion.section
         id="introduction"
-        className=" py-16"
+        className="hero"
         initial="hidden"
         whileInView="show"
       >
         <div className="container px-8">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="hero">
+            <div className="hero md:max-w-2xl">
               <h2 className="text-hero m-0 md:text-jumbo">
-                Performance Marketing &{' '}
-                <span className="text-brightOrange">User Acquisition</span>
+                Looking for a new
+                <span className="text-brightOrange"> career?</span>
               </h2>
             </div>
           </div>
@@ -31,14 +32,14 @@ const CareersPage = () => {
         </div>
       </motion.section>
 
-      <section>
-        <div className="container md:my-32">
+      <section className="md:my-32">
+        <div className="container">
           <div className="flex flex-col">
             {JOBS.map(({ title, salaryRange, type, location, slug }, i) => (
               <motion.div
                 whileHover={{ scale: 0.99 }}
                 key={i}
-                className="items-baseline leading-tight job-position grid grid-cols-3 md:grid-cols-4 gap-8 w-full  justify-between border-b-2 border-[#141414] p-8  font-sans text-2xl"
+                className="items-baseline leading-tight job-position grid grid-cols-3 md:grid-cols-4 gap-8 w-full  justify-between border-b-2 border-[#141414] p-8  font-sans text-[24px]"
               >
                 <div className="title font-bold">{title}</div>
                 <div className="text-faintGrey salary text-right">
@@ -50,39 +51,26 @@ const CareersPage = () => {
                   {location}
                 </div>
 
-                <Link
-                  href={`/careers/${slug}`}
-                  className="apply text-right uppercase text-brightOrange"
-                >
-                  Apply Now
+                <Link href={`/careers/${slug}`}>
+                  <a
+                    href={`/careers/${slug}`}
+                    className="apply text-right uppercase text-brightOrange"
+                  >
+                    Apply Now
+                  </a>
                 </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      <motion.section initial="hidden" whileInView="show">
-        <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16">
-            <h2 className="text-hero m-0 md:text-jumbo z-10">
-              Paid-On-Results? <span className="text-brightOrange">Check.</span>
-            </h2>
-            <div className="rightContent flex flex-col gap-8 text-2xl max-w-2xl ">
-              <p className="m-0">
-                Low up-front costs. Only pay for results generated from
-                trackable revenue driven by micro-campaigns, sites and content
-                that's relevant, engaging and profitable.
-              </p>
-              <p>
-                In 2021 our portfolio of performance marketing sites pulled in
-                over <span className="text-brightOrange">£1.3 million</span> in
-                revenue for performance partners, for a{' '}
-                <span className="text-brightOrange">17x</span> ROAS.
-              </p>
-            </div>
-          </div>
+
+      <section>
+        <div className="container flex flex-col place-items-center">
+          <h1>Need to get in touch?</h1>
+          <SignupForm />
         </div>
-      </motion.section>
+      </section>
     </Layout>
   )
 }
