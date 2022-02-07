@@ -3,6 +3,7 @@ import { Formik, Form, useField, Field } from 'formik'
 import * as Yup from 'yup'
 import SiteContext from '@context/siteContext'
 import { ToastContainer, toast } from 'react-toastify'
+import axios from 'axios'
 
 // And now we can use these
 export const SignupForm = () => {
@@ -39,18 +40,19 @@ export const SignupForm = () => {
               'Thanks for your interest! Check your inbox for more details.',
             )
 
-          klaviyo.learnq.push([
-            'identify',
-            {
-              $email: values.email,
-              $first_name: values.firstName,
-              $last_name: values.lastName,
-              $consent: ['email', 'web'],
-              signupOrigin: 'Contact Form',
-              notes: values.notes,
-            },
-          ])
-          klaviyo.learnq.push(['track', 'Contact Form Submitted'])
+            axios.post('/api/formSubmit', values)
+        //   klaviyo.learnq.push([
+        //     'identify',
+        //     {
+        //       $email: values.email,
+        //       $first_name: values.firstName,
+        //       $last_name: values.lastName,
+        //       $consent: ['email', 'web'],
+        //       signupOrigin: 'Contact Form',
+        //       notes: values.notes,
+        //     },
+        //   ])
+        //   klaviyo.learnq.push(['track', 'Contact Form Submitted'])
 
           setSubmitted(true)
           setSubmitting(false)
