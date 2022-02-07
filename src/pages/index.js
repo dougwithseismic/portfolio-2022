@@ -209,12 +209,6 @@ export const Home = ({ articles }) => {
         </div>
       </motion.section>
 
-      {/* <section>
-        <div className="container">
-          <h3 className="text-center">Vertical Image Wall Here</h3>
-        </div>
-      </section> */}
-
       {/* <motion.section variants={variants} initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
@@ -499,17 +493,19 @@ const Card = ({
   )
 }
 
-const ServiceCard = ({ title, description, link = '#' }) => {
+const ServiceCard = ({ title, description, link }) => {
   return (
     <div className="item">
       <div className="video__box relative max-w-2xl">
         <div className="p absolute bottom-0 right-4 z-30"></div>
       </div>
-      <h3 className="text-4xl leading-tight">{title}</h3>
+      <h3 className="text-4xl leading-tight font-sans">{title}</h3>
       <p className="text-faintGrey">{description}</p>
-      <Link href={link} className="btn btn-primary">
-        Learn More
-      </Link>
+      {link && (
+        <Link href={link} className="btn btn-primary">
+          Learn More
+        </Link>
+      )}
     </div>
   )
 }

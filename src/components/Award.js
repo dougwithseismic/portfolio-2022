@@ -15,11 +15,11 @@ export const Award = ({
           height={100}
         />
       </div>
-      <div className="award__text flex flex-col gap-0 font-sans">
+      <div className="award__text flex flex-col gap-0 font-sans text-[24px]">
         <div className="upper text-[#636363] text-base">
           PERFORMANCE MARKETING AWARDS
         </div>
-        <div className="lower uppercase text-2xl font-sans leading-6 text-white">
+        <div className="lower uppercase font-sans leading-6 text-white">
           {title}
         </div>
         <div className="upper text-brightOrange text-base mt-4">

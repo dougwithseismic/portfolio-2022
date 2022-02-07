@@ -84,7 +84,7 @@ const ServiceTemplate = () => {
           </div>
         </div>
       </section>
-{/* 
+      {/* 
       <motion.section
         id="introduction"
         className=" py-16 my-32"
@@ -107,7 +107,6 @@ const ServiceTemplate = () => {
         </div>
       </motion.section> */}
 
-
       <motion.section initial="hidden" whileInView="show">
         <div className="container p-8 grid md:grid-cols-2 md:gap-16">
           {SERVICES.map(
@@ -116,7 +115,7 @@ const ServiceTemplate = () => {
                 <div className="h5 text-faintGrey uppercase font-sans">
                   Service
                 </div>
-                <h1 className="text-hero mt-0">{name}</h1>
+                <h1 className="text-hero mt-0 text-brightOrange">{name}</h1>
                 <div
                   className="content max-w-2xl text-2xl"
                   dangerouslySetInnerHTML={{ __html: description }}
@@ -126,7 +125,7 @@ const ServiceTemplate = () => {
           )}
         </div>
       </motion.section>
-      
+
       <motion.section initial="hidden" whileInView="show">
         <div className="container p-8">
           <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">

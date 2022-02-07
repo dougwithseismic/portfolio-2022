@@ -11,8 +11,14 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
   // This is a HOC component that we can use to wrap everything in a navbar and footer. The classes come from tailwind.
   // Pass layout a title eg <Layout title="This is a title"> to the page a title. TODO: Add metatags etc.
 
-  const { darkModeOptions } = useContext(SiteContext)
   const seoTitle = `${title} | For Brands That Get It`
+
+  const variants = {
+    hidden: { opacity: 0 },
+    enter: { opacity: 1, transition: { duration: .5 }  },
+    exit: { opacity: 0, transition: { duration: .5 } },
+  }
+
   return (
     <>
       <Head>
@@ -29,10 +35,11 @@ export const Layout = ({ children, title = 'Give me a title' }) => {
       </Head>
       <motion.div
         id="mainContent"
-        variants={darkModeOptions.darkVariants}
         className="flex flex-col justify-between"
-        initial="dark"
-        animate={darkModeOptions.darkMode ? 'dark' : 'light'}
+        variants={variants} // Pass the variant object into Framer Motion
+        initial="hidden" // Set the initial state to variants.hidden
+        animate="enter" // Animated state to variants.enter
+        exit="exit" // Exit state (used later) to variants.exit
       >
         <Header />
         <ScrollProgress />
