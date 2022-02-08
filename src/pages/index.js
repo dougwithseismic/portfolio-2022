@@ -63,11 +63,11 @@ export const Home = ({ articles }) => {
       </svg> */}
 
       <section id="hero" className="md:mt-16 px-8">
-        <div className="container z-20 flex">
+        <div className="container z-20">
           <div className="hero">
             <motion.h1
               animate={{ opacity: 1 }}
-              className="text-[80px] m-0 md:text-jumbo max-w-6xl"
+              className="text-[80px] m-0 md:text-jumbo text-center"
             >
               Powering{' '}
               <div className="text-brightOrange">
@@ -91,12 +91,12 @@ export const Home = ({ articles }) => {
               </div>{' '}
               That get it.
             </motion.h1>
-            <div className="text-2xl max-w-3xl py-4">
+            <div className="text-2xl text-center max-w-3xl mx-auto py-4">
               {/* <div className="count flex gap-4">
                 <div className="number">1</div>
                 <div className="title text-sm">Introduction</div>
               </div> */}
-              <p className="md:indent-32 py-4">
+              <p className="py-4">
                 Trust in twelve years of building killer marketing campaigns,
                 tools and microsites for digital-savvy{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
