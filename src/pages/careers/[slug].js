@@ -1,6 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import { SignupForm } from '@components/ContactForm'
-import { GlobeIcon, LinkedIn, Twitter } from '@components/Icons'
+import {
+  GlobeIcon,
+  MoneyIcon,
+  CalendarIcon,
+  LinkedIn,
+  Twitter,
+} from '@components/Icons'
 import { Layout } from '@components/Layout'
 import React, { useEffect } from 'react'
 import { Markdown } from '@utility/markdown'
@@ -13,13 +19,14 @@ import { dato } from '@utility/initDato'
 
 const JobSpecPage = ({ slug, jobspec }) => {
   const {
-    title,
+    title = 'test',
     _seoMetaTags,
-    description,
-    salaryRange,
-    location,
+    description = 'description',
+    salaryRange = '50-60k CZK',
+    location = [{ name: 'Remote' }, { name: 'Prague' }],
     tags,
   } = jobspec
+
   const { siteDomain } = siteSettings
   const { asPath } = useRouter()
   const url = `${siteDomain}${asPath}`
@@ -36,15 +43,28 @@ const JobSpecPage = ({ slug, jobspec }) => {
                   {title}
                 </h2>
                 <div className="flex flex-col gap-4">
-                  <div className="jobDetail">
-                    <div className="salaryRange uppercase text-faintGrey font-sans text-2xl">
-                      {salaryRange}
-                    </div>
-                  </div>
-
                   <button className="btn btn-primary p-2 bg-brightOrange w-full md:max-w-xs font-bold uppercase font-sans text-2xl">
                     Apply Now
                   </button>
+                  <div className="extraDetail text-lg">
+                    <div className="salaryRange uppercase text-faintGrey font-sans flex gap-2 items-center">
+                      <MoneyIcon />
+                      Budget: {salaryRange}
+                    </div>
+                    <div className="salaryRange uppercase text-faintGrey font-sans  flex gap-2 items-center">
+                      <CalendarIcon />
+                      Date Posted:{' '}
+                      {new Date().toLocaleString('en-GB', {
+                        day: 'numeric',
+                        month: 'numeric',
+                        year: '2-digit',
+                      })}
+                    </div>
+                    <div className="salaryRange uppercase text-faintGrey font-sans flex gap-2 items-center">
+                      <GlobeIcon /> {location.map((loc) => loc.name).join(', ')}
+                    </div>
+                  </div>
+
                   <div className="social flex gap-4">
                     <a
                       href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
@@ -70,10 +90,12 @@ const JobSpecPage = ({ slug, jobspec }) => {
                 </h1>
                 <Markdown>{description}</Markdown>
                 <div className="extraDetail">
-                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl">
+                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl flex gap-2 items-center">
+                    <MoneyIcon />
                     Budget: {salaryRange}
                   </div>
-                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl">
+                  <div className="salaryRange uppercase text-faintGrey font-sans text-2xl flex gap-2 items-center">
+                    <CalendarIcon />
                     Date Posted:{' '}
                     {new Date().toLocaleString('en-GB', {
                       day: 'numeric',
@@ -82,7 +104,7 @@ const JobSpecPage = ({ slug, jobspec }) => {
                     })}
                   </div>
                   <div className="salaryRange uppercase text-faintGrey font-sans text-2xl flex gap-2 items-center">
-                    <GlobeIcon /> Remote, Prague.
+                    <GlobeIcon /> {location.map((loc) => loc.name).join(', ')}
                   </div>
                 </div>
               </article>
@@ -103,12 +125,9 @@ const JobSpecPage = ({ slug, jobspec }) => {
 export default JobSpecPage
 
 export const getStaticProps = async ({ params }) => {
-  console.log('params :>> ', params)
-
   const jobspec = await dato.getSpecificJobSpec(params.slug)
 
   if (jobspec) {
-    console.log('GOT IT')
     return {
       props: {
         slug: params.slug,

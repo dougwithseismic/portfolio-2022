@@ -5,8 +5,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
 import { SignupForm } from '@components/ContactForm'
+import { dato } from '@utility/initDato'
 
-const CareersPage = () => {
+const CareersPage = ({ jobspecs: JOBSPECS }) => {
   return (
     <Layout>
       <motion.section
@@ -15,19 +16,19 @@ const CareersPage = () => {
         initial="hidden"
         whileInView="show"
       >
-        <div className="container px-8">
+        <div className="container px-8 md:px-0">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="hero md:max-w-2xl">
               <h2 className="text-hero m-0 md:text-jumbo">
                 Looking for a new
-                <span className="text-brightOrange"> career?</span>
+                <span className="text-brightOrange"> direction?</span>
               </h2>
             </div>
           </div>
-          <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            Reach your audience with scroll-stopping creative and scale up
-            smartly with 100% trackable paid media. Search. Display. Social.
-            Analytics & Tracking. CRO. Email Automation & Affiliate.
+          <p className=" max-w-2xl mt-8 md:p-4 text-faintGrey">
+            Think you can help build the next generation of 💯 remote-first
+            teams? We're on the lookout for talented individuals that want to
+            make a difference and reach their potential together..
           </p>
         </div>
       </motion.section>
@@ -35,32 +36,36 @@ const CareersPage = () => {
       <section className="md:my-32">
         <div className="container">
           <div className="flex flex-col">
-            {JOBS.map(({ title, salaryRange, type, location, slug }, i) => (
-              <motion.div
-                whileHover={{ scale: 0.99 }}
-                key={i}
-                className="items-baseline leading-tight job-position grid grid-cols-3 md:grid-cols-4 gap-8 w-full  justify-between border-b-2 border-[#141414] p-8  font-sans text-[24px]"
-              >
-                <div className="title font-bold">{title}</div>
-                <div className="text-faintGrey salary text-right">
-                  {salaryRange}/month
-                </div>
+            {JOBSPECS.map(
+              ({ title, salaryRange, type, slug, location = [] }, i) => (
+                <motion.div
+                  whileHover={{ scale: 0.99 }}
+                  key={i}
+                  className="items-baseline leading-tight job-position grid grid-cols-2 md:grid-cols-4 gap-8 w-full  justify-between border-b-2 border-[#141414] p-8  font-sans text-[24px]"
+                >
+                  <div className="title font-bold">{title}</div>
+                  <div className="text-faintGrey salary text-right">
+                    {salaryRange}/month
+                  </div>
 
-                <div className="location hidden md:flex items-center gap-2 justify-end">
-                  <GlobeIcon fill={'#141414'} />
-                  {location}
-                </div>
+                  <div className="location hidden md:flex items-center gap-2 justify-end">
+                    <GlobeIcon fill={'#141414'} />
+                    <span className="text-faintGrey">
+                      {location.map((loc) => loc.name).join(', ')}
+                    </span>
+                  </div>
 
-                <Link href={`/careers/${slug}`}>
-                  <a
-                    href={`/careers/${slug}`}
-                    className="apply text-right uppercase text-brightOrange"
-                  >
-                    Apply Now
-                  </a>
-                </Link>
-              </motion.div>
-            ))}
+                  <Link href={`/careers/${slug}`}>
+                    <a
+                      href={`/careers/${slug}`}
+                      className="apply uppercase text-brightOrange hidden md:flex justify-end"
+                    >
+                      Apply Now
+                    </a>
+                  </Link>
+                </motion.div>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -77,47 +82,13 @@ const CareersPage = () => {
 
 export default CareersPage
 
-const JOBS = [
-  {
-    title: 'Account Manager - DE',
-    salaryRange: '60-80k CZK',
-    type: 'contract',
-    location: 'Remote',
-    slug: 'account-manager-de',
-  },
-  {
-    title: 'Account Manager - EN',
-    salaryRange: '60-80k CZK',
-    type: 'contract',
-    location: 'Remote',
-    slug: 'account-manager-en',
-  },
-  {
-    title: 'React FE Developer',
-    salaryRange: '80-100 CZK',
-    type: 'contract',
-    location: 'Remote',
-    slug: 'react-developer',
-  },
-  {
-    title: 'UI Designer',
-    salaryRange: '60-80k CZK',
-    type: 'contract',
-    location: 'Remote',
-    slug: 'ui-designer',
-  },
-  {
-    title: 'Copywriter',
-    salaryRange: '60-80k CZK',
-    type: 'contract',
-    location: 'Remote',
-    slug: 'copywriter',
-  },
-  {
-    title: 'Mograph Videographer',
-    salaryRange: '60-80k CZK',
-    type: 'contract',
-    location: 'Remote',
-    slug: 'mograph-videographer',
-  },
-]
+export const getStaticProps = async () => {
+  const jobspecs = await dato.getAllJobSpecs()
+
+  return {
+    props: {
+      jobspecs,
+    },
+    revalidate: 10,
+  }
+}

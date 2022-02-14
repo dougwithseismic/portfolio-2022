@@ -86,6 +86,9 @@ const getSpecificJobSpec = async (slug) => {
           title
           salaryRange
           description
+          location {
+            name
+          }
 
           _seoMetaTags {
             attributes
@@ -115,6 +118,9 @@ const getAllJobSpecs = async () => {
           title
           salaryRange
           description
+          location {
+            name
+          }
 
           _seoMetaTags {
             attributes

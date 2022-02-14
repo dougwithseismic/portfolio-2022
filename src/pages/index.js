@@ -69,7 +69,7 @@ export const Home = ({ articles }) => {
               animate={{ opacity: 1 }}
               className="text-[80px] m-0 md:text-jumbo text-center"
             >
-              Powering{' '}
+              Powering
               <div className="text-brightOrange">
                 <Typewriter
                   options={{
@@ -97,28 +97,12 @@ export const Home = ({ articles }) => {
                 <div className="title text-sm">Introduction</div>
               </div> */}
               <p className="py-4">
-                Trust in twelve years of building killer marketing campaigns,
-                tools and microsites for digital-savvy{' '}
+                We build modern, performance sites and scale them using growth
+                engineering and performance marketing with 100% trackable ROI.{' '}
                 <span className="text-brightOrange underline underline-offset-4 cursor-pointer`">
-                  artists
+                  Jamstack sites, Chome Extensions, Headless Ecommerce,
+                  Performance Marketing & Martech Specialists.
                 </span>
-                ,{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  brands
-                </span>
-                ,{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  events
-                </span>
-                ,{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  studios
-                </span>{' '}
-                and{' '}
-                <span className="text-brightOrange underline underline-offset-4 cursor-pointer">
-                  startups
-                </span>
-                .
               </p>
               <button className="btn btn-primary p-4 my-4 border-2 border-brightOrange hover:bg-brightOrange w-full md:max-w-xs  align-center justify-center font-bold uppercase font-sans text-2xl">
                 Get In Touch
@@ -130,7 +114,7 @@ export const Home = ({ articles }) => {
 
       <section id="video" className=" text-white md:mt-32">
         <div className="container px-8">
-          <div className="video__box relative my-8 md:my-16">
+          <div className="video__box relative my-8 md:mt-16">
             <video autoPlay playsInline preload="auto" muted loop>
               <source
                 src="https://www.datocms-assets.com/62105/1643234460-uploadme.mov"
@@ -184,11 +168,23 @@ export const Home = ({ articles }) => {
             <div className="rightContent text-2xl max-w-2xl">
               <p>
                 <p>
-                  We're partnering with the most ambitious B2C brands to build
-                  modern digital experiences with trackable returns through{' '}
-                  <span className="text-brightOrange">paid media</span>,{' '}
-                  <span className="text-brightOrange">content marketing</span> &{' '}
-                  <span className="text-brightOrange">analytics</span>.
+                  We build modern digital experiences and commerce for the most
+                  ambitious B2C brands, and then scale them with performance
+                  marketing.
+                  <ul className="my-8">
+                    <li className="text-brightOrange font-sans">
+                      Performance Marketing
+                    </li>
+                    <li className="text-brightOrange font-sans">
+                      Headless Ecommerce
+                    </li>
+                    <li className="text-brightOrange font-sans">
+                      Jamstack Development
+                    </li>
+                    <li className="text-brightOrange font-sans">
+                      Analytics & Data Science
+                    </li>
+                  </ul>
                 </p>
               </p>
               {/* <Link href="/article/why-you-need-a-hook-microsites-on-steroids/" className="cursor-pointer"> 
@@ -201,9 +197,9 @@ export const Home = ({ articles }) => {
               That's <span className="text-brightOrange ">£1.3 million</span> in
               directly trackable revenue with a{' '}
               <span className="text-brightOrange ">
-                17x ROAS on total costs for partnering brands.{' '}
-              </span>
-              Want to do the same?
+                17x ROAS on total costs for partnering brands,
+              </span>{' '}
+              driven by sites we own, build and grow. Want to do the same?
             </p>
           </div>
         </div>
@@ -551,7 +547,7 @@ const SERVICES = [
   },
   {
     title: 'Tech & Development',
-    description: `Marketing Sites. Micro-landers. Web Apps. Email & Web Automation. Scraping. If it makes for a sick user experience, we do it - Unless we don't.`,
+    description: `Modern, sleek 💯 Jamstack sites and web apps that Google love. Email & Web Automation. Scraping services. Headless Ecommerce. Marketing Automation.`,
   },
   {
     title: 'Analytics & Data',
