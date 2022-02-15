@@ -1,11 +1,13 @@
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import headingId from 'remark-heading-id'
 
 export const Markdown = ({ children }) => {
   return (
     <ReactMarkdown
-      components={{ p: Paragraph, h2: H2, ul: UL, ol: OL, li: LI, code: Code }}
+      remarkPlugins={[headingId]}
+      components={{ p: Paragraph, ul: UL, ol: OL, li: LI, code: Code }}
     >
       {children}
     </ReactMarkdown>
@@ -20,8 +22,6 @@ const Code = ({ node, inline, className, children, ...props }) => {
     <SyntaxHighlighter
       style={atomDark}
       language={'javascript'}
-      PreTag="div"
-      wrapLines={true}
       wrapLongLines={true}
       {...props}
     >
