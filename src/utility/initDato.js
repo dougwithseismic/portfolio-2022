@@ -13,6 +13,7 @@ const getAllArticles = async () => {
         slug
         title
         editorialTitle
+        _updatedAt
     _status
       _firstPublishedAt
     }
@@ -39,6 +40,7 @@ const getSpecificArticle = async (slug) => {
           slug
           title
           editorialTitle
+          _updatedAt
           metatitle {
             description
             title

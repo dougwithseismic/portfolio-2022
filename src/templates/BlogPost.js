@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import siteSettings from '/siteSettings.js'
 
 export const BlogPost = ({ slug, article }) => {
-  const { title, description, _seoMetaTags } = article
+  const { title, description, _seoMetaTags, _updatedAt } = article
   const { siteDomain } = siteSettings
   const { asPath } = useRouter()
   const url = `${siteDomain}${asPath}`
@@ -49,6 +49,14 @@ export const BlogPost = ({ slug, article }) => {
                   {title}
                 </div>
                 <div className="py-2 flex flex-col gap-4">
+                  <div className="updated">
+                    Last Updated{' '}
+                    {new Date(_updatedAt).toLocaleString('en-GB', {
+                      day: 'numeric',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </div>
                   <div className="author">
                     <div className="font-sans text-faintGrey">
                       doug silkstone
