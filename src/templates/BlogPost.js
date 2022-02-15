@@ -10,6 +10,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import siteSettings from '/siteSettings.js'
+import analytics from '@utility/initAnalytics'
+import { getDomainLocale } from 'next/dist/shared/lib/router/router'
 
 export const BlogPost = ({ slug, article }) => {
   const { title, description, _seoMetaTags, _updatedAt } = article
@@ -20,6 +22,10 @@ export const BlogPost = ({ slug, article }) => {
   const [tableOfContents, setTableOfContents] = useState([])
 
   useEffect(() => {
+    analytics.identify({
+      email: 'dougsilkstone@gmail.com',
+    })
+
     // first, get the article.
     const article = document.querySelector('article')
     const headings = [...article.querySelectorAll('h1, h2')].map(
@@ -29,8 +35,6 @@ export const BlogPost = ({ slug, article }) => {
         return heading
       },
     )
-
-    console.log('headings :>> ', headings)
 
     setTableOfContents(headings)
   }, [])
@@ -85,7 +89,6 @@ export const BlogPost = ({ slug, article }) => {
                   {/*  DO TABLE OF CONTENTS HERE */}
 
                   {tableOfContents.map((heading, index) => {
-                    console.log('heading.id :>> ', heading)
                     return (
                       <Link href={`#${heading.id}`} key={index}>
                         <a className="tocLink text-white no-underline hover:underline">

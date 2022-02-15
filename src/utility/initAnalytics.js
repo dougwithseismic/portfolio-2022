@@ -1,16 +1,18 @@
 import Analytics from 'analytics'
 import segmentPlugin from '@analytics/segment'
 import googleTagManager from '@analytics/google-tag-manager'
-
+import klaviyo from '@utility/analytics/klaviyo'
 
 const analytics = Analytics({
-    app: 'withseismic-web',
-    plugins: [
-        googleTagManager({
-            containerId: 'GTM-KR3DJWT'
-        }),
-
-    ]
+  app: 'withseismic-web',
+  plugins: [
+    googleTagManager({
+      containerId: 'GTM-KR3DJWT',
+    }),
+    klaviyo({
+      companyId: 'JnaxYj',
+    }),
+  ],
 })
 
 export default analytics

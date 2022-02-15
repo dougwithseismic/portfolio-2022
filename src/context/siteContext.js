@@ -48,14 +48,14 @@ const SiteProvider = (props) => {
         },
       }}
     >
-      <Script
+      {/* <Script
         id="klaviyo"
         src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=JnaxYj"
         onLoad={() => {
           setKlaviyo({ loaded: true, learnq: window._learnq })
           console.log('Klaviyo Loaded')
         }}
-      />
+      /> */}
       {children}
     </SiteContext.Provider>
   )
