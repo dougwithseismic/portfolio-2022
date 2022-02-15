@@ -1,12 +1,36 @@
 import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 export const Markdown = ({ children }) => {
   return (
     <ReactMarkdown
-      components={{ p: Paragraph, h2: H2, ul: UL, ol: OL, li: LI }}
+      components={{ p: Paragraph, h2: H2, ul: UL, ol: OL, li: LI, code: Code }}
     >
       {children}
     </ReactMarkdown>
+  )
+}
+
+const Code = ({ node, inline, className, children, ...props }) => {
+  const match = /language-(\w+)/.exec(className || '')
+  const childrenText = String(children).replace(/\n$/, '')
+
+  return !inline && match ? (
+    <SyntaxHighlighter
+      style={atomDark}
+      language={'javascript'}
+      PreTag="div"
+      wrapLines={true}
+      wrapLongLines={true}
+      {...props}
+    >
+      {childrenText}
+    </SyntaxHighlighter>
+  ) : (
+    <code className="bg-cardGrey text-white p-2" {...props}>
+      {children}
+    </code>
   )
 }
 
@@ -20,7 +44,7 @@ const Paragraph = ({ children }) => {
 
 const H2 = ({ children }) => {
   return (
-    <h2 className="text-2xl font-serif font-normal md:mb-8 break-words">
+    <h2 className="text-3xl font-serif font-normal md:m-0 break-words">
       {children}
     </h2>
   )
