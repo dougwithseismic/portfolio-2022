@@ -168,23 +168,10 @@ export const Home = ({ articles }) => {
             <div className="rightContent text-2xl max-w-2xl">
               <p>
                 <p>
-                  We build modern digital experiences and commerce for the most
-                  ambitious B2C brands, and then scale them with performance
-                  marketing.
-                  <ul className="my-8">
-                    <li className="text-brightOrange font-sans">
-                      Performance Marketing
-                    </li>
-                    <li className="text-brightOrange font-sans">
-                      Headless Ecommerce
-                    </li>
-                    <li className="text-brightOrange font-sans">
-                      Jamstack Development
-                    </li>
-                    <li className="text-brightOrange font-sans">
-                      Analytics & Data Science
-                    </li>
-                  </ul>
+                  We build modern, headless, digital experiences and commerce
+                  for the most ambitious B2C brands, building performance
+                  marketing & automation into the core product so they can scale
+                  and grow automatically.
                 </p>
               </p>
               {/* <Link href="/article/why-you-need-a-hook-microsites-on-steroids/" className="cursor-pointer"> 
@@ -199,34 +186,12 @@ export const Home = ({ articles }) => {
               <span className="text-brightOrange ">
                 17x ROAS on total costs for partnering brands,
               </span>{' '}
-              driven by sites we own, build and grow. Want to do the same?
+              driven by sites we own, build and grow ourselves. Want to do the
+              same?
             </p>
           </div>
         </div>
       </motion.section>
-
-      {/* <motion.section variants={variants} initial="hidden" whileInView="show">
-        <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-hero m-0 md:text-jumbo z-10">
-            WE CREATE eXPERIENCES CUSTOMERS <span className="text-brightOrange">LOVE.</span>
-            </h2>
-            <div className="rightContent flex flex-col gap-8">
-              <p className="text-2xl max-w-2xl m-0">
-                Go where your audience lives and today, that's everywhere.
-                Reddit. Discord. Reels. Snapchat. Spotify. Facebook. Instagram.
-                TikTok. Native. Search. Display. Video.
-              </p>
-
-              <div className="socialIcons flex gap-8">
-                <Instagram />
-                <Facebook />
-                <Twitter />
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section> */}
 
       <section id="imageReel" className="mt-32">
         <motion.div
@@ -350,6 +315,36 @@ export const Home = ({ articles }) => {
         </div>
       </motion.section>
 
+      <motion.section
+        variants={variants}
+        initial="hidden"
+        whileInView="show"
+        id="figma"
+      >
+        <div className="container p-8">
+          <h1>Latest Projects</h1>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <iframe
+              title="button.docs.mdx"
+              style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
+              width="100%"
+              height="600px"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9cuMnfVDFNPvPAEun3ge3D%2FTechno_Ecommerce%3Fnode-id%3D0%253A1"
+              allowFulScreen
+            ></iframe>
+            <iframe
+              title="button.docs.mdx"
+              style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
+              width="100%"
+              height="600px"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FGyln2hEuUVHD80LVPf49GN%2FWITHSEISMIC-2022-CONCEPT%3Fnode-id%3D0%253A1"
+              allowFulScreen
+            ></iframe>
+          </div>
+        </div>
+      </motion.section>
+
       {/* <section>
         <div className="container md:my-32">
           <h2 className="text-hero">Careers</h2>
@@ -370,9 +365,7 @@ export const Home = ({ articles }) => {
                   {location}
                 </div>
                 <Link href="/careers/ui-designer">
-                  <a
-                    className="apply text-right uppercase text-brightOrange"
-                  >
+                  <a className="apply text-right uppercase text-brightOrange">
                     Apply Now
                   </a>
                 </Link>
@@ -384,43 +377,17 @@ export const Home = ({ articles }) => {
 
       {/* <section id="case-studies" className="my-32">
         <div className="container overflow-visible">
-          <h2 className="pl-8">Case Studies</h2>
-          <div className="swiperImageCaro overflow-visible">
-            <Swiper
-              spaceBetween={16}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1.15,
-                },
-                600: {
-                  slidesPerView: 2,
-                },
-                1400: {
-                  slidesPerView: 3,
-                },
-              }}
-              pagination={{
-                el: '.swiper-pagination',
-                dynamicBullets: true,
-                clickable: true,
-              }}
-              onSlideChange={({ activeIndex }) =>
-                setActiveSlide(activeIndex + 1)
-              }
-              onSwiper={(swiper) => console.log(swiper)}
-              onClick={({ clickedIndex }) => setActiveSlide(clickedIndex + 1)}
-            >
-              {articles.map(({ editorialTitle, slug }, i) => (
-                <SwiperSlide key={i}>
-                  <Card
-                    dark={true}
-                    title={editorialTitle}
-                    index={i}
-                    slug={`/article/${slug}`}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          <h2>Case Studies</h2>
+          <div className="articles grid md:grid-cols-3">
+            {articles.map(({ title, editorialTitle, slug }, i) => (
+              <Card
+                key={i}
+                dark={true}
+                title={title}
+                index={i}
+                slug={`/article/${slug}`}
+              />
+            ))}
           </div>
         </div>
       </section> */}
@@ -455,37 +422,17 @@ const Card = ({
   dark = false,
   index = 0,
 }) => {
-  const [hovered, setHovered] = useState(false)
-
   return (
-    <Link
-      href={slug}
-      passHref
-      onMouseOver={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div className="p-8 h-[480px] border-2 rounded-lg relative z-99 border-[#141414] cursor-pointer bg-backgroundBlack">
-        <div className="content h-full flex flex-col justify-between z-10 relative">
-          <div className="top"></div>
-          <div className="middle text-2xl leading-snug">{title}</div>
-          <div className="lower uppercase font-sans">Read Article</div>
-        </div>
-        <motion.div
-          className="z-0"
-          initial={{ opacity: 0 }}
-          animate={hovered ? { opacity: 0.5 } : { opacity: 0 }}
-        >
-          <Image
-            src={background}
-            className=""
-            objectFit="cover"
-            position="absolute"
-            alt={title}
-            layout="fill"
-          />
-        </motion.div>
-      </div>
-    </Link>
+    <>
+      <Link href={slug} passHref>
+        <a className="p-8 no-underline hover:underline" href={slug}>
+          <div className="content h-full flex flex-col justify-between z-10 relative">
+            <div className="middle text-2xl leading-snug mb-8">{title}</div>
+          </div>
+        </a>
+      </Link>
+      <div className="lower uppercase font-sans">Read Article</div>
+    </>
   )
 }
 
