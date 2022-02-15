@@ -14,7 +14,6 @@ import { AnimatePresence } from 'framer-motion'
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     analytics.page()
-    analytics.track('Test Event')
   }, [])
   return (
     <>

@@ -84,7 +84,7 @@ const ServiceTemplate = () => {
           </div>
         </div>
       </section>
-      {/* 
+      
       <motion.section
         id="introduction"
         className=" py-16 my-32"
@@ -100,12 +100,8 @@ const ServiceTemplate = () => {
 
             </div>
           </div>
-          <p className="text-2xl max-w-2xl mt-8 md:p-4 text-faintGrey">
-            Where are your next 10,000 customers coming from? Join our 
-            
-          </p>
         </div>
-      </motion.section> */}
+      </motion.section>
 
       <motion.section initial="hidden" whileInView="show">
         <div className="container p-8 grid md:grid-cols-2 md:gap-16">
@@ -126,23 +122,6 @@ const ServiceTemplate = () => {
         </div>
       </motion.section>
 
-      <motion.section initial="hidden" whileInView="show">
-        <div className="container p-8">
-          <div className="introContent flex flex-col md:flex-row items-center gap-16 py-16 my-32">
-            <h2 className="text-hero m-0 md:text-jumbo translate-x-2 z-10 order-1 text-right">
-              Data-led Creative-driven{' '}
-              <span className="text-brightOrange">Check.</span>
-            </h2>
-            <div className="rightContent flex flex-col gap-8 order-2">
-              <p className="text-2xl max-w-2xl m-0">
-                We understand data and analytics in a privacy-first world with
-                trackable ROI and incremental growth as standard, even in the
-                face of iOS 14 and beyond.
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.section>
 
       <motion.section
         id="contact"
