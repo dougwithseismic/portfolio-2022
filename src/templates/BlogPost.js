@@ -17,41 +17,22 @@ export const BlogPost = ({ slug, article }) => {
   const { asPath } = useRouter()
   const url = `${siteDomain}${asPath}`
 
-  const [headingsRendered, setHeadingsRendered] = useState(false)
+  const [tableOfContents, setTableOfContents] = useState([])
 
   useEffect(() => {
     // first, get the article.
+    const article = document.querySelector('article')
+    const headings = [...article.querySelectorAll('h1, h2')].map(
+      (heading, index) => {
+        heading.id = heading.id || index // Give each heading an id, so we can scroll to it.
+        heading.title = heading.innerText
+        return heading
+      },
+    )
 
-    if (!headingsRendered) {
-      const article = document.querySelector('article')
-      const headings = [...article.querySelectorAll('h1, h2')].map(
-        (heading, index) => {
-          // '<a bind="762700d1-425e-8901-6501-48484321d675" id="w-node-_762700d1-425e-8901-6501-48484321d675-e4baf66e" href="/faq/hire-seo-consultant#understanding" class="toclink">Understanding how SEO can benefit your business</a>'
-          heading.id = index // Give each heading an id, so we can scroll to it.
-          let parentLink = heading.id // Define the link we want to scroll to...
+    console.log('headings :>> ', headings)
 
-          let a = document.createElement('a') // Creates an a element we'll add to the toclist later.
-          a.className = 'toclink text-white no-underline hover:underline' // Give it the relative styling...
-          a.onclick = (e) => {
-            e.preventDefault()
-            console.log('poish')
-            heading.scrollIntoView({
-              behavior: 'smooth',
-            })
-          }
-
-          a.setAttribute('href', `#${parentLink}`) //  and that link.
-          a.innerHTML = heading.innerText // aaaand some text.
-
-          return a
-        },
-      )
-
-      const parent = document.querySelector('#tableContents') // This is the element we want to stick our links into.
-      headings.map((heading) => parent.appendChild(heading)) // so lets go through each heading and stick it in!  }, [])
-
-      setHeadingsRendered(true)
-    }
+    setTableOfContents(headings)
   }, [])
 
   // http://twitter.com/share?text=text goes here&url=http://url goes here&hashtags=hashtag1,hashtag2,hashtag3
@@ -94,6 +75,17 @@ export const BlogPost = ({ slug, article }) => {
                   id="tableContents"
                 >
                   {/*  DO TABLE OF CONTENTS HERE */}
+
+                  {tableOfContents.map((heading, index) => {
+                    console.log('heading.id :>> ', heading)
+                    return (
+                      <Link href={`#${heading.id}`} key={index}>
+                        <a className="tocLink text-white no-underline hover:underline">
+                          {heading.title}
+                        </a>
+                      </Link>
+                    )
+                  })}
                 </div>
               </div>
               <article className="md:col-start-4 col-span-7 text">
