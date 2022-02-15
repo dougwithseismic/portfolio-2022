@@ -331,7 +331,7 @@ export const Home = ({ articles }) => {
               width="100%"
               height="600px"
               src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9cuMnfVDFNPvPAEun3ge3D%2FTechno_Ecommerce%3Fnode-id%3D0%253A1"
-              allowFulScreen
+              allowFullScreen
             ></iframe>
             <iframe
               title="button.docs.mdx"
@@ -339,7 +339,7 @@ export const Home = ({ articles }) => {
               width="100%"
               height="600px"
               src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FGyln2hEuUVHD80LVPf49GN%2FWITHSEISMIC-2022-CONCEPT%3Fnode-id%3D0%253A1"
-              allowFulScreen
+              allowFullScreen
             ></iframe>
           </div>
         </div>
