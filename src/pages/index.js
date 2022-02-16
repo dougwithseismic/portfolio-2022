@@ -375,14 +375,15 @@ export const Home = ({ articles }) => {
         </div>
       </section> */}
 
-      {/* <section id="case-studies" className="my-32">
+      <section id="case-studies" className="my-32 p-8">
         <div className="container overflow-visible">
-          <h2>Case Studies</h2>
-          <div className="articles grid md:grid-cols-3">
+          <h2>Articles & Guides</h2>
+
+          <div className="articles grid md:grid-cols-3 gap-16">
             {articles.map(({ title, editorialTitle, slug }, i) => (
               <Card
                 key={i}
-                dark={true}
+                editorialTitle={editorialTitle}
                 title={title}
                 index={i}
                 slug={`/article/${slug}`}
@@ -390,7 +391,7 @@ export const Home = ({ articles }) => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       <motion.section
         id="contact"
@@ -415,23 +416,20 @@ export const Home = ({ articles }) => {
 
 export default Home
 
-const Card = ({
-  title,
-  slug,
-  background = '/word-of-tanks.png',
-  dark = false,
-  index = 0,
-}) => {
+const Card = ({ title, editorialTitle, slug, index = 0 }) => {
   return (
     <>
-      <Link href={slug} passHref>
-        <a className="p-8 no-underline hover:underline" href={slug}>
-          <div className="content h-full flex flex-col justify-between z-10 relative">
-            <div className="middle text-2xl leading-snug mb-8">{title}</div>
-          </div>
-        </a>
-      </Link>
-      <div className="lower uppercase font-sans">Read Article</div>
+      <div className="articleWrapper py-8">
+        <Link href={slug} passHref>
+          <a className="no-underline" href={slug}>
+            <h3 className="text-3xl font-sans leading-snug">{title}</h3>
+            <div className="text-white text-2xl leading-snug mb-8">
+              {editorialTitle}
+            </div>
+            <div className="lower uppercase">Read Now</div>
+          </a>
+        </Link>
+      </div>
     </>
   )
 }

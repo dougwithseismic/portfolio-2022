@@ -11,7 +11,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import siteSettings from '/siteSettings.js'
 import analytics from '@utility/initAnalytics'
-import { getDomainLocale } from 'next/dist/shared/lib/router/router'
 
 export const BlogPost = ({ slug, article }) => {
   const { title, description, _seoMetaTags, _updatedAt } = article
@@ -22,20 +21,20 @@ export const BlogPost = ({ slug, article }) => {
   const [tableOfContents, setTableOfContents] = useState([])
 
   useEffect(() => {
-    analytics.identify({
-      email: 'dougsilkstone@gmail.com',
+    analytics.track('viewedArticle', {
+      test: 1,
+      another: 2,
     })
 
     // first, get the article.
     const article = document.querySelector('article')
-    const headings = [...article.querySelectorAll('h1, h2')].map(
+    const headings = [...article.querySelectorAll('h2')].map(
       (heading, index) => {
         heading.id = heading.id || index // Give each heading an id, so we can scroll to it.
         heading.title = heading.innerText
         return heading
       },
     )
-
     setTableOfContents(headings)
   }, [])
 

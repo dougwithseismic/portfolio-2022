@@ -29,7 +29,7 @@ const klaviyoPlugin = (userConfig = {}) => {
       const scriptLink = `${prefix}//static.klaviyo.com/onsite/js/klaviyo.js?company_id=${companyId}`
       const src = `${scriptLink}&${bustCache}`
 
-      !https && console.warn(klaviyoPlugin.HTTPS_WARNING)
+      !https && console.warn(klaviyoPlugin().HTTPS_WARNING)
 
       // Create script & append to DOM
       let script = document.createElement('script')
@@ -51,10 +51,14 @@ const klaviyoPlugin = (userConfig = {}) => {
       // call provider specific page tracking
     },
     track: ({ payload }) => {
+
+        console.log('payload :>> ', payload);
       if (!isSecure()) {
         console.warn(klaviyoPlugin().HTTPS_WARNING)
         return false
       }
+
+      console.log('payload :>> ', payload)
 
       const { event, properties } = payload
       window._learnq.push(['track', event, properties])
@@ -86,7 +90,7 @@ const klaviyoPlugin = (userConfig = {}) => {
         traits.email.indexOf('@') === -1
       ) {
         console.log(
-          'No email provided to Klaviyo Analytics Plugin - Will not identify the user',
+          'Check email provided to Klaviyo Analytics Plugin - Will not identify the user',
         )
         return
       }
