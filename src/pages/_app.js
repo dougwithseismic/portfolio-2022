@@ -13,7 +13,7 @@ import { AnimatePresence } from 'framer-motion'
 // Top-level Rendering.
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    process.env.NODE_ENV !== "development" &&  analytics.page()
+    analytics.page()
   }, [])
   return (
     <>
