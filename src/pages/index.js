@@ -338,6 +338,14 @@ export const Home = ({ articles }) => {
               style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
               width="100%"
               height="600px"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FHbxOq2XBI8wiQcHmJpw0Tp%2FV4.1NAUT%3Fnode-id%3D0%253A1"
+              allowFullScreen
+            ></iframe>
+            <iframe
+              title="button.docs.mdx"
+              style={{ border: '1px solid rgba(0, 0, 0, 0.1)' }}
+              width="100%"
+              height="600px"
               src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FGyln2hEuUVHD80LVPf49GN%2FWITHSEISMIC-2022-CONCEPT%3Fnode-id%3D0%253A1"
               allowFullScreen
             ></iframe>
