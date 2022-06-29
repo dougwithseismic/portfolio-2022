@@ -315,7 +315,7 @@ export const Home = ({ articles }) => {
         </div>
       </motion.section>
 
-      <motion.section
+      {/* <motion.section
         variants={variants}
         initial="hidden"
         whileInView="show"
@@ -351,7 +351,7 @@ export const Home = ({ articles }) => {
             ></iframe>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* <section>
         <div className="container md:my-32">
