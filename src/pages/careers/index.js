@@ -10,68 +10,57 @@ import { dato } from '@utility/initDato'
 const CareersPage = ({ jobspecs: JOBSPECS }) => {
   return (
     <Layout>
-      <motion.section
-        id="introduction"
-        className="hero"
-        initial="hidden"
-        whileInView="show"
-      >
-        <div className="container px-8 md:px-0">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="hero md:max-w-2xl">
-              <h2 className="text-hero m-0 md:text-jumbo">
-                Looking for a new
-                <span className="text-brightOrange"> direction?</span>
+      <motion.section id='introduction' className='hero' initial='hidden' whileInView='show'>
+        <div className='container px-8 md:px-0'>
+          <div className='flex flex-col items-center gap-16 md:flex-row'>
+            <div className='hero md:max-w-2xl'>
+              <h2 className='m-0 text-hero md:text-jumbo'>
+                Find that new
+                <span className='text-brightOrange'> direction.</span>
               </h2>
             </div>
           </div>
-          <p className=" max-w-2xl mt-8 md:p-4 text-faintGrey">
-            Think you can help build the next generation of 💯 remote-first
-            teams? We're on the lookout for talented individuals that want to
-            make a difference and reach their potential together..
+          <p className='max-w-2xl mt-8 md:py-4 text-faintGrey'>
+            We're hiring unconventional talent looking to make a difference and build cool stuff
+            along the way. Work fully remotely, or at our shared offices in Karlin, Prague and
+            build clever consumer-facing tech that our users love ♥.
           </p>
         </div>
       </motion.section>
 
-      <section className="md:my-32">
-        <div className="container">
-          <div className="flex flex-col">
-            {JOBSPECS.map(
-              ({ title, salaryRange, type, slug, location = [] }, i) => (
-                <motion.div
-                  whileHover={{ scale: 0.99 }}
-                  key={i}
-                  className="items-baseline leading-tight job-position grid grid-cols-2 md:grid-cols-4 gap-8 w-full  justify-between border-b-2 border-[#141414] p-8  font-sans text-[24px]"
-                >
-                  <div className="title font-bold">{title}</div>
-                  <div className="text-faintGrey salary text-right">
-                    {salaryRange}/month
-                  </div>
+      <section className='md:my-32'>
+        <div className='container'>
+          <div className='flex flex-col'>
+            {JOBSPECS.map(({ title, salaryRange, type, slug, location = [] }, i) => (
+              <motion.div
+                whileHover={{ scale: 0.99 }}
+                key={i}
+                className='leading-tight job-position grid grid-cols-2 md:grid-cols-4 gap-8 w-full items-center  justify-between border-b-2 border-[#141414] py-4  font-sans text-[22px]'>
+                <div className='font-bold title text-[22px]'>{title}</div>
+                <div className='text-right text-faintGrey salary'>{salaryRange}/month</div>
 
-                  <div className="location hidden md:flex items-center gap-2 justify-end">
-                    <GlobeIcon fill={'#141414'} />
-                    <span className="text-faintGrey">
-                      {location.map((loc) => loc.name).join(', ')}
-                    </span>
-                  </div>
+                <div className='items-center justify-end hidden gap-2 location md:flex'>
+                  <GlobeIcon fill={'#141414'} />
+                  <span className='text-faintGrey'>
+                    {location.map((loc) => loc.name).join(', ')}
+                  </span>
+                </div>
 
-                  <Link href={`/careers/${slug}`}>
-                    <a
-                      href={`/careers/${slug}`}
-                      className="apply uppercase text-brightOrange hidden md:flex justify-end"
-                    >
-                      Apply Now
-                    </a>
-                  </Link>
-                </motion.div>
-              ),
-            )}
+                <Link href={`/careers/${slug}`}>
+                  <a
+                    href={`/careers/${slug}`}
+                    className='justify-end hidden uppercase apply text-brightOrange md:flex'>
+                    Apply Now
+                  </a>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       <section>
-        <div className="container flex flex-col place-items-center">
+        <div className='container flex flex-col place-items-center'>
           <h1>Need to get in touch?</h1>
           <SignupForm />
         </div>
@@ -87,8 +76,8 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      jobspecs,
+      jobspecs
     },
-    revalidate: 10,
+    revalidate: 10
   }
 }
