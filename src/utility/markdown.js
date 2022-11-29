@@ -28,7 +28,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
       {childrenText}
     </SyntaxHighlighter>
   ) : (
-    <code className="bg-cardGrey text-white p-2" {...props}>
+    <code className="p-2 text-white bg-cardGrey" {...props}>
       {children}
     </code>
   )
@@ -36,7 +36,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
 
 const Paragraph = ({ children }) => {
   return (
-    <p className="text-lg text-faintGrey md:mb-16 leading-[190%] break-words">
+    <p className="text-lg text-[#9e9d9d] md:mb-8 leading-[190%] break-words">
       {children}
     </p>
   )
@@ -44,19 +44,19 @@ const Paragraph = ({ children }) => {
 
 const H2 = ({ children }) => {
   return (
-    <h2 className="text-3xl font-serif font-normal md:m-0 break-words">
+    <h2 className="font-serif text-3xl font-normal break-words md:m-0">
       {children}
     </h2>
   )
 }
 
 const UL = ({ children }) => {
-  return <ul className="list-disc pl-8 mb-16 break-words">{children}</ul>
+  return <ul className="pl-8 mb-16 break-words list-disc">{children}</ul>
 }
 const OL = ({ children }) => {
-  return <ul className="list-decimal pl-4 break-words">{children}</ul>
+  return <ul className="pl-4 break-words list-decimal">{children}</ul>
 }
 
 const LI = ({ children }) => {
-  return <li className="list-item text-lg mb-4">{children}</li>
+  return <li className="mb-4 text-lg list-item">{children}</li>
 }
